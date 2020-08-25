@@ -8,12 +8,19 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+const Employee = require("./models/employee.js");
+  app.get("/api/all", (req, res) => {
+    Employee.findAll({}).then((results)=> {
+     res.json(results);
+     
+    });
+  });
 
 
 app.get("/api/sample", (req, res) => {
   const sampleData = [
-    {id:1, info:"this comes from a database"},
-    {id:2, info:"this is only for logged in users"}  
+    {id:1, info:"this is public info"},
+    {id:2, info:"everybody sees this"}  
   ];
   res.json(sampleData)
 });
