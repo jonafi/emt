@@ -8,28 +8,29 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// mysql database using sequelize route
 const Employee = require("./models/employee.js");
-  app.get("/api/all", (req, res) => {
-    Employee.findAll({}).then((results)=> {
-     res.json(results);
-     
-    });
+app.get("/api/all", (req, res) => {
+  Employee.findAll({}).then((results) => {
+    res.json(results);
+
   });
+});
 
-
+// static data route
 app.get("/api/sample", (req, res) => {
   const sampleData = [
-    {id:1, info:"this is public info"},
-    {id:2, info:"everybody sees this"}  
+    { id: 1, info: "this is public info" },
+    { id: 2, info: "everybody sees this" }
   ];
   res.json(sampleData)
 });
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
+
+// catchall, send to react build
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`API server now on port ${PORT}!`);
 });

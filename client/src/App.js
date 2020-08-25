@@ -7,10 +7,10 @@ import Database from './components/Database';
 function App() {
   return (
     <>
-<NavBar/>
-<Sample />
-<Database />
-</>
+      <NavBar />
+      <Sample />
+      <Database />
+    </>
   );
 }
 

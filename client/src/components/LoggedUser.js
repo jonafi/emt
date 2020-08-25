@@ -7,11 +7,8 @@ const LoggedUser = () => {
 
         isAuthenticated && (
             <div>
-                <p>{user.name /* First name & last name associated with Auth0 Account */}</p>
                 <p>{user.sub/* UNIQUE id and type for users */}</p>
                 <p>{user.email/* for sendmail update? */}</p>
-
-
             </div>
         )
     )

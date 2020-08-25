@@ -3,15 +3,13 @@ import axios from 'axios';
 
 function Sample() {
   const [data, setData] = useState([]);
- 
+
   useEffect(async () => {
     const result = await axios('/api/sample');
-     setData(result.data);
-  },[]);
- 
-  return (
-   
+    setData(result.data);
+  }, []);
 
+  return (
     <ul>
       {data.map(item => (
         <li key={item.id}>
@@ -19,8 +17,7 @@ function Sample() {
         </li>
       ))}
     </ul>
- 
   );
 }
- 
+
 export default Sample;
