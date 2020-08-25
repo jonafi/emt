@@ -1,20 +1,26 @@
 
-var Sequelize = require("sequelize");
-var sequelize = new Sequelize("sequelize_library", "root", "bj200e", {
-  host: "localhost",
-  port: 3306,
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  }
-});
+let Sequelize = require("sequelize");
+let sequelize;
+if (process.env.JAWSDB_URL) {
+   sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    host: "localhost",
+    port: 3306,
+    dialect: "mysql",
+    pool: { max: 5, min: 0, idle: 10000 }
+  });
+} else {
+   sequelize = new Sequelize("sequelize_library", "root", "bj200e", {
+    host: "localhost",
+    port: 3306,
+    dialect: "mysql",
+    pool: { max: 5, min: 0, idle: 10000 }
 
-var Employee = sequelize.define("employee", {
-  employee_id: Sequelize.INTEGER,
-  info: Sequelize.STRING
+  });
+}
+  let Employee = sequelize.define("employee", {
+    employee_id: Sequelize.INTEGER,
+    info: Sequelize.STRING
   });
 
-Employee.sync();
-module.exports = Employee;
+  Employee.sync();
+  module.exports = Employee;
