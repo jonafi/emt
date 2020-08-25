@@ -15,7 +15,7 @@ function Database() {
     <div>
       <h1>DB info below</h1>
       
-      {/* {isAuthenticated && ( */}
+      {isAuthenticated && (
         <ul>
           {data.map(item => (
             <li key={item.employee_id}>
@@ -23,7 +23,8 @@ function Database() {
             </li>
           ))}
         </ul>
-      // )}
+      )
+          }
 </div>
 
   );
