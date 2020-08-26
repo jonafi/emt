@@ -3,6 +3,31 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Middleware for protecting API
+const jwt = require('express-jwt');
+const jwtAuthz = require('express-jwt-authz');
+const jwksRsa = require('jwks-rsa');
+const checkJwt = jwt({
+  // Dynamically provide a signing key
+  // based on the kid in the header and 
+  // the signing keys provided by the JWKS endpoint.
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://team-c2c-emt.herokuapp.com`
+  }),
+
+  // Validate the audience and the issuer.
+  audience: `https://api/all`,
+  issuer: `https://team-c2c-emt.herokuapp.com/`,
+  algorithms: ['RS256']
+});
+
+
+
+
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -10,7 +35,7 @@ if (process.env.NODE_ENV === "production") {
 
 // mysql database using sequelize route
 const Employee = require("./models/employee.js");
-app.get("/api/all", (req, res) => {
+app.get("/api/all",checkJwt, (req, res) => {
   Employee.findAll({}).then((results) => {
     res.json(results);
 
