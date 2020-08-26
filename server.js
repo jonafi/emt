@@ -35,7 +35,8 @@ if (process.env.NODE_ENV === "production") {
 
 // mysql database using sequelize route
 const Employee = require("./models/employee.js");
-app.get("/api/all",checkJwt, (req, res) => {
+//app.get("/api/all",checkJwt, (req, res) => {  //jason web token blocks too much, reverting to normal route
+app.get("/api/all", (req, res) => {
   Employee.findAll({}).then((results) => {
     res.json(results);
 
