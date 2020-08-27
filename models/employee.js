@@ -16,8 +16,9 @@ if (process.env.JAWSDB_URL) {
   });
 }
   let Employee = sequelize.define("employee", {
-    employee_id: Sequelize.INTEGER,
-    info: Sequelize.STRING
+    id: {primaryKey:true, type: Sequelize.INTEGER},
+    first_name: Sequelize.INTEGER,
+    last_name: Sequelize.STRING
   });
 
   Employee.sync();
