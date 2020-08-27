@@ -7,7 +7,7 @@ if (process.env.JAWSDB_URL) {
     pool: { max: 5, min: 0, idle: 10000 }
   });
 } else {
-   sequelize = new Sequelize("sequelize_library", "root", "Orange1!", {
+   sequelize = new Sequelize("sequelize_library", "root", "bj200e", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
@@ -16,8 +16,9 @@ if (process.env.JAWSDB_URL) {
   });
 }
   let Employee = sequelize.define("employee", {
-    employee_id: Sequelize.INTEGER,
-    info: Sequelize.STRING
+    id: {primaryKey:true, type: Sequelize.INTEGER},
+    first_name: Sequelize.INTEGER,
+    last_name: Sequelize.STRING
   });
 
   Employee.sync();
