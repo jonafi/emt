@@ -10,12 +10,38 @@ if (process.env.NODE_ENV === "production") {
 
 // mysql database using sequelize route
 const Employee = require("./models/employee.js");
-app.get("/api/all", (req, res) => {
+app.get("/api/employees", (req, res) => {
   Employee.findAll({}).then((results) => {
     res.json(results);
 
   });
 });
+
+// creating (working)
+app.post("/api/employee", (req, res) => {
+  Employee.create(
+  { 
+    employee_id: 28389,
+    info: "Stuart"
+  })
+    .then((results) => {
+      res.json(results);
+
+    });
+});
+
+// destroy (working)
+app.delete("/api/employee/:id", (req, res) => {
+  Employee.destroy(
+  {
+    where: {
+      id: 3
+    }
+  })
+  .then((results) => {
+    res.json(results);
+  });
+});;
 
 // static data route
 app.get("/api/sample", (req, res) => {
