@@ -1,15 +1,14 @@
 import React from 'react';
-import NavBar from './components/NavBar'
-import Sample from './components/Sample'
+import Nav from './components/NavBar';
+import Sample from './components/Sample';
 import Database from './components/Database';
-
+import Dashboard from './pages/Dashboard';
+import './style.css';
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Sample />
-      <Database />
+      <Dashboard/>
     </>
   );
 }
