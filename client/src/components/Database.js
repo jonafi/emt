@@ -34,7 +34,14 @@ function Database() {
       console.log(result);
       loadEmployees();
     })
-    .catch(err => console.log(err));;
+    .catch(err => console.log(err));
+
+  API.updateEmployee()
+    .then(result => {
+      console.log(result);
+      loadEmployees();
+    })
+    .catch(err => console.log(err));
 */
 
   return (

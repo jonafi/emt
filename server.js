@@ -35,6 +35,7 @@ if (process.env.NODE_ENV === "production") {
 
 // mysql database using sequelize route
 const Employee = require("./models/employee.js");
+// get 
 app.get("/api/employees", (req, res) => {
   Employee.findAll({}).then((results) => {
     res.json(results);
@@ -66,7 +67,20 @@ app.delete("/api/employee/:id", (req, res) => {
   .then((results) => {
     res.json(results);
   });
-});;
+});
+
+app.put("/api/employee/:id", (req, res) => {
+  Employee.save(
+    {
+      info: "James"
+    },
+    {
+      where: {
+        id: 4
+      }
+    }
+  )
+});
 
 // static data route
 app.get("/api/sample", (req, res) => {
