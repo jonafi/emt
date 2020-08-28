@@ -16,9 +16,10 @@ function Database() {
       <h1>DB info below</h1>
       {isAuthenticated && (
         <ul>
-          {data.map(item => (
-            <li key={item.employee_id}>
-              <h2>{item.info}</h2>
+          {data.map(person => (
+            <li key={person.id}>
+              <span>{person.first_name}</span>&nbsp;
+              <span>{person.last_name}</span>
             </li>
           ))}
         </ul>
