@@ -16,9 +16,39 @@ if (process.env.JAWSDB_URL) {
   });
 }
   let Employee = sequelize.define("employee", {
-    employee_id: Sequelize.INTEGER,
-    info: Sequelize.STRING
+    id: Sequelize.INTEGER,
+    department: Sequelize.STRING,
+    status: Sequelize.STRING,
+    role: Sequelize.STRING,
+    first_name: Sequelize.STRING,
+    middle_init: Sequelize.STRING,
+    last_name: Sequelize.STRING,
+    address_line1: Sequelize.STRING,
+    address_line2: Sequelize.STRING,
+    city: Sequelize.STRING,
+    state: Sequelize.STRING,
+    zip: Sequelize.STRING,
+    primary_phone: Sequelize.STRING,
+    personal_email: Sequelize.STRING,
+    work_email: Sequelize.STRING,
+    hire_date: Sequelize.DATE,
+    birth_date: Sequelize.DATE,
+    gender: Sequelize.STRING,
+    pay_type: Sequelize.STRING,
+    pay_freq: Sequelize.STRING,
+    pay_rate: Sequelize.NUMBER,
+    app_source: Sequelize.STRING,
+    app_rec: Sequelize.BOOLEAN,
+    i9_rec: Sequelize.BOOLEAN,
+    w4_rec: Sequelize.BOOLEAN,
+    ca_rec: Sequelize.BOOLEAN,
+    exp_rec: Sequelize.BOOLEAN,
+    tmh_rec: Sequelize.BOOLEAN,
+    welcome_train: Sequelize.BOOLEAN,
+    core_camp_train: Sequelize.BOOLEAN
   });
 
   Employee.sync();
+
+
   module.exports = Employee;
