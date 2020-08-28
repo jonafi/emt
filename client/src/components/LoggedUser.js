@@ -7,7 +7,6 @@ const LoggedUser = () => {
 
         isAuthenticated && (
             <div>
-                <p>{user.sub/* UNIQUE id and type for users */}</p>
                 <p>{user.email/* for sendmail update? */}</p>
             </div>
         )
@@ -15,4 +14,6 @@ const LoggedUser = () => {
 
 }
 
-export default LoggedUser
+export default LoggedUser;
+
+/* {user.sub} used to get Unique id and type for users */
