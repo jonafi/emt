@@ -7,7 +7,11 @@ if (process.env.JAWSDB_URL) {
     pool: { max: 5, min: 0, idle: 10000 }
   });
 } else {
+<<<<<<< HEAD
    sequelize = new Sequelize("sequelize_library", "root", "amillionwords", {
+=======
+   sequelize = new Sequelize("sequelize_library", "root", "22087005552493", {
+>>>>>>> 65761f482f2bf8ae4ec5fb6759b8f0678f443d9b
     host: "localhost",
     port: 3306,
     dialect: "mysql",
