@@ -45,3 +45,10 @@ footer {
     padding: 15px;
     border: 1px solid black;
 }
+
+.Directory{
+    border: 1px black solid;
+    padding: 15px;
+    box-shadow: 10px 10px 10px black;
+    margin-top: 10%;
+}
