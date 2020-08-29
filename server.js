@@ -24,13 +24,22 @@ const checkJwt = jwt({
   algorithms: ['RS256']
 });
 
+// serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(path.join(__dirname, '/public')));
 
+// Parse request body as JSON
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+const routes = require("./routes/api/employees");
+
+// app.use('/api', routes);
 
 
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/build")); 
 }
 
 // mysql database using sequelize route
@@ -91,10 +100,18 @@ app.get("/api/sample", (req, res) => {
   res.json(sampleData)
 });
 
+// models.sequelize.sync().then(function() {
+// 	if (process.env.NODE_ENV !== "test") {
+// 		console.log('Database connected!');
+// 	}
+// }).catch(function(err) {
+// 	console.error(err, "Something went wrong, database is not connected!");
+// });
+
 // catchall, send to react build
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, function () {
   console.log(`API server now on port ${PORT}!`);

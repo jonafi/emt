@@ -16,8 +16,6 @@ if (process.env.JAWSDB_URL) {
   });
 }
   let Employee = sequelize.define("employee", {
-
-    id: Sequelize.INTEGER,
     department: Sequelize.STRING,
     status: Sequelize.STRING,
     role: Sequelize.STRING,
