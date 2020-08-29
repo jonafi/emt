@@ -5,7 +5,6 @@ CREATE DATABASE sequelize_library;
 USE sequelize_library;
 
 CREATE TABLE employees (
-  id INT NOT NULL AUTO_INCREMENT,
   department VARCHAR(10) NOT NULL,
   status VARCHAR (10) NOT NULL,
   role VARCHAR (10) NOT NULL,

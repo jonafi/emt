@@ -17,39 +17,37 @@ if (process.env.JAWSDB_URL) {
 }
   let Employee = sequelize.define("employee", {
 
-    id: Sequelize.INTEGER,
-    department: Sequelize.STRING,
-    status: Sequelize.STRING,
-    role: Sequelize.STRING,
-    first_name: Sequelize.STRING,
+    department: { type: Sequelize.STRING, validate: { isIn: ["Admin", "Tannerco", "MN117", "MN129", "MN140"]}},
+    status: { type: Sequelize.STRING, validate: { isIn: ["Active", "Terminated", "Candidate"]}},
+    role: {type: Sequelize.STRING, validate: { isIn: ["Admin", "Manager", "Area Mgr", "Sr Manager", "Stylist", "Asst Mgr"]}},
+    first_name: {type: Sequelize.STRING, validate: {notNull: true}},
     middle_init: Sequelize.STRING,
-    last_name: Sequelize.STRING,
+    last_name: {type: Sequelize.STRING, validate: {notNull: true}},
     address_line1: Sequelize.STRING,
     address_line2: Sequelize.STRING,
     city: Sequelize.STRING,
     state: Sequelize.STRING,
     zip: Sequelize.STRING,
-    primary_phone: Sequelize.STRING,
-    personal_email: Sequelize.STRING,
-    work_email: Sequelize.STRING,
-    hire_date: Sequelize.DATE,
-    birth_date: Sequelize.DATE,
-    gender: Sequelize.STRING,
-    pay_type: Sequelize.STRING,
-    pay_freq: Sequelize.STRING,
-    pay_rate: Sequelize.NUMBER,
-    app_source: Sequelize.STRING,
-    app_rec: Sequelize.BOOLEAN,
-    i9_rec: Sequelize.BOOLEAN,
-    w4_rec: Sequelize.BOOLEAN,
-    ca_rec: Sequelize.BOOLEAN,
-    exp_rec: Sequelize.BOOLEAN,
-    tmh_rec: Sequelize.BOOLEAN,
-    welcome_train: Sequelize.BOOLEAN,
-    core_camp_train: Sequelize.BOOLEAN
+    primary_phone: {type: Sequelize.STRING, validate: {isNumeric: true, notNull: true}},
+    personal_email: {type: Sequelize.STRING, validate: {isEmail: true, notNull: true}},
+    work_email:  {type: Sequelize.STRING, validate: {isEmail: true}},
+    hire_date: {type: Sequelize.DATE, validate: {isDate: true}},
+    birth_date: {type: Sequelize.DATE, validate: {isDate: true}},
+    gender: { type: Sequelize.STRING, validate: { isIn: ["M", "F"]}},
+    pay_type:  { type: Sequelize.STRING, validate: { isIn: ["Hourly", "Salary"], defaultValue: "Hourly"}},
+    pay_freq: { type: Sequelize.STRING, validate: { isIn: ["Weekly", "Biweekly"], defaultValue: "Biweekly"}},
+    pay_rate: {type: Sequelize.NUMBER, defaultValue: 0},
+    app_source: { type: Sequelize.STRING, validate: { isIn: ["Email", "Text", "Indeed", "Behind the Chair", "Craigslist"]}},
+    app_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
+    i9_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
+    w4_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
+    ca_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
+    exp_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
+    tmh_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
+    welcome_train: {type: Sequelize.BOOLEAN, defaultValue: false},
+    core_camp_train: {type: Sequelize.BOOLEAN, defaultValue: false}
   });
 
   Employee.sync();
-
 
   module.exports = Employee;
