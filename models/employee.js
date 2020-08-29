@@ -1,4 +1,3 @@
-
 let Sequelize = require("sequelize");
 let sequelize;
 if (process.env.JAWSDB_URL) {
@@ -7,7 +6,7 @@ if (process.env.JAWSDB_URL) {
     pool: { max: 5, min: 0, idle: 10000 }
   });
 } else {
-   sequelize = new Sequelize("sequelize_library", "root", "bj200e", {
+   sequelize = new Sequelize("sequelize_library", "root", "amillionwords", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
@@ -17,10 +16,12 @@ if (process.env.JAWSDB_URL) {
 }
   let Employee = sequelize.define("employee", {
 
+
     department: { type: Sequelize.STRING, validate: { isIn: ["Admin", "Tannerco", "MN117", "MN129", "MN140"]}},
     status: { type: Sequelize.STRING, validate: { isIn: ["Active", "Terminated", "Candidate"]}},
     role: {type: Sequelize.STRING, validate: { isIn: ["Admin", "Manager", "Area Mgr", "Sr Manager", "Stylist", "Asst Mgr"]}},
     first_name: {type: Sequelize.STRING, validate: {notNull: true}},
+
     middle_init: Sequelize.STRING,
     last_name: {type: Sequelize.STRING, validate: {notNull: true}},
     address_line1: Sequelize.STRING,
@@ -49,5 +50,6 @@ if (process.env.JAWSDB_URL) {
   });
 
   Employee.sync();
+
 
   module.exports = Employee;
