@@ -36,7 +36,7 @@ if (process.env.JAWSDB_URL) {
     gender: { type: Sequelize.STRING, validate: { isIn: ["M", "F"]}},
     pay_type:  { type: Sequelize.STRING, validate: { isIn: ["Hourly", "Salary"], defaultValue: "Hourly"}},
     pay_freq: { type: Sequelize.STRING, validate: { isIn: ["Weekly", "Biweekly"], defaultValue: "Biweekly"}},
-    pay_rate: {type: Sequelize.NUMBER, defaultValue: 0},
+    pay_rate: {type: Sequelize.DECIMAL, defaultValue: 0},
     app_source: { type: Sequelize.STRING, validate: { isIn: ["Email", "Text", "Indeed", "Behind the Chair", "Craigslist"]}},
     app_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
     i9_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
