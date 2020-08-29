@@ -11,9 +11,9 @@ function Nav() {
   return (
     <>
       <Navbar className="navbar">
-        <Navbar.Brand href="#home" className="Hero">Employee Hero</Navbar.Brand>
-        <Navbar.Brand href="/directory">Directory</Navbar.Brand>
-        <Navbar.Brand href="/demographics">Demographics</Navbar.Brand>
+        <Navbar.Brand href="/" className="Hero">Employee Hero</Navbar.Brand>
+        <Navbar.Brand href="/Directory">Directory</Navbar.Brand>
+        <Navbar.Brand href="/AddUser">Add User</Navbar.Brand>
           <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
             </Navbar.Collapse>

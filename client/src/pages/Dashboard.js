@@ -2,6 +2,7 @@ import React from 'react';
 import LoggedUser from '../components/LoggedUser';
 import { useAuth0 } from '@auth0/auth0-react'
 import {Col, Container, Row} from 'react-bootstrap';
+import Database from '../components/Database';
 
 function Dashboard(props) {
   const { isLoading } = useAuth0();
@@ -48,6 +49,7 @@ function Dashboard(props) {
                         <li>thing 3</li>
                     </ul>
                 </Col>
+                <Database/>
             </Row>
         </Container>
     </>

@@ -1,4 +1,3 @@
-
 let Sequelize = require("sequelize");
 let sequelize;
 if (process.env.JAWSDB_URL) {
@@ -16,8 +15,6 @@ if (process.env.JAWSDB_URL) {
   });
 }
   let Employee = sequelize.define("employee", {
-
-    id: Sequelize.INTEGER,
     department: Sequelize.STRING,
     status: Sequelize.STRING,
     role: Sequelize.STRING,
