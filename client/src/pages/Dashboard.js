@@ -6,6 +6,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import {Col, Container, Row} from 'react-bootstrap';
 import Database from '../components/Database';
 
+import Profile from '../utils/Profile';
+
 function Dashboard(props) {
   const { isLoading } = useAuth0();
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
@@ -33,12 +35,7 @@ function Dashboard(props) {
                 <Col xs='4' className="empInfo">
                     <h5>Employee Info</h5>
                     <hr></hr>
-                    <ul>
-                        <li>Role</li>
-                        <li>thing 1</li>
-                        <li>thing 2</li>
-                        <li>thing 3</li>
-                    </ul>
+                    <Profile/>
                 </Col>
                 <Col xs="4" className="This is blank">
                 </Col>

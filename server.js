@@ -77,6 +77,31 @@ app.get("/api/sample", (req, res) => {
   res.json(sampleData)
 });
 
+////////// single employee api route /////
+app.get("/api/employee/:id", (req, res) => {
+  Employee.findOne({
+    where: {
+      id: req.params.id
+    },
+  }).then((results) => {
+    res.json(results);
+
+  });
+});
+
+
+////////////// filter all managers api route /////
+app.get("/api/managers", (req, res) => {
+  Employee.findAll({
+    where:{
+      role: "Manager",
+    },
+
+  }).then((results) => {
+    res.json(results);
+
+  });
+});
 // models.sequelize.sync().then(function() {
 // 	if (process.env.NODE_ENV !== "test") {
 // 		console.log('Database connected!');
