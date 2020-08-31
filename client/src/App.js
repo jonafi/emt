@@ -18,8 +18,7 @@ function App() {
       <Route exact path='/Directory' component={Directory}/>
       <Route exact path='/AddUser' component={AddUser}/>
       <Route exact path='/Contact' component={Contact}/>
-      <Footer/>
-    
+   
     </BrowserRouter>
     </>
   );
