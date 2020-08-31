@@ -1,5 +1,7 @@
 import React from 'react';
 import LoggedUser from '../components/LoggedUser';
+import Nav from '../components/NavBar';
+import Footer from '../components/Footer';
 import { useAuth0 } from '@auth0/auth0-react'
 import {Col, Container, Row} from 'react-bootstrap';
 import Database from '../components/Database';
@@ -10,6 +12,7 @@ function Dashboard(props) {
 
   return (
     <>
+    <Nav/>
         <Container className="intro">
             <Row>
                 <Col xs='2'>
@@ -52,6 +55,7 @@ function Dashboard(props) {
                 <Database/>
             </Row>
         </Container>
+        <Footer/>
     </>
   );
 }

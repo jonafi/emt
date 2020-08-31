@@ -1,4 +1,6 @@
 import React from 'react';
+import Nav from '../components/NavBar';
+import Footer from '../components/Footer';
 import {Container, Row, Col} from 'react-bootstrap';
 
 
@@ -6,6 +8,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 function Directory(){
     return (
         <>
+        <Nav/>
         <Container className="Directory">
             <Row>
                 <Col>
@@ -22,6 +25,7 @@ function Directory(){
                 </Col>
             </Row>
         </Container>
+        <Footer/>
         </>
     );
 };
