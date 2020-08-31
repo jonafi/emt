@@ -46,9 +46,10 @@ footer {
     border: 1px solid black;
 }
 
-.Directory, .AddUser {
+.Directory, .AddUser, .loginBox {
     border: 1px black solid;
     padding: 15px;
     box-shadow: 10px 10px 10px black;
     margin-top: 10%;
 }
+

@@ -11,7 +11,7 @@ function Nav() {
   return (
     <>
       <Navbar className="navbar">
-        <Navbar.Brand href="/" className="Hero">Employee Hero</Navbar.Brand>
+        <Navbar.Brand href="/Dashboard" className="Hero">Employee Hero</Navbar.Brand>
         <Navbar.Brand href="/Directory">Directory</Navbar.Brand>
         <Navbar.Brand href="/AddUser">Add User</Navbar.Brand>
           <Navbar.Toggle />
