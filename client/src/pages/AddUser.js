@@ -1,4 +1,6 @@
 import React from 'react';
+import Nav from '../components/NavBar';
+import Footer from '../components/Footer';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 
 
@@ -6,6 +8,7 @@ import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 function AddUser(){
     return (
         <>
+        <Nav/>
         <Container className="AddUser">
             <Row>
                 <Col>
@@ -31,6 +34,7 @@ function AddUser(){
                 </Col>
             </Row>
         </Container>
+        <Footer/>
         </>
     );
 };
