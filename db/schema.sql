@@ -17,7 +17,7 @@ CREATE TABLE employees (
   state VARCHAR (20),
   zip VARCHAR (9),
   primary_phone VARCHAR (10) NOT NULL,
-  personal_email VARCHAR (30) NOT NULL,
+  personal_email VARCHAR (100) NOT NULL,
   work_email VARCHAR (30),
   hire_date DATE NOT NULL,
   birth_date DATE NOT NULL,
