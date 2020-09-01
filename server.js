@@ -29,6 +29,14 @@ app.get("/api/employees", (req, res) => {
   });
 });
 
+// get one user by email address and return info, including role
+// for use with auth0 linking
+app.get("/api/user/:personal_email", (req, res) => {
+  Employee.findOne({where:{personal_email:req.params.personal_email}}).then((results) => {
+    res.json(results);
+  });
+});
+
 // creating (working)
 app.post("/api/employee", (req, res) => {
   Employee.create(
