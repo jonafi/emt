@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function Profile() {
-  const { isAuthenticated } = useAuth0();
+  const {user, isAuthenticated } = useAuth0();
   const [data, setData] = useState([]);
 
   let employeeSelector = 1;  //change this to a prop drill
