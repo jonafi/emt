@@ -37,7 +37,7 @@ function Contact(props) {
               <td>{person.first_name}</td>
               <td>{person.last_name}</td>
               <td>{person.primary_phone}</td>
-              <td>{person.personal_email}</td>
+          <td><a href={person.personal_email}>{person.personal_email}</a></td>
             </tr>
           ))}
         </table>
