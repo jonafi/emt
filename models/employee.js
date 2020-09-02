@@ -6,7 +6,7 @@ if (process.env.JAWSDB_URL) {
     pool: { max: 5, min: 0, idle: 10000 }
   });
 } else {
-   sequelize = new Sequelize("sequelize_library", "root", "bj200e", {
+   sequelize = new Sequelize("sequelize_library", "root", "amillionwords", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
@@ -38,7 +38,7 @@ if (process.env.JAWSDB_URL) {
     pay_type:  { type: Sequelize.STRING, defaultValue: "Hourly", validate: { isIn: [["Hourly", "Salary"]] }},
     pay_freq: { type: Sequelize.STRING, defaultValue: "Biweekly", validate: { isIn: [["Weekly", "Biweekly"]] }},
     pay_rate: {type: Sequelize.DECIMAL, defaultValue: 0},
-    app_source: { type: Sequelize.STRING, validate: { isIn: ["Email", "Text", "Indeed", "Behind the Chair", "Craigslist"]}},
+    app_source: { type: Sequelize.STRING, validate: { isIn: [["Email", "Text", "Indeed", "Behind the Chair", "Craigslist"]]}},
     app_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
     i9_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
     w4_rec: {type: Sequelize.BOOLEAN, defaultValue: false},
