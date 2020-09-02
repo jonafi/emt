@@ -10,8 +10,8 @@ export default {
   updateEmployee: function() {
     return axios.put('/api/employee/:id')
   },
-  postEmployee: function() {
-    return axios.post('/api/employee')
+  postEmployee: function(employee) {
+    return axios.post('/api/employee', employee)
   },
   deleteEmployee: function(id) {
     return axios.delete('/api/employee/' + id)
