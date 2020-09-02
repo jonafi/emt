@@ -50,7 +50,7 @@ function Database() {
       {isAuthenticated && (
         <ul>
           {data.map(person => (
-            <li key={person.id}>
+            <li>
               <span>{person.first_name}</span>&nbsp;
               <span>{person.last_name}</span>
             </li>
