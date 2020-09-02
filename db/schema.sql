@@ -1,5 +1,3 @@
-### Schema
-
 CREATE DATABASE sequelize_library;
 
 USE sequelize_library;
@@ -38,3 +36,30 @@ CREATE TABLE employees (
   updatedAT DATETIME DEFAULT NOW(),
   PRIMARY KEY (id)
 );
+
+CREATE TABLE employeePerformance (
+  empployeeId INT NOT NULL,
+  reviewYear VARCHAR (4) NOT NULL,
+  reviewQtr Varchar (2) NOT NULL, 
+  reviewStatus VARCHAR (10) NOT NULL,
+  goalNetsales NUMERIC (6,2) DEFAULT 0,
+  goalHours NUMERIC (6,2) DEFAULT 0,
+  goalBB NUMERIC (3,2) DEFAULT 0,
+  goalTHPC NUMERIC (2,2) DEFAULT 0,
+  goalCPFH NUMERIC (2,2) DEFAULT 0,
+  goalSPH NUMERIC (3,2) DEFAULT 0,
+  goalL360 NUMERIC (2,2) DEFAULT 0,
+  goalAttendance INT DEFAULT 0;
+  goalAttitude INT DEFAULT 0;
+  actualOverallRating INT DEFAULT 0;
+  actualNetsales NUMERIC (6,2) DEFAULT 0,
+  actualHours NUMERIC (6,2) DEFAULT 0,
+  actualBB NUMERIC (3,2) DEFAULT 0,
+  actualTHPC NUMERIC (2,2) DEFAULT 0,
+  actualCPFH NUMERIC (2,2) DEFAULT 0,
+  actualSPH NUMERIC (3,2) DEFAULT 0,
+  actualL360 NUMERIC (2,2) DEFAULT 0,
+  actualAttendance INT DEFAULT 0;
+  actualAttitude INT DEFAULT 0;
+);
+
