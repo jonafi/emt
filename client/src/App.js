@@ -10,7 +10,7 @@ import './style.css';
 
 function App() {
   return (
-    <>
+    <div>
     <Router>
      
       <Route exact path='/' component={Dashboard}/>
@@ -20,7 +20,7 @@ function App() {
       <Route exact path='/Contact' component={Contact}/>
    
     </Router>
-    </>
+    </div>
   );
 }
 
