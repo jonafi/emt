@@ -1,4 +1,4 @@
-footer {
+/*footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -52,4 +52,98 @@ footer {
     box-shadow: 10px 10px 10px black;
     margin-top: 10%;
 }
+*/
 
+
+/* 1ST EXAMPLE*/
+
+body {
+    background-color: #C7C7C7;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #2e2e6e;
+    color: #D3D3D3;
+}
+
+/*CUSTOM CLASSES*/
+.head-text {
+    font-size: 50px;
+}
+
+.sub-text {
+    font-size: 30px;
+}
+
+.bold {
+    font-weight: 900;
+}
+.bmarg {
+    margin-bottom: 20px;
+}
+.ltgray {
+    color: #ededed !important;
+}
+
+.edit {
+    float: right;
+    margin-top: 30%;
+}
+/*CUSTOM CLASSES*/
+
+.title {
+    text-align: center;
+    border-top: solid 1px #696969;
+}
+
+.Hero {
+    border-right: solid 1px white;
+    padding-right: 20px;
+
+}
+
+.navbar{
+    border-bottom: solid 1px #D3D3D3;
+    background-color: #2e2e6e;
+    color: #ededed;
+    
+}
+
+.infoRow{
+    margin-top: 50px;
+}
+
+/*GENERAL STYLE DIVS*/
+.empInfo, .goals, .intro, .Directory, .AddUser, .loginBox {
+    background-color: #ededed;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 5px 5px 5px #696969;
+    border-radius: 5px;
+    border: 1px #FFFFFF solid;
+}
+
+.empInfo, .goals {
+    padding: 10px;
+}
+
+.loggedUser{
+    margin-right: 10px;
+}
+
+.loggedUser {
+    margin-left: 15px;
+}
+
+.intro {
+    margin-top: 2%;
+    padding: 15px;
+}
+
+.Directory, .AddUser, .loginBox {
+    padding: 15px;
+    margin-top: 10%;
+}
