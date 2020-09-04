@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import Nav from '../components/NavBar';
 import { useAuth0 } from '@auth0/auth0-react'
-import {Col, Container, Row} from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import API from '../utils/API';
-import Database from '../components/Database';
 
-function Contact(props) {
-    const { isAuthenticated } = useAuth0();
-    const [data, setData] = useState([]);
+function Contact() {
+  const { user, isAuthenticated } = useAuth0();
+  const [data, setData] = useState([]);
+  const [role, setRole] = useState([]);
 
   useEffect(() => {
     loadEmployees();
   }, []);
 
+  useEffect(() => {
+    loadRole();
+  }, []);
+
   function loadEmployees() {
     API.getEmployees()
       .then(result => {
-        // testing and checking what is sent from Sequelize
-        console.log(result.data);
         setData(result.data);
+      })
+      .catch(err => console.log(err));
+  }
+
+  function loadRole(user) {
+    API.getUser(user)
+      .then(result => {
+        setRole(result.data.role);
+        //console.log(result.data.role)
       })
       .catch(err => console.log(err));
   }
@@ -25,28 +37,39 @@ function Contact(props) {
 
   return (
     <>
-        <Container>
-            <Row className="infoRow">
-                <Col xs='12' className="empInfo">
-                    <h5>Contact List</h5>
-                    
-                    {isAuthenticated && (
-        <table className="table">
-          {data.map(person => (
-            <tr>
-              <td>{person.first_name}</td>
-              <td>{person.last_name}</td>
-              <td>{person.primary_phone}</td>
-          <td><a href={person.personal_email}>{person.personal_email}</a></td>
-            </tr>
-          ))}
-        </table>
-      )}
+    <Nav />
+      <Container>
+        <Row className="infoRow">
+          <Col xs='12' className="empInfo">
+            <h5>Contact List</h5>
 
-                </Col>
-             
-            </Row>
-        </Container>
+            {isAuthenticated && (
+              <>
+                {loadRole(user.email)}
+                {(role === "admin")
+                  ? <table className="table">
+                    {data.map(person => (
+
+                      <tr>
+                        <td>{person.first_name}</td>
+                        <td>{person.last_name}</td>
+                        <td>{person.primary_phone}</td>
+                        <td><a href={person.personal_email}>{person.personal_email}</a></td>
+                      </tr>
+                    ))}
+                  </table>
+                  : <p>not authorized</p>
+                }
+
+
+              </>
+            )
+            }
+
+          </Col>
+
+        </Row>
+      </Container>
     </>
   );
 }
