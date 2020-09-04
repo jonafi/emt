@@ -4,8 +4,8 @@ export default {
   getEmployees: function() {
     return axios.get('/api/employees')
   },
-  getUser: function() {
-    return axios.get('/api/user/:email')
+  getUser: function(email) {
+    return axios.get('/api/user/'+ email)
   },
   updateEmployee: function() {
     return axios.put('/api/employee/:id')
