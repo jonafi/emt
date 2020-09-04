@@ -40,28 +40,7 @@ app.get("/api/user/:personal_email", (req, res) => {
 // creating (working)
 app.post("/api/employee", (req, res) => {
   console.log(req.body);
-  Employee.create({
-      "department": "MN117",
-      "status": "Active",
-      "role": "Stylist",
-      "first_name": "Chisy",
-      "last_name": "Gondndkd",
-      "address_line1": "500 Lyle Ave",
-      "address_line2": "",
-      "city": "Minneapolis",
-      "state": "MN",
-      "zip": "55412",
-      "primary_phone": "7635594380",
-      "personal_email": "tlre@gmail.com",
-      "work_email": "tldfs@tanner-companies.com",
-      "hire_date": "2020-07-08T00:00:00.000Z",
-      "birth_date": "1994-11-07T00:00:00.000Z",
-      "gender": "F",
-      "pay_type": "Salary",
-      "pay_freq": "Biweekly",
-      "pay_rate": "1500",
-      "app_source": "Email"
-  })
+  Employee.create(req.body)
     .then((results) => {
       res.json(results);
 
@@ -139,9 +118,9 @@ app.get("/api/managers", (req, res) => {
 // });
 
 // catchall, send to react build
-// app.get("/", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, function () {
   console.log(`API server now on port ${PORT}!`);
