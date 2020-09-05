@@ -27,6 +27,7 @@
     "if-env": "^1.0.4",
     "jwks-rsa": "^1.9.0",
     "mysql2": "^2.1.0",
+    "react-router-dom": "^5.2.0",
     "sequelize": "^6.3.4"
   }
 }

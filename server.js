@@ -39,15 +39,13 @@ app.get("/api/user/:personal_email", (req, res) => {
 
 // creating (working)
 app.post("/api/employee", (req, res) => {
-  Employee.create(
-  { 
-    employee_id: 28389,
-    info: "Stuart"
-  })
+  console.log(req.body);
+  Employee.create(req.body)
     .then((results) => {
       res.json(results);
 
-    });
+    })
+    .catch(err => res.json(err));
 });
 
 // destroy (working)
@@ -60,7 +58,8 @@ app.delete("/api/employee/:id", (req, res) => {
   })
   .then((results) => {
     res.json(results);
-  });
+  })
+  .catch(err => res.json(err));
 });
 
 app.put("/api/employee/:id", (req, res) => {
@@ -119,9 +118,9 @@ app.get("/api/managers", (req, res) => {
 // });
 
 // catchall, send to react build
-// app.get("/", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, function () {
   console.log(`API server now on port ${PORT}!`);
