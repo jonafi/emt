@@ -12,9 +12,6 @@ footer {
     color: #D3D3D3;
 }
 
-h1 {
-    font-size: 1.5vw;
-  }
 
 h5 {
     font-size: 1.8vw;
@@ -38,6 +35,11 @@ h5 {
 .ltgray {
     color: #ededed !important;
 }
+
+.infoDiv {
+    width: 75%;
+}
+
 
 .editBtn {
     float: right;
@@ -98,4 +100,8 @@ h5 {
 .Directory, .AddUser, .loginBox {
     padding: 15px;
     margin-top: 10%;
+}
+
+.AddUser {
+    width: 70% !important;
 }
