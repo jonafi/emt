@@ -1,60 +1,22 @@
-
 // Dependencies
-const express = require("express");
-// setting router
-const router = express.Router();
+var router = require("express").Router();
 
 // Sequelize Model for database
-const Employee = require("../../models/employee");
-
-
-// POST
-router.post("/employee", (req, res) => {
-  Employee.create(
-  { 
-    info: "Stuart"
-  })
-    .then((results) => {
-      res.json(results);
-
-    });
-});
-
-// DELETE
-router.delete("/employee/:id", (req, res) => {
-  Employee.destroy(
-  {
-    where: {
-      id: 3
-    }
-  })
-  .then((results) => {
-    res.json(results);
-  });
-});
-
-// UPDATE
-router.put("/employee/:id", (req, res) => {
-  Employee.save(
-    {
-      info: "James"
-    },
-    {
-      where: {
-        id: 4
-      }
-    }
-  )
-});
+const Employee = require("../../controllers/employeeController");
 
 // GET
-router.get(("/employees", (req, res) => {
+router.get("/employees", Employee.findAll);
 
-  res.json("It works");
+router.get("/employee/:id", Employee.findById);
 
-  // Employee.findAll({}).then(results => {
-  //   res.json(results.data);
-  // });
-}));
+// POST
+router.post("/employee", Employee.create);
 
+// DELETE
+router.delete("/employee/:id", Employee.remove);
+
+// UPDATE
+router.put("/employee/:id", Employee.update);
+
+// Export
 module.exports = router;

@@ -10,105 +10,121 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const routes = require("./routes/api/employees");
-
-// app.use('/api', routes);
+/*
+db wont work because of how index is built.
+*/
+// const db = require("./models");
+// db.sequelize.sync();
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build")); 
 }
 
-// mysql database using sequelize route
-const Employee = require("./models/employee.js");
-// get 
-app.get("/api/employees", (req, res) => {
-  Employee.findAll({}).then((results) => {
-    res.json(results);
+// Routes
+const employeeRoutes = require("./routes/api/employees");
+app.use('/api', employeeRoutes);
 
-  });
-});
+/*
+CONTROLLER
+=========================================================================
+controllers are working, only thing is that the models/index.js doesnt 
+work because of the way models/employee.js is structured. If thats the case
+for now we'll just leave it as is and ONLY ACCESS controllers/employeeController.js for 
+all sequelize/backend connections.
 
-// get one user by email address and return info, including role
-// for use with auth0 linking
-app.get("/api/user/:personal_email", (req, res) => {
-  Employee.findOne({where:{personal_email:req.params.personal_email}}).then((results) => {
-    res.json(results);
-  });
-});
+This was the main issue as to why routes didn't work. It wasn't the express
+routes, rather it was db = require(./models)
+*/
+// Employee controller
+// const Employee = require("./controllers/employeeController");
 
-// creating (working)
-app.post("/api/employee", (req, res) => {
-  console.log(req.body);
-  Employee.create(req.body)
-    .then((results) => {
-      res.json(results);
+// // get 
+// app.get("/api/employees", Employee.findAll);
 
-    })
-    .catch(err => res.json(err));
-});
+// app.get("/api/employee/:id", Employee.findById);
+// ======================================================================
 
-// destroy (working)
-app.delete("/api/employee/:id", (req, res) => {
-  Employee.destroy(
-  {
-    where: {
-      id: 3
-    }
-  })
-  .then((results) => {
-    res.json(results);
-  })
-  .catch(err => res.json(err));
-});
+// // get one user by email address and return info, including role
+// // for use with auth0 linking
+// app.get("/api/user/:personal_email", (req, res) => {
+//   Employee.findOne({where:{personal_email:req.params.personal_email}}).then((results) => {
+//     res.json(results);
+//   });
+// });
 
-app.put("/api/employee/:id", (req, res) => {
-  Employee.save(
-    {
-      info: "James"
-    },
-    {
-      where: {
-        id: 4
-      }
-    }
-  )
-});
+// // creating (working)
+// app.post("/api/employee", (req, res) => {
+//   console.log(req.body);
+//   Employee.create(req.body)
+//     .then((results) => {
+//       res.json(results);
 
-// static data route
-app.get("/api/sample", (req, res) => {
-  const sampleData = [
-    { id: 1, info: "this is public info" },
-    { id: 2, info: "everybody sees this" }
-  ];
-  res.json(sampleData)
-});
+//     })
+//     .catch(err => res.json(err));
+// });
 
-////////// single employee api route /////
-app.get("/api/employee/:id", (req, res) => {
-  Employee.findOne({
-    where: {
-      id: req.params.id
-    },
-  }).then((results) => {
-    res.json(results);
+// // destroy (working)
+// app.delete("/api/employee/:id", (req, res) => {
+//   Employee.destroy(
+//   {
+//     where: {
+//       id: 3
+//     }
+//   })
+//   .then((results) => {
+//     res.json(results);
+//   })
+//   .catch(err => res.json(err));
+// });
 
-  });
-});
+// app.put("/api/employee/:id", (req, res) => {
+//   Employee.save(
+//     {
+//       info: "James"
+//     },
+//     {
+//       where: {
+//         id: 4
+//       }
+//     }
+//   )
+// });
+
+// // static data route
+// app.get("/api/sample", (req, res) => {
+//   const sampleData = [
+//     { id: 1, info: "this is public info" },
+//     { id: 2, info: "everybody sees this" }
+//   ];
+//   res.json(sampleData)
+// });
+
+// ////////// single employee api route /////
+// app.get("/api/employee/:id", (req, res) => {
+//   Employee.findOne({
+//     where: {
+//       id: req.params.id
+//     },
+//   }).then((results) => {
+//     res.json(results);
+
+//   });
+// });
 
 
-////////////// filter all managers api route /////
-app.get("/api/managers", (req, res) => {
-  Employee.findAll({
-    where:{
-      role: "Manager",
-    },
+// ////////////// filter all managers api route /////
+// app.get("/api/managers", (req, res) => {
+//   Employee.findAll({
+//     where:{
+//       role: "Manager",
+//     },
 
-  }).then((results) => {
-    res.json(results);
+//   }).then((results) => {
+//     res.json(results);
 
-  });
-});
+//   });
+// });
 // models.sequelize.sync().then(function() {
 // 	if (process.env.NODE_ENV !== "test") {
 // 		console.log('Database connected!');
@@ -116,6 +132,8 @@ app.get("/api/managers", (req, res) => {
 // }).catch(function(err) {
 // 	console.error(err, "Something went wrong, database is not connected!");
 // });
+
+
 
 // catchall, send to react build
 app.get("*", function (req, res) {
