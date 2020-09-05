@@ -9,6 +9,8 @@ router.get("/employees", Employee.findAll);
 
 router.get("/employee/:id", Employee.findById);
 
+router.get("/managers", Employee.findAllManagers)
+
 // POST
 router.post("/employee", Employee.create);
 

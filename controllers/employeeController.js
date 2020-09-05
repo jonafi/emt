@@ -8,6 +8,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findAllManagers: function(req, res) {
+    Employee
+      .findAll({
+        where: { role: "Manager" }
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findById: function(req, res) {
     Employee
       .findOne({ 
