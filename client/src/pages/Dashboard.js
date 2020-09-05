@@ -17,7 +17,7 @@ function Dashboard(props) {
     <Nav/>
         <Container className="intro">
             <Row>
-                <Col xs='2'>
+                <Col xs='4'>
                     <div className="loggedUser">
                        <h5 className="bold">SIGNED IN AS</h5><LoggedUser/>
                        <h5 className="bold bmarg">Role</h5>
@@ -25,21 +25,18 @@ function Dashboard(props) {
                        <h5 className="bold bmarg">Date Hired</h5>
                     </div>
                 </Col>
-                <Col xs='4'>
-
+                <Col xs='3'>
                 </Col>
-                <Col xs='6'>
+                <Col xs='5' >
                 <h5 className="bold">WELCOME</h5> <LoggedUser/>
-                <div>
                 <Button variant="outline-secondary" className="editBtn">Edit</Button>{' '}
-                </div>
                 </Col>
             </Row>
 
         </Container>
         <Container>
             <Row className="infoRow">
-                <Col xs='4' className="empInfo">
+                <Col xs='5' className="empInfo">
                     <h5 className="bold">EMPLOYEE INFO</h5>
                     <hr></hr>
                     <h5 className="bold bmarg">Address</h5>
@@ -47,9 +44,9 @@ function Dashboard(props) {
                     <h5 className="bold bmarg">Work Email</h5>
                     <Profile/>
                 </Col>
-                <Col xs="4" className="This is blank">
+                <Col xs="1" className="This is blank">
                 </Col>
-                <Col xs='4' className="goals">
+                <Col xs='6' className="goals">
                 <h5 className="bold">GOALS/OTHER</h5>
                     <hr></hr>
                     <ul>

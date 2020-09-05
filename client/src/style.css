@@ -13,9 +13,12 @@ footer {
 }
 
 h1 {
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
+h5 {
+    font-size: 1.8vw;
+}
 
 /*CUSTOM CLASSES*/
 .head-text {
@@ -38,7 +41,8 @@ h1 {
 
 .editBtn {
     float: right;
-    margin-top: 30%;
+    margin-top: 40%;
+    margin-right: 5%;
 }
 /*CUSTOM CLASSES*/
 
