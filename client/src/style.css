@@ -1,73 +1,21 @@
-/*footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-.title {
-    text-align: center;
-    border-top: solid 1px black;
-}
-
-.Hero {
-    border-right: solid 1px black;
-    padding-right: 20px;
-}
-
-.navbar{
-    border-bottom: solid 1px black;
-}
-
-.infoRow{
-    margin-top: 50px;
-}
-
-.empInfo{
-    border: solid 1px black;
-    padding: 10px;
-}
-
-.goals{
-    border: solid 1px black;
-    padding: 10px;
-}
-
-.loggedUser{
-    margin-right: 10px;
-}
-
-.loggedUser {
-    margin-left: 15px;
-}
-
-.intro {
-    margin-top: 2%;
-    padding: 15px;
-    border: 1px solid black;
-}
-
-.Directory, .AddUser, .loginBox {
-    border: 1px black solid;
-    padding: 15px;
-    box-shadow: 10px 10px 10px black;
-    margin-top: 10%;
-}
-*/
-
-
-/* 1ST EXAMPLE*/
 
 body {
     background-color: #C7C7C7;
 }
 
 footer {
-    position: absolute;
+    position: fixed;
+    left:0;
     bottom: 0;
     width: 100%;
     background-color: #2e2e6e;
     color: #D3D3D3;
 }
+
+h1 {
+    font-size: 2vw;
+  }
+
 
 /*CUSTOM CLASSES*/
 .head-text {
@@ -88,7 +36,7 @@ footer {
     color: #ededed !important;
 }
 
-.edit {
+.editBtn {
     float: right;
     margin-top: 30%;
 }

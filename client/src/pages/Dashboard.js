@@ -31,7 +31,7 @@ function Dashboard(props) {
                 <Col xs='6'>
                 <h5 className="bold">WELCOME</h5> <LoggedUser/>
                 <div>
-                <Button variant="outline-secondary" className="edit">Edit</Button>{' '}
+                <Button variant="outline-secondary" className="editBtn">Edit</Button>{' '}
                 </div>
                 </Col>
             </Row>
