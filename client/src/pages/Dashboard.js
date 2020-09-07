@@ -29,6 +29,7 @@ function Dashboard(props) {
     API.getEmployees()
       .then(result => {
         setData(result.data);
+        console.log(result.data)
       })
       .catch(err => console.log(err));
   }
@@ -37,7 +38,7 @@ function Dashboard(props) {
     API.getUser(user)
       .then(result => {
         setEmail(result.data.personal_email);
-        //console.log(result.data.role)
+        console.log(result.data.personal_email)
       })
       .catch(err => console.log(err));
   }
@@ -77,8 +78,10 @@ function Dashboard(props) {
 
                                 <Container>
                                     <Row className="infoRow">
-                                        <Col xs='5' className="empInfo">
-                                            <h5 className="bold">EMPLOYEE INFO</h5>
+                                        <Col className="this is blank">
+                                        </Col>
+                                        <Col xs="6" className="empInfo">
+                                        <h5 className="bold">EMPLOYEE INFO</h5>
                                             <hr></hr>
                                             <h5 className="bold bmarg">Address</h5>
                                                 <p>
@@ -92,17 +95,7 @@ function Dashboard(props) {
                                             <h5 className="bold bmarg">Work Email</h5>
                                                 <p>{person.work_email}</p>     
                                         </Col>
-                                        <Col xs="1" className="This is blank">
-                                        </Col>
-                                        <Col xs='6' className="goals">
-                                            <h5 className="bold">GOALS/OTHER</h5>
-                                                <hr></hr>
-                                                <ul>
-                                                    <li>Goal</li>
-                                                    <li>thing 1</li>
-                                                    <li>thing 2</li>
-                                                    <li>thing 3</li>
-                                                </ul>
+                                        <Col>
                                         </Col>
                                     </Row>
                                 </Container>
