@@ -13,10 +13,6 @@ footer {
 }
 
 
-h5 {
-    font-size: 1.8vw;
-}
-
 /*CUSTOM CLASSES*/
 .head-text {
     font-size: 50px;
@@ -71,7 +67,7 @@ h5 {
 }
 
 /*GENERAL STYLE DIVS*/
-.empInfo, .goals, .intro, .Directory, .AddUser, .loginBox {
+.empInfo, .goals, .intro, .Directory, .AddUser, .loginBox , .notAuthorized{
     background-color: #ededed;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
@@ -97,11 +93,16 @@ h5 {
     padding: 15px;
 }
 
-.Directory, .AddUser, .loginBox {
+.Directory, .AddUser, .loginBox, .notAuthorized {
     padding: 15px;
     margin-top: 10%;
 }
 
 .AddUser {
     width: 70% !important;
+}
+
+.notAuthorized {
+    text-align: center;
+    font-weight: bold;
 }
