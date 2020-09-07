@@ -1,72 +1,37 @@
-const Employee = require("../models/employee");
+const db = require("../models");
 
-// Defining methods for the Employee controller
+// Defining methods for the employeeController
 module.exports = {
   findAll: function(req, res) {
-    Employee
-      .findAll({})
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findAllManagers: function(req, res) {
-    Employee
-      .findAll({
-        where: { role: "Manager" }
-      })
+    db.Employee
+      .find(req.query)
+      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    Employee
-      .findOne({ 
-        where: { id: req.params.id }
-      })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findByEmail: function(req, res) {
-    Employee
-      .findOne({ 
-        where: { personal_email: req.params.personal_email }
-      })
+    db.Employee
+      .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    Employee
+    db.Employee
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    Employee
-      .update(req.body,
-        {
-          where: { id: req.params.id }
-        })
+    db.Employee
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    Employee
-      .destroy({
-        where: { id: req.params.id } 
-      })
-      .then(num => {
-        if (num == 1) {
-          res.send({
-            message: "Tutorial was deleted successfully!"
-          });
-        } else {
-          res.send({
-            message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
-          });
-        }
-      })
-      .catch(err => {
-        res.status(500).send({
-          message: "Could not delete Tutorial with id=" + id
-        });
-      });
+    db.Employee
+      .findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
-}
+};

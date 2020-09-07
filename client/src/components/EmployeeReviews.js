@@ -7,7 +7,7 @@ function EmployeeReviews() {
     const [data, setData] = useState([]);
 
     useEffect(async () => {
-        const result = await axios('/api/all');
+        const result = await axios('/api/reviews');
         setData(result.data);
     }, []);
 
