@@ -95,14 +95,8 @@ function Dashboard(props) {
                                         <Col xs="1" className="This is blank">
                                         </Col>
                                         <Col xs='6' className="goals">
-                                            <h5 className="bold">GOALS/OTHER</h5>
-                                                <hr></hr>
-                                                <ul>
-                                                    <li>Goal</li>
-                                                    <li>thing 1</li>
-                                                    <li>thing 2</li>
-                                                    <li>thing 3</li>
-                                                </ul>
+                                            <h5 className="bold">PERFORMANCE REVIEW HERE</h5>
+                                               
                                         </Col>
                                     </Row>
                                 </Container>
