@@ -9,7 +9,9 @@ router.get("/employees", Employee.findAll);
 
 router.get("/employee/:id", Employee.findById);
 
-router.get("/managers", Employee.findAllManagers)
+router.get("/managers", Employee.findAllManagers);
+
+router.get("/user/:personal_email", Employee.findByEmail)
 
 // POST
 router.post("/employee", Employee.create);

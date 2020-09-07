@@ -29,6 +29,7 @@ function Dashboard(props) {
     API.getEmployees()
       .then(result => {
         setData(result.data);
+        console.log(result.data)
       })
       .catch(err => console.log(err));
   }
@@ -37,7 +38,7 @@ function Dashboard(props) {
     API.getUser(user)
       .then(result => {
         setEmail(result.data.personal_email);
-        //console.log(result.data.role)
+        console.log(result.data.personal_email)
       })
       .catch(err => console.log(err));
   }
@@ -95,7 +96,7 @@ function Dashboard(props) {
                                         <Col xs="1" className="This is blank">
                                         </Col>
                                         <Col xs='6' className="goals">
-                                            <h5 className="bold">GOALS/OTHER</h5>
+                                            <h5 className="bold">Performance Review</h5>
                                                 <hr></hr>
                                                 <ul>
                                                     <li>Goal</li>
