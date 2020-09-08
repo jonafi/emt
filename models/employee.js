@@ -1,29 +1,8 @@
-let Sequelize = require("sequelize");
-let sequelize;
-if (process.env.JAWSDB_URL) {
-   sequelize = new Sequelize(process.env.JAWSDB_URL, {
-    dialect: "mysql",
-    pool: { max: 5, min: 0, idle: 10000 }
-  });
-} else {
-
-   sequelize = new Sequelize("sequelize_library", "root", "Orange1!", {
-
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql",
-    pool: { max: 5, min: 0, idle: 10000 }
-
-  });
-}
   let Employee = sequelize.define("employee", {
-
-
     department: { type: Sequelize.STRING, validate: { isIn: [["Admin", "Tannerco", "MN117", "MN129", "MN140"]]}},
     status: { type: Sequelize.STRING, validate: { isIn: [["Active", "Terminated", "Candidate"]]}},
     role: {type: Sequelize.STRING, validate: { isIn: [["Admin", "Manager", "Area Mgr", "Sr Manager", "Stylist", "Asst Mgr", "IT"]]}},
     first_name: {type: Sequelize.STRING, allowNull: false},
-
     middle_init: Sequelize.STRING,
     last_name: {type: Sequelize.STRING, allowNull: false},
     address_line1: Sequelize.STRING,

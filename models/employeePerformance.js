@@ -1,22 +1,4 @@
-let Sequelize = require("sequelize");
-let sequelize;
-
-if (process.env.JAWSDB_URL) {
-   sequelize = new Sequelize(process.env.JAWSDB_URL, {
-    dialect: "mysql",
-    pool: { max: 5, min: 0, idle: 10000 }
-  });
-} else {
-   sequelize = new Sequelize("sequelize_library", "root", "Orange1!", {
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql",
-    pool: { max: 5, min: 0, idle: 10000 }
-  });
-}
-  
 let EmployeePerformance = sequelize.define("employeePerformance", {
-
     employeeId: { type: Sequelize.INTEGER, allowNull: false},
     reviewYear: {type: Sequelize.STRING, allowNull: false},
     reviewQtr: {type: Sequelize.STRING, allowNull: false},
@@ -37,8 +19,6 @@ let EmployeePerformance = sequelize.define("employeePerformance", {
     actualSPH: { type: Sequelize.DECIMAL, defaultValue: 0},
     actualAttendance: { type: Sequelize.INTEGER, defaultValue: 0},
     actualAttitude: { type: Sequelize.INTEGER, defaultValue: 0}
-  });
-
-  EmployeePerformance.sync();
+});
 
   module.exports = EmployeePerformance;

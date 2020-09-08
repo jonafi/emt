@@ -56,6 +56,7 @@ function EmployeePerformance(props) {
                                 <>
                                 <Container className="intro">
                                     <Row><h4>Employee Performance</h4></Row>
+                                    <EmployeePerformance/>
                                 </Container>
                                 </>
                             ))}

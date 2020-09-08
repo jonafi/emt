@@ -5,8 +5,8 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Directory from './pages/Directory';
 import AddUser from './pages/AddUser';
+import EmployeePerformance from './pages/EmployeePerformance';
 import './style.css';
-
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
       <Route exact path='/' component={Dashboard}/>
       <Route exact path='/Dashboard' component={Dashboard}/>
       <Route exact path='/Directory' component={Directory}/>
+      <Route exact path='/Performance' component={EmployeePerformance}/>
       <Route exact path='/AddUser' component={AddUser}/>
       </div>
     </Router>

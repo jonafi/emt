@@ -9,11 +9,23 @@ var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var db = {};
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL, {
+   dialect: "mysql",
+   pool: { max: 5, min: 0, idle: 10000 }
+ });
 } else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+
+  sequelize = new Sequelize("sequelize_library", "root", "Orange1!", {
+
+   host: "localhost",
+   port: 3306,
+   dialect: "mysql",
+   pool: { max: 5, min: 0, idle: 10000 }
+
+ });
 }
+
 
 fs
   .readdirSync(__dirname)

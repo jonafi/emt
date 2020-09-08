@@ -3,14 +3,16 @@ import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import EmployeePerformance from '../../../models/employeePerformance';
 
-function EmployeeReviews() {
+function EmployeePerformance() {
     const { isAuthenticated } = useAuth0();
     const [data, setData] = useState([]);
 
     useEffect(async () => {
-        const result = await axios('/api/reviews');
+        const result = await axios('/api/performance');
         setData(result.data);
     }, []);
+
+    console.log(result.data);
 
     return (
         <div>
@@ -18,25 +20,25 @@ function EmployeeReviews() {
             {isAuthenticated && (
                 <ul>
                     {data.map(review => (
-                        <li key={person.id}>
-                            <div>employeeId: {person.id}</div> 
-                            <div>reviewYear: {person.reviewYear}</div> 
-                            <div>reviewQtr: {person.reviewQtr}</div> 
-                            <div>reviewStatus:{person.reviewStatus}</div> 
-                            <div>goalNetSales: {person.goalNetSales}</div> 
-                            <div>goalHours: {person.goalHours}</div> 
-                            <div>goalBB: {person.goalBB}</div> 
-                            <div>goalTHPC: {person.goalTHPC}</div> 
-                            <div>goalCPFH: {person.goalCPFH}</div> 
-                            <div>goalSPH: {person.goalSPH}</div> 
-                            <div>goalAttendance: {person.goalAttendance}</div> 
-                            <div>actualNetSales: {person.actualNetSales}</div> 
-                            <div>actualHours: {person.actualHours}</div> 
-                            <div>actualBB: {person.actualBB}</div> 
-                            <div>actualTHPC: {person.actualTHPC}</div> 
-                            <div>actualCPFH: {person.actualCPFH}</div> 
-                            <div>actualSPH: {person.actualSPH}</div> 
-                            <div>actualAttendance: {person.actualAttendance}</div> 
+                        <li key={review.id}>
+                            <div>employeeId: {review.id}</div> 
+                            <div>reviewYear: {review.reviewYear}</div> 
+                            <div>reviewQtr: {review.reviewQtr}</div> 
+                            <div>reviewStatus:{review.reviewStatus}</div> 
+                            <div>goalNetSales: {review.goalNetSales}</div> 
+                            <div>goalHours: {review.goalHours}</div> 
+                            <div>goalBB: {review.goalBB}</div> 
+                            <div>goalTHPC: {review.goalTHPC}</div> 
+                            <div>goalCPFH: {review.goalCPFH}</div> 
+                            <div>goalSPH: {review.goalSPH}</div> 
+                            <div>goalAttendance: {review.goalAttendance}</div> 
+                            <div>actualNetSales: {review.actualNetSales}</div> 
+                            <div>actualHours: {review.actualHours}</div> 
+                            <div>actualBB: {review.actualBB}</div> 
+                            <div>actualTHPC: {review.actualTHPC}</div> 
+                            <div>actualCPFH: {review.actualCPFH}</div> 
+                            <div>actualSPH: {review.actualSPH}</div> 
+                            <div>actualAttendance: {review.actualAttendance}</div> 
                         </li>
                         
                     ))}
