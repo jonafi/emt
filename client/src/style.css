@@ -78,6 +78,8 @@ footer {
 
 .empInfo, .goals {
     padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .loggedUser{
@@ -95,7 +97,7 @@ footer {
 
 .Directory, .AddUser, .loginBox, .notAuthorized {
     padding: 15px;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 
 .AddUser {
