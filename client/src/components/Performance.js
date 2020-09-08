@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
-import EmployeePerformance from '../../../models/employeePerformance';
+import Review from '../../../models/review';
 
-function EmployeePerformance() {
+function Performance() {
     const { isAuthenticated } = useAuth0();
     const [data, setData] = useState([]);
 
     useEffect(async () => {
-        const result = await axios('/api/performance');
+        const result = await axios('/api/all');
         setData(result.data);
     }, []);
 
@@ -50,4 +50,4 @@ function EmployeePerformance() {
     );
 }
 
-export default EmployeePerformance;
+export default Performance;

@@ -1,34 +1,34 @@
-const EmployeePerformance = require("../models/employeePerformance");
+const db = require("../models");
 
-// Defining methods for the employePerformanceController
+// Defining methods for the Review controller
 module.exports = {
   findAll: function(req, res) {
-    EmployeePerformance
+    db.review
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    EmployeePerformance
+    db.review
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    EmployeePerformance
+    db.review
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    EmployeePerformance
+    db.review
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    EmployeePerformance
+    db.review
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

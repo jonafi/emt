@@ -9,7 +9,7 @@ import API from '../utils/API';
 
 import Profile from '../utils/Profile';
 
-function EmployeePerformance(props) {
+function Performance(props) {
   const { isLoading } = useAuth0();
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
@@ -47,28 +47,13 @@ function EmployeePerformance(props) {
   return (
     <>
     <Nav/>
-        {isAuthenticated && (
-            <>
-                {loadRole(user.email)}
-                {(personal_email === user.email)
-                    ? <>
-                            {data.map(person => (
-                                <>
-                                <Container className="intro">
-                                    <Row><h4>Employee Performance</h4></Row>
-                                    <EmployeePerformance/>
-                                </Container>
-                                </>
-                            ))}
-                    </>  
-                    : <h5>Access Denied</h5>
-                }
-            </>
-        )}  
-       
-        <Footer/>
+    <Container className="intro">
+        <Row><h4>Employee Performance</h4></Row>
+        <EmployeePerformance/>
+    </Container>
+    <Footer/>
     </>
   );
 }
 
-export default EmployeePerformance;
+export default Performance;

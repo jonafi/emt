@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
 
-  let EmployeePerformance = sequelize.define("employeePerformance", {
+ var Review = sequelize.define("review", {
 
     employeeId: { type: DataTypes.INTEGER, allowNull: false},
     reviewYear: {type: DataTypes.STRING, allowNull: false},
@@ -24,5 +24,5 @@ module.exports = function (sequelize, DataTypes) {
     actualAttitude: { type: DataTypes.INTEGER, defaultValue: 0}
   });
 
-  return EmployeePerformance;
+  return Review;
 }
