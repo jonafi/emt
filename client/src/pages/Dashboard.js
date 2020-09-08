@@ -29,7 +29,7 @@ function Dashboard(props) {
     API.getEmployees()
       .then(result => {
         setData(result.data);
-        console.log(result.data)
+        // console.log(result.data)
       })
       .catch(err => console.log(err));
   }
@@ -38,7 +38,7 @@ function Dashboard(props) {
     API.getUser(user)
       .then(result => {
         setEmail(result.data.personal_email);
-        console.log(result.data.personal_email)
+        // console.log(result.data.personal_email)
       })
       .catch(err => console.log(err));
   }

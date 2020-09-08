@@ -33,7 +33,7 @@ function Nav() {
     API.getUser(user)
       .then(result => {
         setRole(result.data.role);
-        console.log(result.data.role)
+        // console.log(result.data.role)
       })
       .catch(err => console.log(err));
   }
