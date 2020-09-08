@@ -29,7 +29,7 @@ function Dashboard(props) {
     API.getEmployees()
       .then(result => {
         setData(result.data);
-        console.log(result.data)
+        // console.log(result.data)
       })
       .catch(err => console.log(err));
   }
@@ -38,7 +38,7 @@ function Dashboard(props) {
     API.getUser(user)
       .then(result => {
         setEmail(result.data.personal_email);
-        console.log(result.data.personal_email)
+        // console.log(result.data.personal_email)
       })
       .catch(err => console.log(err));
   }
@@ -52,58 +52,74 @@ function Dashboard(props) {
                 {loadRole(user.email)}
                 {(personal_email === user.email)
                     ? <>
-                            {data.map(person => (
-                                <>
-                                <Container className="intro">
-                                    <Row>
-                                        <Col>
-                                            <h5 className="bold">SIGNED IN AS</h5>
-                                                <p>{person.personal_email}</p>
-                                            <h5 className="bold bmarg">Role</h5>
-                                                <p>{person.role}</p>
-                                            <h5 className="bold bmarg">Status</h5>
-                                                <p>{person.status}</p>
-                                        </Col>
-                                            <Col xs='3'>
-                                            </Col>
-                                        <Col>
-                                            <h5 className="bold">WELCOME</h5> 
-                                                <p>{person.first_name}</p>
-                                            <h5 className="bold bmarg">Date Hired</h5>
-                                                <p>{person.hire_date}</p> 
-                                            <Button variant="outline-secondary" className="editBtn">Edit</Button>{' '}
-                                        </Col>
-                                    </Row>
-                                </Container>
+                        {data.filter(person => person.personal_email === user.email).map(filteredPerson => (
+                             <>
+                             <Container className="intro">
+                                 <Row>
+                                     <Col>
+                                         <h5 className="bold">SIGNED IN AS</h5>
+                                             <p>{filteredPerson.personal_email}</p>
+                                         <h5 className="bold bmarg">Role</h5>
+                                             <p>{filteredPerson.role}</p>
+                                         <h5 className="bold bmarg">Status</h5>
+                                             <p>{filteredPerson.status}</p>
+                                     </Col>
+                                         <Col xs='3'>
+                                         </Col>
+                                     <Col>
+                                         <h5 className="bold">WELCOME</h5> 
+                                             <p>{filteredPerson.first_name}</p>
+                                         <h5 className="bold bmarg">Date Hired</h5>
+                                             <p>{filteredPerson.hire_date}</p> 
+                                         <Button variant="outline-secondary" className="editBtn">Edit</Button>{' '}
+                                     </Col>
+                                 </Row>
+                             </Container>
 
-                                <Container>
-                                    <Row className="infoRow">
-                                        <Col className="this is blank">
-                                        </Col>
-                                        <Col xs="6" className="empInfo">
-                                        <h5 className="bold">EMPLOYEE INFO</h5>
-                                            <hr></hr>
+                             <Container>
+                                 <Row className="infoRow">
+                                     <Col>
+                                     </Col>
+                                     <Col xs="8" className="empInfo">
+                                     <h5 className="bold">EMPLOYEE INFO</h5>
+                                     <hr></hr>
+                                        <Row>
+                                            <Col>
                                             <h5 className="bold bmarg">Address</h5>
                                                 <p>
-                                                    {person.address_line1} {person.address_line2}
+                                                    {filteredPerson.address_line1} {filteredPerson.address_line2}
                                                 </p>
                                                 <p>
-                                                    {person.city}, {person.state} {person.zip}
+                                                    {filteredPerson.city}, {filteredPerson.state} {filteredPerson.zip}
                                                 </p>
+                                            </Col>
+                                            <Col>
                                             <h5 className="bold bmarg">Phone Number</h5>
-                                                <p>{person.primary_phone}</p>
+                                                <p>{filteredPerson.primary_phone}</p>
+                                            </Col>
+                                            <Col>
                                             <h5 className="bold bmarg">Work Email</h5>
-                                                <p>{person.work_email}</p>     
-                                        </Col>
-                                        <Col>
-                                        </Col>
-                                    </Row>
-                                </Container>
+                                                <p>{filteredPerson.work_email}</p> 
+                                            </Col>    
+                                        </Row>
+                                     </Col>
+                                     <Col>
+                                     </Col>
+                                 </Row>
+                             </Container>
 
-                                </>
-                            ))}
+                             </>
+                        ))}
+                           
                     </>  
-                    : <h5>Access Denied</h5>
+                    : 
+                            <Container className="notAuthorized">
+                                <Row>
+                                    <Col>
+                                    <h5> E-Mail is not authorized. Please Contact Admin/Managers for authorization.</h5>
+                                    </Col>
+                                </Row>
+                            </Container>
                 }
 
 
