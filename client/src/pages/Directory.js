@@ -46,7 +46,7 @@ function Directory() {
             {isAuthenticated && (
               <>
                 {loadRole(user.email)}
-                {(role === "admin")
+                {(role === "admin" || role === "Stylist")
                   ? <table className="table">
                     {data.map(person => (
 
@@ -58,10 +58,8 @@ function Directory() {
                       </tr>
                     ))}
                   </table>
-                  : <p>not authorized</p>
+                  : <p></p>
                 }
-
-
               </>
             )
             }
