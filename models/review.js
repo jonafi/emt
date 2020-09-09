@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
 
- var Review = sequelize.define("review", {
+  var Review = sequelize.define("review", {
 
     employeeId: { type: DataTypes.INTEGER, allowNull: false},
     reviewYear: {type: DataTypes.STRING, allowNull: false},

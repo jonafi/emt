@@ -4,16 +4,21 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.review
-      .find(req.query)
-      .sort({ date: -1 })
+      .findAll({})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findAllByEmployee: function(req, res) {
+    db.review
+      .findAll({ where: { employeeId: req.params.id }})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.review
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  db.review
+    .findOne({ where: { id: req.params.id }})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
     db.review
@@ -23,15 +28,20 @@ module.exports = {
   },
   update: function(req, res) {
     db.review
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .update(req.body,{ where: { id: req.params.id }})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     db.review
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
+      .destroy({ where: { id: req.params.id }})
+      .then(num => {
+        if (num == 1) {
+          res.send({ message: "Review was deleted successfully!" });
+        } else {
+          res.send({ message: `Cannot delete review with id=${id}. Maybe review was not found!` });
+        }
+      })
       .catch(err => res.status(422).json(err));
-  }
+  },
 };
