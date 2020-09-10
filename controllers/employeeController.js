@@ -1,15 +1,15 @@
-const Employee = require("../models/employee");
+const db = require("../models");
 
 // Defining methods for the Employee controller
 module.exports = {
   findAll: function(req, res) {
-    Employee
+    db.employee
       .findAll({})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findAllManagers: function(req, res) {
-    Employee
+    db.employee
       .findAll({
         where: { role: "Manager" }
       })
@@ -17,7 +17,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    Employee
+    db.employee
       .findOne({ 
         where: { id: req.params.id }
       })
@@ -25,7 +25,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByEmail: function(req, res) {
-    Employee
+    db.employee
       .findOne({ 
         where: { personal_email: req.params.personal_email }
       })
@@ -33,13 +33,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    Employee
+    db.employee
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    Employee
+    db.employee
       .update(req.body,
         {
           where: { id: req.params.id }
@@ -48,7 +48,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    Employee
+    db.employee
       .destroy({
         where: { id: req.params.id } 
       })
