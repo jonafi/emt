@@ -6,14 +6,13 @@ const app = express();
 
 // middleware allows only authenticated users to see API routes
 const authCheck = (req,res,next)=>{
-  console.log('\x1b[36m%s\x1b[0m', req.headers.referer)
+
   if(req.headers.referer===("http://localhost:3000/"||"https://team-c2c-emt.herokuapp.com/")){
-    next()
-  }
-  else if(req.headers.cookie){
-    next()
+    console.log('\x1b[36m%s\x1b[0m', req.headers.referer); 
+  next()
   }
   else{
+    console.log('\x1b[36m%s\x1b[0m', req.headers.referer)
     res.send(403, "Not Authorized");
     
   }
