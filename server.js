@@ -17,7 +17,8 @@ const authCheck = (req,res,next)=>{
     
   }
 }
-app.use(authCheck)
+//middleware works everywhere but heroku :(
+//app.use(authCheck)
 
 
 // serve static content for the app from the "public" directory in the application directory.
