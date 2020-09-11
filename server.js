@@ -3,6 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+
 // middleware allows only authenticated users to see API routes
 const authCheck = (req,res,next)=>{
   console.log('\x1b[36m%s\x1b[0m', req.headers.referer)
@@ -18,6 +19,7 @@ const authCheck = (req,res,next)=>{
   }
 }
 app.use(authCheck)
+
 
 // serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname, '/public')));
