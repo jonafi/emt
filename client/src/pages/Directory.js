@@ -43,6 +43,7 @@ function Directory() {
         <Row className="infoRow">
           <Col s='12' className="directory">
             <h5 className="bold">Directory List</h5>
+            <hr></hr>
               <Table striped border hover responsive="sm">
             <tbody>
             {isAuthenticated && (

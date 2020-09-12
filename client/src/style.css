@@ -72,13 +72,9 @@ body {
 /*welcome div*/
 .intro {
     margin-top: 2%;
-    padding: 15px;
 }
+.welcome {
 
-/*employee info div*/
-.userInfo{
-    margin-top: 50px;
-    padding: 20px, 0px, 20px, 0px;
 }
 
 .editBtn {
@@ -86,6 +82,18 @@ body {
     margin-top: 25%;
     margin-right: 5%;
 }
+
+/*employee info div*/
+.userInfo{
+    margin-top: 50px;
+    padding: 30px 0px 20px 0px;
+}
+.employee {
+    padding: 30px !important;
+
+}
+
+
 
 /*LOGGED IN, LOGGED OUT, NOT AUTHORIZED*/
 .loggedUser{
@@ -130,4 +138,14 @@ footer {
     border-top: solid 1px #969696;
 }
 
+.red{
+    border: solid 4px red;
+}
 
+.green {
+    border: solid 4px green;
+}
+
+.yellow {
+    border:solid 4px yellow;
+}
