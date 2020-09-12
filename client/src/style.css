@@ -73,14 +73,25 @@ body {
 .intro {
     margin-top: 2%;
 }
-.welcome {
 
-}
 
 .editBtn {
     float: right;
     margin-top: 25%;
-    margin-right: 5%;
+    margin-right: 10%;
+    background-color: #2E2E6E;
+    border: #696969;
+    color: #EDEDED;
+    font-size: 1.3em;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+
+.editBtn:hover {
+background-color: #696969;
+color: #2e2e6e;
 }
 
 /*employee info div*/

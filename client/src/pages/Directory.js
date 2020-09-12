@@ -42,8 +42,8 @@ function Directory() {
       <Container>
         <Row className="infoRow">
           <Col s='12' className="directory">
-            <h5 className="bold">Directory List</h5>
-            <hr></hr>
+            <h5 className="bold listTitle">Directory List</h5>
+            <hr className="linebreak"></hr>
               <Table striped border hover responsive="sm">
             <tbody>
             {isAuthenticated && (

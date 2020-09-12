@@ -165,7 +165,7 @@ function AddUser(){
                             <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
                         </Form.Group>  
                         <Row className="text-center">
-                        <Button as="input" className="addUserbutton" size="lg" type="submit"  value="Submit" />{' '}
+                        <Button as="input" className="addUserbutton mt-4 mb-4" size="lg" type="submit"  value="Submit" />{' '}
                         </Row>
                     </Form>
                 </Col>

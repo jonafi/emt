@@ -55,7 +55,7 @@ function Dashboard(props) {
                                  <Row className="userInfo">
                                      <Col xs="1">
                                       </Col>
-                                        <Col xs="10" className="employee green">
+                                        <Col xs="10" className="employee">
                                                 <Row>
                                                 <Col xs="6">
                                          <h5 className="bold">SIGNED IN AS</h5>

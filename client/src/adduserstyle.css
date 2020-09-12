@@ -14,8 +14,9 @@
     background-color: #2E2E6E;
     border: #696969;
     color: #EDEDED;
-    font-size: 1em;
-    font-family: 'Raleway', sans-serif;
+    font-size: 1.3em;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Oswald', sans-serif;
 }
   
 .addUserbutton:hover {

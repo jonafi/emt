@@ -1,9 +1,10 @@
 .directory {
     background-color: #ededed;
-    padding: 10px;
+    padding: 30px;
     box-shadow: 5px 5px 5px #696969;
     border-radius: 5px;
     border: 1px #FFFFFF solid;
+  
     
 }
 
@@ -11,3 +12,10 @@
   margin-top: 50px;
 }
 
+.linebreak{
+  margin-bottom: 5%;
+}
+
+.listTitle {
+  font-size: 3em;
+}
