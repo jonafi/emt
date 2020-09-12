@@ -48,6 +48,7 @@ function PerformanceReview() {
                                     <div>THPC: {review.goalTHPC}</div> 
                                     <div>CPFH: {review.goalCPFH}</div> 
                                     <div>SPH: {review.goalSPH}</div> 
+                                    <div>L360: {review.goalSPH}</div> 
                                     <div>Attendance: {review.goalAttendance}</div> 
                                     <div>Attitude: {review.goalAttitude}</div> 
                                 </div>
@@ -61,6 +62,7 @@ function PerformanceReview() {
                                     <div>THPC: {review.actualTHPC}</div> 
                                     <div>CPFH: {review.actualCPFH}</div> 
                                     <div>SPH: {review.actualSPH}</div> 
+                                    <div>L360: {review.actualL360}</div> 
                                     <div>Attendance: {review.actualAttendance}</div> 
                                     <div>Attitude: {review.actualAttitude}</div> 
                                 </div>
