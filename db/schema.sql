@@ -42,6 +42,7 @@ CREATE TABLE employees (
 CREATE TABLE reviews (
   id INT NOT NULL AUTO_INCREMENT,
   employeeId INT NOT NULL,
+  personal_email VARCHAR (50) NOT NULL,
   reviewYear VARCHAR (4) NOT NULL,
   reviewQtr Varchar (2) NOT NULL, 
   reviewStatus VARCHAR (10) NOT NULL,
