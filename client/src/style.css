@@ -104,7 +104,7 @@ body {
 }
 
 /*GENERAL STYLE DIVS*/
-.empInfo, .intro, .loginBox , .notAuthorized{
+.employee, .intro, .loginBox , .notAuthorized{
     background-color: #ededed;
     padding: 10px;
     font-family: 'Raleway', sans-serif;

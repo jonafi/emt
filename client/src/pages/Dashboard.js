@@ -78,7 +78,7 @@ function Dashboard(props) {
                                  <Row className="userInfo">
                                      <Col>
                                      </Col>
-                                     <Col xs="8" className="empInfo">
+                                     <Col xs="8" className="employee">
                                      <h5 className="bold">EMPLOYEE INFO</h5>
                                      <hr></hr>
                                         <Row>
