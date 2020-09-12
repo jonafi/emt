@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Dashboard from './pages/Dashboard';
 import Directory from './pages/Directory';
-import AddUser from './pages/AddUser(test)';
+import AddUser from './pages/AddUser';
 import './style.css';
 import PerformanceDashboard from './pages/PerformanceDashboard';
 

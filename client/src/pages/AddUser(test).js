@@ -40,7 +40,7 @@ export default class AddUser extends Component {
         const body = this.state;
         axios({
             method: "post",
-            url: "http://localhost:3000/employee",
+            url: 'http://localhost:3000/employee',
             data: body
         })
         .then(function(res) {
