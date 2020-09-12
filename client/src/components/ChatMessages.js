@@ -5,8 +5,8 @@ import { FormControl } from 'react-bootstrap'
 function ChatMessages (props) {
 
   return (
-    <div>
-      <p>It's {props.words}</p>
+    <div className="message">
+      <div className="message-username">{props.username}: <span className="message-text">{props.text}</span></div>
     </div>
     
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import {Container, Row, Col, Form, Button, InputGroup, FormControl} from 'react-bootstrap'
@@ -8,37 +8,102 @@ import ChatMessages from '../components/ChatMessages';
 import socketIOClient from "socket.io-client";
 const ENDPOINT = "http://127.0.0.1:3002";
 
-function Chatbox () {
 
+function Chatbox () {
+  
+
+  const [username, setUsername] = useState("");
   const [response, setResponse] = useState("");
 
-  function handleOnSubmit (e) {
-    e.preventDefault();
-    socket.emit("chat message", e.target.value);
-  };
+  const DUMMY_DATA = [
+    {
+      username: 'perborgen',
+      text: "Hey hows it going?"
+    },
+    {
+      username: 'janedoe',
+      text: "Great! How about you?"
+    },
+    {
+      username: 'perborgen',
+      text: "Good to hear! I am great as well"
+    },
+  ];
+
+  const [newMsg, setNewMsg] = useState([]);
+  const socketRef = useRef();
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
+    // connect to socket.io
+    socketRef.current = socket.connect('/');
+
+    // get your id (working)
+    socketRef.current.on("id", id => {
+      setUsername(id);
+    });
+
+    // listens for any changes to message
+    socketRef.current.on("chat message", (message) => {
+      console.log("here");
+      console.log("message: ", message);
+    })
+
+    return () => socket.disconnect();
+
+    }, []);
+
+  function handleOnSubmit (e) {
+    e.preventDefault();
+    console.log(response);
+    let data = {
+      username: username,
+      text: response
+    };
+
+    console.log(data);
+
+    // data sent to socket.io
+    socketRef.current.emit("chat message", data);
+
+    // gets the change, then displays it in the chat
+    listeningNewMessages();
+
     
 
-    // return () => socket.disconnect();
+    
+  };
 
-  }, []);
+  function listeningNewMessages () {
+    socketRef.current.on("message", (msg) => {
+      
+
+      setNewMsg([...newMsg, msg]);
+      console.log(newMsg);
+    })
+  }
+
+  
+
   return (
     <div>
     <Nav/>
     <Container className="Chatbox">
       <Row>
         <Col>
+        {DUMMY_DATA.map((message, index) => (
+          <ChatMessages key={index} username={message.username} text={message.text}/>
+        ))}
+        {newMsg.map((message, index) => (
+          <ChatMessages key={index} username={message.username} text={message.text}/>
+        ))}
 
-        <ChatMessages/>
+          <Form onSubmit={handleOnSubmit}>
 
-        <Form>
-
-            <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)} onSubmit={handleOnSubmit}>
+            <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)}  >
               <FormControl aria-describedby="basic-addon1" />
               <InputGroup.Prepend>
-                <Button variant="outline-secondary">Send</Button>
+                <Button variant="outline-secondary" type="submit">Send</Button>
               </InputGroup.Prepend>
             </InputGroup>
             

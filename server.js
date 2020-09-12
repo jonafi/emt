@@ -162,20 +162,21 @@ app.get("*", function (req, res) {
 io.on("connection", (socket) => {
   console.log("New client connected");
 
+  // SENDS BACK ORIGINAL ID/USER
+  socket.emit("id", "tiempoAuto");
+
+  // LISTENS FOR 'chat message'
   socket.on("chat message", (msg) => {
     console.log("message: " + msg);
+    // when done, returns back the message
+    io.emit("message", msg);
   })
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
-  });
+  // socket.on("disconnect", () => {
+  //   console.log("Client disconnected");
+  // });
 });
 
-const getApiAndEmit = socket => {
-  const response = new Date();
-  // Emitting a new message. Will be consumed by the client
-  socket.emit("FromAPI", response);
-};
 
 
 http.listen(3002, () => {
