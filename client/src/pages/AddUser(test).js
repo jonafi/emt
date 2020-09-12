@@ -1,176 +1,91 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
-import API from "../utils/API";
+import axios from 'axios';
 
+export default class AddUser extends Component {
+    
+    constructor(props) {
+        super(props)
 
+        this.state = {
+        department: '',
+        status: '',
+        role: '',
+        first_name: '',
+        middle_init: '',
+        last_name: '',
+        address_line1: '',
+        address_line2: '',
+        city: '',
+        state: '',
+        zip: '',
+        primary_phone: '',
+        personal_email: '',
+        birth_date: '',
+        gender: ''
+        }
+    };
 
-function AddUser(){
-    // all data for new user
-    const [department, setDepartment] = useState("");
-    const [role, setRole] = useState("");
-    const [email, setEmail] = useState("");
-    const [active, setActive] = useState("Active");
-    const [firstName, setFirstName] = useState("");
-    const [middleInitial, setMiddleInitial] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [address, setAddress] = useState("");
-    const [addressTwo, setAddressTwo] = useState("");
-    const [city, setCity] = useState("");
-    const [usState, setUSState] = useState("");
-    const [zip, setZip] = useState("");
-    const [phoneNum, setPhoneNum] = useState("");
-    const [gender, setGender] = useState("F");
-    const [birthDate, setBirthDate] = useState("");
-
-    //
-    function handleOnSubmit (event) {
-        event.preventDefault();
-        console.log(
-            department, 
-            role, 
-            email, 
-            active,
-            firstName,
-            middleInitial,
-            lastName,
-            address,
-            addressTwo,
-            city,
-            usState,
-            zip,
-            phoneNum,
-            gender,
-            birthDate
-        );
-
-        API.postEmployee({
-            "department": JSON.stringify(department),
-            "status": JSON.stringify(active),
-            "role": JSON.stringify(role),
-            "first_name": JSON.stringify(firstName),
-            "middle_init": JSON.stringify(middleInitial),
-            "last_name": JSON.stringify(lastName),
-            "address_line1": JSON.stringify(address),
-            "address_line2": JSON.stringify(addressTwo),
-            "city": JSON.stringify(city),
-            "state": JSON.stringify(usState),
-            "zip": JSON.stringify(zip),
-            "primary_phone": JSON.stringify(phoneNum),
-            "personal_email": JSON.stringify(email),
-            "birth_date": JSON.stringify(birthDate),
-            "gender": JSON.stringify(gender),
+    onChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
         })
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        const body = this.state;
+        axios({
+            method: "post",
+            url: "http://localhost:3000/employee",
+            data: body
+        })
+        .then(function(res) {
+            console.log(res);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    };
+
+    render() {
+        const {
+            department, status, role, first_name, middle_init, last_name,
+            address_line1, address_line2, city, state, zip, primary_phone,
+            personal_email, birth_date, gender
+        } = this.state;
+
+        return (
+            <div>
+        <form onSubmit={this.handleSubmit}>
+            <input defaultValue='department' placeholder= "Department" type="text" name="department" onChange={this.onChange } value={department} />
+            <input defaultValue='status' placeholder= "Status (Active/Inactive)" type="text" name="status" onChange={this.onChange } value={status} />
+            <input defaultValue='role' placeholder= "Role" type="text" name="role" onChange={this.onChange } value={role} />
+            <input defaultValue='first_name' placeholder= "First Name" type="text" name="first_name" onChange={this.onChange } value={first_name} />
+            <input defaultValue='middle_init' placeholder= "Middle Initials" type="text" name="middle_init" onChange={this.onChange } value={middle_init} />
+            <input defaultValue='last_name' placeholder= "Last Name" type="text" name="last_name" onChange={this.onChange } value={last_name} />
+            <input defaultValue='address_line1' placeholder= "Street Address" type="text" name="address_line1" onChange={this.onChange } value={address_line1} />
+            <input defaultValue='address_line2' placeholder= "Apartment #, etc" type="text" name="address_line2" onChange={this.onChange } value={address_line2} />
+            <input defaultValue='city' placeholder= "City" type="text" name="city" onChange={this.onChange } value={city} />
+            <input defaultValue='state' placeholder= "State" type="text" name="state" onChange={this.onChange } value={state} />
+            <input defaultValue='zip' placeholder= "ZIP #" type="text" name="zip" onChange={this.onChange } value={zip} />
+            <input defaultValue='primary_phone' placeholder= "123-123-1234" type="text" name="primary_phone" onChange={this.onChange } value={primary_phone} />
+            <input defaultValue='personal_email' placeholder= "example@email.com" type="text" name="personal_email" onChange={this.onChange } value={personal_email} />
+            <input defaultValue='birth_date' placeholder= "01/31/2000" type="text" name="birth_date" onChange={this.onChange } value={birth_date} />
+            <input defaultValue='gender' type="text" placeholder= "Gender" name="gender" onChange={this.onChange } value={gender} />
+          <button type="submit">Add Guest</button>
+        </form>
+      </div>
+        );
     }
+}
+
+
+
 
     
     
-    return (
-        <>
-        <Nav/>
-        <Container className="AddUser">
-            <Row>
-                <Col>
-                    <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
-
-                    <h1 className="mt-5 bold">Add User</h1>
-
-                        <Form.Group controlId ="add" className="mt-5">
-                            <Form.Label>Department</Form.Label>
-                            <Form.Control type = "text" placeholder="Department" onChange={e => setDepartment(e.target.value)}></Form.Control>
-                        </Form.Group>
-
-                        <Form.Group controlId ="add">
-                            <Form.Label>Role</Form.Label>
-                            <Form.Control type = "text" placeholder="Manager" onChange={e => setRole(e.target.value)}></Form.Control>
-                        </Form.Group>
-
-                        <h6>Role Status</h6>
-                       <Form.Group controlId="add">
-                       <Form.Control as="select" defaultValue="Active" onChange={e => setActive(e.target.value)} >
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                        </Form.Control>
-                       </Form.Group> 
-
-                    <h3 className="mt-5 bold">Personal Information</h3>
-                       <Form.Group controlId ="add" className="mt-3">
-                            <Form.Label>Email Address</Form.Label>
-                            <Form.Control type = "email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}></Form.Control>
-                        </Form.Group>
-
-                        <Form.Group controlId ="add">
-                            <Form.Label>First Name</Form.Label>
-                            <Form.Control type = "text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></Form.Control>
-                        </Form.Group>
-
-                        <Form.Group controlId ="add">
-                            <Form.Label>Middle Initial</Form.Label>
-                            <Form.Control type = "text" placeholder="A" onChange={e => setMiddleInitial(e.target.value)}></Form.Control>
-                        </Form.Group>
-
-                        <Form.Group controlId ="add">
-                            <Form.Label>Last Name</Form.Label>
-                            <Form.Control type = "text" placeholder="Last Name" onChange={e => setLastName(e.target.value)}></Form.Control>
-                        </Form.Group>
-
-                        <Form.Group controlId="add">
-                            <Form.Label>Address</Form.Label>
-                            <Form.Control placeholder="1234 Main Sreet" onChange={e => setAddress(e.target.value)}/>
-                         </Form.Group>
-
-                        <Form.Group controlId="add">
-                            <Form.Label>Address 2</Form.Label>
-                            <Form.Control placeholder="Apartment, Unit or Suite #" onChange={e => setAddressTwo(e.target.value)}/>
-                         </Form.Group>
-
-                        <Form.Row>
-                            <Form.Group as={Col} controlId="add">
-                                <Form.Label>City</Form.Label>
-                            <Form.Control placeholder="City" onChange={e => setCity(e.target.value)}/>
-                            </Form.Group>
-
-                            <Form.Group as={Col} controlId="add">
-                                <Form.Label>State</Form.Label>
-                            <Form.Control placeholder="State" onChange={e => setUSState(e.target.value)}/>
-                            </Form.Group>
-
-                            <Form.Group as={Col} controlId="add">
-                            <Form.Label>Zip</Form.Label>
-                            <Form.Control placeholder="12345" onChange={e => setZip(e.target.value)}/>
-                            </Form.Group>
-                        </Form.Row>
- 
-                        <Form.Group controlId ="add">
-                            <Form.Label>Phone Number</Form.Label>
-                            <Form.Control className="mb-2" type = "text" placeholder="123-456-7890" onChange={e => setPhoneNum(e.target.value)}></Form.Control>
-                        </Form.Group>  
-
-                        <h6>Gender</h6>
-                       <Form.Group controlId="add">
-                       <Form.Control as="select" onChange={e => setGender(e.target.value)}>
-                        <option value="F">Female</option>
-                        <option value="M">Male</option>
-
-                        </Form.Control>
-                       </Form.Group> 
-                        <Form.Group controlId ="add">
-                            <Form.Label>Birth Date</Form.Label>
-                            <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
-                        </Form.Group>  
-            
-                        <Button as="input" type="submit" value="Submit" />{' '}
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
-        <Footer/>
-        </>
-    );
-};
-
-export default AddUser; 
-
+   

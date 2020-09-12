@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react'
-import { Navbar, Nav, Toggle } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import API from '../utils/API';
 
 function Navigation() {
@@ -10,7 +10,7 @@ function Navigation() {
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
   const { user, isAuthenticated } = useAuth0();
-  const [data, setData] = useState([]);
+  const [setData] = useState([]);
   const [role, setRole] = useState([]);
 
   useEffect(() => {
