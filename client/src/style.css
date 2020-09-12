@@ -1,6 +1,14 @@
 
 body {
     background-color: #C7C7C7;
+
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+        
 }
 
 footer {
@@ -10,16 +18,12 @@ footer {
     width: 100%;
     background-color: #2e2e6e;
     color: #D3D3D3;
+    font-family: 'Wallpoet', cursive;
 }
-
 
 /*CUSTOM CLASSES*/
 .head-text {
-    font-size: 50px;
-}
-
-.sub-text {
-    font-size: 30px;
+    font-size: 2em;
 }
 
 .bold {
@@ -30,6 +34,7 @@ footer {
 }
 .ltgray {
     color: #ededed !important;
+    
 }
 
 .infoDiv {
@@ -42,29 +47,58 @@ footer {
     margin-top: 40%;
     margin-right: 5%;
 }
+
 /*CUSTOM CLASSES*/
 
 .title {
     text-align: center;
-    border-top: solid 1px #696969;
+    border-top: solid 1px #969696;
 }
 
 .Hero {
-    border-right: solid 1px white;
-    padding-right: 20px;
+    /*border-right: solid 1px white;*/
+    padding: 0px 15px 0px 15px;
+    font-family: 'Wallpoet', cursive;
 
 }
+.ltgray:hover {
+    background-color: #696969;
+    color: #2e2e6e !important;
+    font-weight: 900;
+
+  }
 
 .navbar{
     border-bottom: solid 1px #D3D3D3;
     background-color: #2e2e6e;
     color: #ededed;
     width: 100%;
+    font-size: 1.5em;
 }
 
 .infoRow{
     margin-top: 50px;
 }
+
+.Button {
+    background-color: #2E2E6E;
+    border: #696969;
+    color: #EDEDED;
+    margin-left: 4px;
+    font-size: 1em;
+}
+  
+.Button:hover {
+    background-color: #696969;
+    color: #2e2e6e;
+    font-weight: 900;
+  }
+
+.toggle {
+    background-color: #84818d!important;
+    border:solid 1px white;
+}
+
 
 /*GENERAL STYLE DIVS*/
 .empInfo, .goals, .intro, .Directory, .AddUser, .loginBox , .notAuthorized{
@@ -74,6 +108,7 @@ footer {
     box-shadow: 5px 5px 5px #696969;
     border-radius: 5px;
     border: 1px #FFFFFF solid;
+    font-size: 1em;
 }
 
 .empInfo, .goals {
@@ -84,11 +119,9 @@ footer {
 
 .loggedUser{
     margin-right: 10px;
-}
-
-.loggedUser {
     margin-left: 15px;
 }
+
 
 .intro {
     margin-top: 2%;
@@ -101,15 +134,15 @@ footer {
 }
 
 .AddUser {
-    width: 70% !important;
+
+    display:flex;
+    flex-direction: column;
 }
 
 .notAuthorized {
     text-align: center;
     font-weight: bold;
 }
-
-/*** Table Styles **/
 
 .table-fill {
     background: white;
@@ -227,3 +260,4 @@ footer {
   .noBullet {
       list-style: none;
   }
+
