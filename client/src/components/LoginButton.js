@@ -9,8 +9,8 @@ const LoginButton = () => {
     return (
         (window.location.pathname === "/" || window.location.pathname === "/Dashboard") && (
             !isAuthenticated && (
-                <Button onClick={() => loginWithRedirect()}>
-                    Log In
+                <Button className="Button" onClick={() => loginWithRedirect()}>
+                    LOGIN
                 </Button>
             )
         )
