@@ -34,7 +34,23 @@ module.exports = {
   },
   create: function(req, res) {
     db.employee
-      .create(req.body)
+      .create({
+        department: req.body.department,
+        status: req.body.status,
+        role: req.body.role,
+        first_name: req.body.first_name,
+        middle_init: req.body.middle_init,
+        last_name: req.body.last_name,
+        address_line1: req.body.address_line1,
+        address_line2: req.body.addressline2,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        primary_phone: req.body.primary_phone,
+        personal_email: req.body.personal_email,
+        birth_date: req.body.birth_date,
+        gender: req.body.gender
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

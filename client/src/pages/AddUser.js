@@ -26,6 +26,7 @@ function AddUser(){
 
     //
     function handleOnSubmit (event) {
+        event.preventDefault();
         console.log(
             department, 
             role, 
@@ -45,21 +46,21 @@ function AddUser(){
         );
 
         API.postEmployee({
-            "department": department,
-            "status": active,
-            "role": role,
-            "first_name": firstName,
-            "middle_init": middleInitial,
-            "last_name": lastName,
-            "address_line1": address,
-            "address_line2": addressTwo,
-            "city": city,
-            "state": usState,
-            "zip": zip,
-            "primary_phone": phoneNum,
-            "personal_email": email,
-            "birth_date": birthDate,
-            "gender": gender,
+            "department": JSON.stringify(department),
+            "status": JSON.stringify(active),
+            "role": JSON.stringify(role),
+            "first_name": JSON.stringify(firstName),
+            "middle_init": JSON.stringify(middleInitial),
+            "last_name": JSON.stringify(lastName),
+            "address_line1": JSON.stringify(address),
+            "address_line2": JSON.stringify(addressTwo),
+            "city": JSON.stringify(city),
+            "state": JSON.stringify(usState),
+            "zip": JSON.stringify(zip),
+            "primary_phone": JSON.stringify(phoneNum),
+            "personal_email": JSON.stringify(email),
+            "birth_date": JSON.stringify(birthDate),
+            "gender": JSON.stringify(gender),
         })
         .then(result => console.log(result))
         .catch(err => console.log(err));
