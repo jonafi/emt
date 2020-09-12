@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
+import API from "../utils/API";
 
 
 
@@ -20,7 +21,7 @@ function AddUser(){
     const [usState, setUSState] = useState("");
     const [zip, setZip] = useState("");
     const [phoneNum, setPhoneNum] = useState("");
-    const [gender, setGender] = useState("Female");
+    const [gender, setGender] = useState("F");
     const [birthDate, setBirthDate] = useState("");
 
     //
@@ -42,6 +43,26 @@ function AddUser(){
             gender,
             birthDate
         );
+
+        API.postEmployee({
+            "department": department,
+            "status": active,
+            "role": role,
+            "first_name": firstName,
+            "middle_init": middleInitial,
+            "last_name": lastName,
+            "address_line1": address,
+            "address_line2": addressTwo,
+            "city": city,
+            "state": usState,
+            "zip": zip,
+            "primary_phone": phoneNum,
+            "personal_email": email,
+            "birth_date": birthDate,
+            "gender": gender,
+        })
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
     }
 
     
@@ -130,8 +151,8 @@ function AddUser(){
                         <h6>Gender</h6>
                        <Form.Group controlId="add">
                        <Form.Control as="select" onChange={e => setGender(e.target.value)}>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
+                        <option value="F">Female</option>
+                        <option value="M">Male</option>
 
                         </Form.Control>
                        </Form.Group> 
