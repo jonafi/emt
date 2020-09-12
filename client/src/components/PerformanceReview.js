@@ -24,47 +24,62 @@ function PerformanceReview() {
     return (
         <div>
             {isAuthenticated && (
-                <ul>
+                <ul className="noBullet">
                     {data.map(review => (
                         <li key={review.id}>
                             <row>
                                 <div className="d-flex flex-row">
-                                    <div className="p-2">Review Year: {review.reviewYear}</div> 
-                                    <div className="p-2">Review Qtr: {review.reviewQtr}</div> 
-                                    <div className="p-2">Review Status:{review.reviewStatus}</div> 
+                                    <div className="p-2"><h5>{review.reviewYear}, {review.reviewQtr}   Status: {review.reviewStatus}</h5></div> 
                                 </div>
                             </row>
                             <row>
                                 <div className="d-flex flex-row">
-                                    <div>Overall Rating: {review.actualOverallRating}</div> 
+                                    <div><h5>Overall Rating: {review.actualOverallRating}</h5></div> 
                                 </div>
                             </row>
-                            <row>
-                                <div className="d-flex flex-row">
-                                    <div>GOALS:</div>
-                                    <div>Net Sales: {review.goalNetSales}</div> 
-                                    <div>Hours: {review.goalHours}</div> 
-                                    <div>BB%: {review.goalBB}</div> 
-                                    <div>THPC: {review.goalTHPC}</div> 
-                                    <div>CPFH: {review.goalCPFH}</div> 
-                                    <div>SPH: {review.goalSPH}</div> 
-                                    <div>Attendance: {review.goalAttendance}</div> 
-                                    <div>Attitude: {review.goalAttitude}</div> 
-                                </div>
-                            </row>
-                            <row>
-                                <div className="d-flex flex-row">
-                                    <div>ACTUALS:</div>
-                                    <div>Net Sales: {review.actualNetSales}</div> 
-                                    <div>Hours: {review.actualHours}</div> 
-                                    <div>BB%: {review.actualBB}</div> 
-                                    <div>THPC: {review.actualTHPC}</div> 
-                                    <div>CPFH: {review.actualCPFH}</div> 
-                                    <div>SPH: {review.actualSPH}</div> 
-                                    <div>Attendance: {review.actualAttendance}</div> 
-                                    <div>Attitude: {review.actualAttitude}</div> 
-                                </div>
-                            </row>
+
+                            <table className="table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Net Sales</th>
+                                        <th>Hours</th>
+                                        <th>BB%</th>
+                                        <th>THPC</th>
+                                        <th>CPFH</th>
+                                        <th>SPH</th>
+                                        <th>L360</th>
+                                        <th>Attendance</th>
+                                        <th>Attitude</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>GOALS</td> 
+                                        <td>${review.goalNetSales}</td> 
+                                        <td>{review.goalHours}</td> 
+                                        <td>{review.goalBB}%</td> 
+                                        <td>${review.goalTHPC}</td> 
+                                        <td>{review.goalCPFH}</td> 
+                                        <td>${review.goalSPH}</td> 
+                                        <td>{review.goalL360}</td> 
+                                        <td>{review.goalAttendance}</td> 
+                                        <td>{review.goalAttitude}</td>                                         
+                                    </tr>
+                                    <tr>
+                                        <td>ACTUALS</td> 
+                                        <td>${review.actualNetSales}</td> 
+                                        <td>{review.actualHours}</td> 
+                                        <td>{review.actualBB}%</td> 
+                                        <td>${review.actualTHPC}</td> 
+                                        <td>{review.actualCPFH}</td> 
+                                        <td>${review.actualSPH}</td> 
+                                        <td>{review.actualL360}</td> 
+                                        <td>{review.actualAttendance}</td> 
+                                        <td>{review.actualAttitude}</td>                                         
+                                    </tr>
+                                </tbody>
+                            </table>
                             <br></br>
                         </li>
                         

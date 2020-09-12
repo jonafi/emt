@@ -2,10 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
 import Directory from './pages/Directory';
 import AddUser from './pages/AddUser';
-import Performance from './pages/PerformanceDashboard';
 import './style.css';
 import './directorystyle.css';
 import './performancestyle.css';

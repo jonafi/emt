@@ -13,6 +13,7 @@ module.exports = function (sequelize, DataTypes) {
     goalTHPC: { type: DataTypes.DECIMAL, defaultValue: 0},
     goalCPFH: { type: DataTypes.DECIMAL, defaultValue: 0},
     goalSPH: { type: DataTypes.DECIMAL, defaultValue: 0},
+    goalL360: { type: DataTypes.DECIMAL, defaultValue: 0},
     goalAttendance: { type: DataTypes.INTEGER, defaultValue: 0},
     goalAttitude: { type: DataTypes.INTEGER, defaultValue: 0},
     actualOverallRating: { type: DataTypes.INTEGER, defaultValue: 0},
@@ -22,6 +23,7 @@ module.exports = function (sequelize, DataTypes) {
     actualTHPC: { type: DataTypes.DECIMAL, defaultValue: 0},
     actualCPFH: { type: DataTypes.DECIMAL, defaultValue: 0},
     actualSPH: { type: DataTypes.DECIMAL, defaultValue: 0},
+    actualL360: { type: DataTypes.DECIMAL, defaultValue: 0},
     actualAttendance: { type: DataTypes.INTEGER, defaultValue: 0},
     actualAttitude: { type: DataTypes.INTEGER, defaultValue: 0}
   });

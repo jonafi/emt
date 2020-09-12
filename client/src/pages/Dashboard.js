@@ -1,13 +1,10 @@
 import React, { useState,useEffect } from 'react';
-import LoggedUser from '../components/LoggedUser';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import { useAuth0 } from '@auth0/auth0-react'
 import {Col, Container, Row, Button} from 'react-bootstrap';
-import Database from '../components/Database';
 import API from '../utils/API';
 
-import Profile from '../utils/Profile';
 
 function Dashboard(props) {
   const { isLoading } = useAuth0();

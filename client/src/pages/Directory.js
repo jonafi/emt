@@ -48,7 +48,7 @@ function Directory() {
             {isAuthenticated && (
               <>
                 {loadRole(user.email)}
-                {(role === "admin" || role === "Stylist")
+                {(role === "admin" || role === "Stylist" || role === "role4")
                   ? <table className="table">
                     {data.map(person => (
                       <tr>
