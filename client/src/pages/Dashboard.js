@@ -71,6 +71,7 @@ function Dashboard(props) {
                                              <p>{filteredPerson.first_name}</p>
                                          <h5 className="bold bmarg">Date Hired</h5>
                                              <p>{filteredPerson.hire_date}</p> 
+
                                          <Button variant="outline-secondary" className="editBtn">Edit</Button>{' '}
                                      </Col>
                                  </Row>
