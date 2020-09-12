@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import {Container, Row, Col, Form, Button, InputGroup, FormControl} from 'react-bootstrap'
+import { useAuth0 } from '@auth0/auth0-react'
 import API from "../utils/API";
 import ChatMessages from '../components/ChatMessages';
 
@@ -10,7 +11,11 @@ const ENDPOINT = "http://127.0.0.1:3002";
 
 
 function Chatbox () {
-  
+
+  const { isLoading } = useAuth0();
+  if (isLoading) return <div>...</div>; //prevents seeing wrong button
+
+  const { user, isAuthenticated } = useAuth0();
 
   const [username, setUsername] = useState("");
   const [response, setResponse] = useState("");
@@ -38,11 +43,13 @@ function Chatbox () {
     // connect to socket.io
     socketRef.current = socket.connect('/');
 
-    // get your id (working)
-    socketRef.current.on("id", id => {
-      setUsername(id);
-    });
+    // // get your id (working)
+    // socketRef.current.on("id", id => {
+    //   setUsername(id);
+    // });
 
+    setUsername(id);
+    // loadRole(user);
     // listens for any changes to message
     socketRef.current.on("chat message", (message) => {
       console.log("here");
@@ -81,6 +88,15 @@ function Chatbox () {
       setNewMsg([...newMsg, msg]);
       console.log(newMsg);
     })
+  }
+
+  function loadRole(user) {
+    API.getUser(user)
+      .then(result => {
+        setUsername(result.data.personal_email);
+        // console.log(result.data.personal_email)
+      })
+      .catch(err => console.log(err));
   }
 
   
