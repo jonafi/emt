@@ -15,8 +15,17 @@ if (process.env.JAWSDB_URL) {
    pool: { max: 5, min: 0, idle: 10000 }
   });
 } else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+
+  sequelize = new Sequelize("sequelize_library", "root", "22087005552493", {
+
+   host: "localhost",
+   port: 3306,
+   dialect: "mysql",
+   pool: { max: 5, min: 0, idle: 10000 }
+
+ });
 }
+
 
 fs
   .readdirSync(__dirname)

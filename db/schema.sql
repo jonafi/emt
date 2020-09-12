@@ -38,3 +38,34 @@ CREATE TABLE employees (
   updatedAT DATETIME DEFAULT NOW(),
   PRIMARY KEY (id)
 );
+
+CREATE TABLE reviews (
+  id INT NOT NULL AUTO_INCREMENT,
+  employeeId INT NOT NULL,
+  personal_email VARCHAR (50) NOT NULL,
+  reviewYear VARCHAR (4) NOT NULL,
+  reviewQtr Varchar (2) NOT NULL, 
+  reviewStatus VARCHAR (10) NOT NULL,
+  goalNetSales NUMERIC (10,2) DEFAULT 0,
+  goalHours NUMERIC (10,2) DEFAULT 0,
+  goalBB NUMERIC (10,2) DEFAULT 0,
+  goalTHPC NUMERIC (10,2) DEFAULT 0,
+  goalCPFH NUMERIC (10,2) DEFAULT 0,
+  goalSPH NUMERIC (10,2) DEFAULT 0,
+  goalL360 NUMERIC (10,2) DEFAULT 0,
+  goalAttendance INT DEFAULT 0,
+  goalAttitude INT DEFAULT 0,
+  actualOverallRating INT DEFAULT 0,
+  actualNetsales NUMERIC (10,2) DEFAULT 0,
+  actualHours NUMERIC (10,2) DEFAULT 0,
+  actualBB NUMERIC (10,2) DEFAULT 0,
+  actualTHPC NUMERIC (10,2) DEFAULT 0,
+  actualCPFH NUMERIC (10,2) DEFAULT 0,
+  actualSPH NUMERIC (10,2) DEFAULT 0,
+  actualL360 NUMERIC (10,2) DEFAULT 0,
+  actualAttendance INT DEFAULT 0,
+  actualAttitude INT DEFAULT 0,
+  createdAT DATETIME DEFAULT NOW(),
+  updatedAT DATETIME DEFAULT NOW(),
+  PRIMARY KEY (id)
+);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Navbar, Container } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
 import LoginButton from '../components/LoginButton';
 
 function Login(){
