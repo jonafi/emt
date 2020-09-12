@@ -12,11 +12,14 @@ function Chatbox () {
 
   const [response, setResponse] = useState("");
 
+  function handleOnSubmit (e) {
+    e.preventDefault();
+    socket.emit("chat message", e.target.value);
+  };
+
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
-    socket.on("FromAPI", data => {
-      setResponse(data);
-    });
+    
 
     // return () => socket.disconnect();
 
@@ -28,11 +31,11 @@ function Chatbox () {
       <Row>
         <Col>
 
-        <ChatMessages words={response}/>
+        <ChatMessages/>
 
         <Form>
 
-            <InputGroup className="mb-3">
+            <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)} onSubmit={handleOnSubmit}>
               <FormControl aria-describedby="basic-addon1" />
               <InputGroup.Prepend>
                 <Button variant="outline-secondary">Send</Button>
