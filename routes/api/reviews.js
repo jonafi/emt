@@ -7,11 +7,11 @@ const Review = require("../../controllers/reviewController");
 // GET
 router.get("/reviews", Review.findAll);
 
-// GET Review for Employee
-router.get("/reviews/:id", Review.findAllByEmployee);
-
 // GET by ID
 router.get("/review/:id", Review.findById);
+
+// GET by Email
+router.get("/reviews/:personal_email", Review.findByEmail)
 
 // POST
 router.post("/review", Review.create);
