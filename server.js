@@ -8,17 +8,17 @@ const app = express();
 const authCheck = (req,res,next)=>{
 
   if(req.headers.referer===("http://localhost:3000/"||"https://team-c2c-emt.herokuapp.com/")){
-    console.log('\x1b[36m%s\x1b[0m', req.headers.referer); 
+    console.log('\x1b[42m%s\x1b[0m', req.headers.referer); 
   next()
   }
   else{
-    console.log('\x1b[36m%s\x1b[0m', req.headers.referer)
-    res.send(403, "Not Authorized");
+    console.log('\x1b[41m%s\x1b[0m', req.headers.referer)
+   // res.send(403, "Not Authorized");
     
   }
 }
 //middleware works everywhere but heroku :(
-//app.use(authCheck)
+app.use(authCheck)
 
 
 // serve static content for the app from the "public" directory in the application directory.
