@@ -1,0 +1,10 @@
+.AddUser {
+    margin-top: 3%;
+    background-color: #ededed;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 5px 5px 5px #696969;
+    border-radius: 5px;
+    border: 1px #FFFFFF solid;
+    font-size: 1em;
+}

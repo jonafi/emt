@@ -78,7 +78,7 @@ function Dashboard(props) {
                              </Container>
 
                              <Container>
-                                 <Row className="infoRow">
+                                 <Row className="userInfo">
                                      <Col>
                                      </Col>
                                      <Col xs="8" className="empInfo">

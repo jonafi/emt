@@ -7,6 +7,9 @@ import Directory from './pages/Directory';
 import AddUser from './pages/AddUser';
 import Performance from './pages/PerformanceDashboard';
 import './style.css';
+import './directorystyle.css';
+import './performancestyle.css';
+import './adduserstyle.css';
 import PerformanceDashboard from './pages/PerformanceDashboard';
 
 function App() {

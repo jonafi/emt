@@ -1,7 +1,5 @@
-
 body {
     background-color: #C7C7C7;
-
     font-family: 'Oswald', sans-serif;
     margin: 0;
     padding: 0;
@@ -11,62 +9,18 @@ body {
         
 }
 
-footer {
-    position: fixed;
-    left:0;
-    bottom: 0;
-    width: 100%;
-    background-color: #2e2e6e;
-    color: #D3D3D3;
+/*NAVIGATION*/
+.Hero {
+    padding: 0px 15px 0px 15px;
     font-family: 'Wallpoet', cursive;
-}
-
-/*CUSTOM CLASSES*/
-.head-text {
     font-size: 2em;
 }
 
-.bold {
-    font-weight: 900;
-}
-.bmarg {
-    margin-bottom: 20px;
-}
-.ltgray {
-    color: #ededed !important;
-    
-}
-
-.infoDiv {
-    width: 75%;
-}
-
-
-.editBtn {
-    float: right;
-    margin-top: 40%;
-    margin-right: 5%;
-}
-
-/*CUSTOM CLASSES*/
-
-.title {
-    text-align: center;
-    border-top: solid 1px #969696;
-}
-
-.Hero {
-    /*border-right: solid 1px white;*/
-    padding: 0px 15px 0px 15px;
-    font-family: 'Wallpoet', cursive;
-
-}
 .ltgray:hover {
     background-color: #696969;
     color: #2e2e6e !important;
     font-weight: 900;
-
-  }
+}
 
 .navbar{
     border-bottom: solid 1px #D3D3D3;
@@ -76,8 +30,28 @@ footer {
     font-size: 1.5em;
 }
 
-.infoRow{
-    margin-top: 50px;
+.toggle {
+    background-color: #84818d!important;
+    border:solid 1px white;
+}
+
+/*CUSTOM CLASSES*/
+.bold {
+    font-weight: 900;
+    font-family: 'Oswald', sans-serif;
+}
+
+.bmarg {
+    margin-bottom: 20px;
+}
+
+.ltgray {
+    color: #ededed !important;
+    
+}
+
+.infoDiv {
+    width: 75%;
 }
 
 .Button {
@@ -94,14 +68,43 @@ footer {
     font-weight: 900;
   }
 
-.toggle {
-    background-color: #84818d!important;
-    border:solid 1px white;
+/*DASHBOARD*/
+/*welcome div*/
+.intro {
+    margin-top: 2%;
+    padding: 15px;
 }
 
+/*employee info div*/
+.userInfo{
+    margin-top: 50px;
+    padding: 20px, 0px, 20px, 0px;
+}
+
+.editBtn {
+    float: right;
+    margin-top: 25%;
+    margin-right: 5%;
+}
+
+/*LOGGED IN, LOGGED OUT, NOT AUTHORIZED*/
+.loggedUser{
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+.loginBox, .notAuthorized {
+    padding: 15px;
+    margin-top: 3%;
+}
+
+.notAuthorized {
+    text-align: center;
+    font-weight: bold;
+}
 
 /*GENERAL STYLE DIVS*/
-.empInfo, .goals, .intro, .Directory, .AddUser, .loginBox , .notAuthorized{
+.empInfo, .intro, .loginBox , .notAuthorized{
     background-color: #ededed;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
@@ -111,36 +114,21 @@ footer {
     font-size: 1em;
 }
 
-.empInfo, .goals {
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+footer {
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    background-color: #2e2e6e;
+    color: #D3D3D3;
+    font-family: 'Wallpoet', cursive;
 }
 
-.loggedUser{
-    margin-right: 10px;
-    margin-left: 15px;
-}
-
-
-.intro {
-    margin-top: 2%;
-    padding: 15px;
-}
-
-.Directory, .AddUser, .loginBox, .notAuthorized {
-    padding: 15px;
-    margin-top: 3%;
-}
-
-.AddUser {
-
-    display:flex;
-    flex-direction: column;
-}
-
-.notAuthorized {
+/*part of footer*/
+.title {
     text-align: center;
-    font-weight: bold;
+    border-top: solid 1px #969696;
 }
+
+
 
