@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../components/NavBar';
 import { useAuth0 } from '@auth0/auth0-react'
-import { Col, Container, Row } from 'react-bootstrap';
+import Footer from '../components/Footer';
+import { Col, Container, Row, Table,} from 'react-bootstrap';
 import API from '../utils/API';
 
 function Directory() {
@@ -41,15 +42,15 @@ function Directory() {
       <Container>
         <Row className="infoRow">
           <Col xs='12' className="empInfo">
-            <h5>Directory List</h5>
-
+            <h5 className="bold">Directory List</h5>
+              <Table striped border hover responsive="sm">
+            <tbody>
             {isAuthenticated && (
               <>
                 {loadRole(user.email)}
                 {(role === "admin" || role === "Stylist" || role === "role4")
                   ? <table className="table">
                     {data.map(person => (
-
                       <tr>
                         <td>{person.first_name}</td>
                         <td>{person.last_name}</td>
@@ -63,11 +64,13 @@ function Directory() {
               </>
             )
             }
-
-          </Col>
+            </tbody>
+          </Table>
+         </Col>
 
         </Row>
       </Container>
+      <Footer/>
     </>
   );
 }

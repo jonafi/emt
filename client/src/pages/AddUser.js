@@ -119,7 +119,7 @@ function AddUser(){
 
                         <Form.Group controlId="add">
                             <Form.Label>Address</Form.Label>
-                            <Form.Control placeholder="1234 Main Sreet" onChange={e => setAddress(e.target.value)}/>
+                            <Form.Control placeholder="1234 Main Street" onChange={e => setAddress(e.target.value)}/>
                          </Form.Group>
 
                         <Form.Group controlId="add">
@@ -162,7 +162,7 @@ function AddUser(){
                             <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
                         </Form.Group>  
             
-                        <Button as="input" type="submit" value="Submit" />{' '}
+                        <Button as="input" className="Button" type="submit"  value="Submit" />{' '}
                     </Form>
                 </Col>
             </Row>

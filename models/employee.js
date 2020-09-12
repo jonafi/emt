@@ -2,12 +2,10 @@ module.exports = function(sequelize, DataTypes) {
 
   var Employee = sequelize.define("employee", {
 
-
     department: { type: DataTypes.STRING, validate: { isIn: [["Admin", "Tannerco", "MN117", "MN129", "MN140"]]}},
     status: { type: DataTypes.STRING, validate: { isIn: [["Active", "Terminated", "Candidate"]]}},
     role: {type: DataTypes.STRING, validate: { isIn: [["Admin", "Manager", "Area Mgr", "Sr Manager", "Stylist", "Asst Mgr", "IT"]]}},
     first_name: {type: DataTypes.STRING, allowNull: false},
-
     middle_init: DataTypes.STRING,
     last_name: {type: DataTypes.STRING, allowNull: false},
     address_line1: DataTypes.STRING,

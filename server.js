@@ -39,6 +39,8 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 const employeeRoutes = require("./routes/api/employees");
 app.use('/api', employeeRoutes);
+const reviewRoutes = require("./routes/api/reviews");
+app.use('/api', reviewRoutes);
 
 /*
 CONTROLLER

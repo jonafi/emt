@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react'
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Nav, Toggle } from 'react-bootstrap';
 import API from '../utils/API';
 
-function Nav() {
+function Navigation() {
   const { isLoading } = useAuth0();
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
@@ -40,30 +40,31 @@ function Nav() {
 
 
   return (
-    <>
-      <Navbar className="navbar">
-        <Navbar.Brand href="/Dashboard" className="Hero ltgray">EMPLOYEE HERO</Navbar.Brand>
-        {isAuthenticated && (
+    <Navbar className="navbar" expand="lg">
+    <Navbar.Brand href="/Dashboard" className="Hero ltgray head-text">EH</Navbar.Brand>
+    <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+
+    {isAuthenticated && (
           <>
-            <Navbar.Brand href="/Directory" className="ltgray">DIRECTORY</Navbar.Brand>
-            <Navbar.Brand href="/Performance" className="ltgray">PERFORMANCE</Navbar.Brand>
+            <Nav.Link href="/Directory" className="ltgray">DIRECTORY</Nav.Link>
+            <Nav.Link href="/Performance" className="ltgray">PERFORMANCE</Nav.Link>
             {loadRole(user.email)}
             {(role === 'admin')
-              ? <Navbar.Brand href="/AddUser" className="ltgray">ADD USER</Navbar.Brand>
+              ? <Nav.Link href="/AddUser" className="ltgray">ADD USER</Nav.Link>
               : <p></p>
             }
           </>
-        )}
 
-          <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-end">
-            </Navbar.Collapse>
-            <LoginButton/>
-            <LogoutButton/>
-      </Navbar>
-      
-    </>
+
+        )}
+    <LoginButton/>
+    <LogoutButton/>
+    </Navbar.Collapse>
+
+              
+  </Navbar>
   );
 }
 
-export default Nav;
+export default Navigation;
