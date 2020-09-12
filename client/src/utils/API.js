@@ -15,5 +15,11 @@ export default {
   },
   deleteEmployee: function(id) {
     return axios.delete('/api/employee/' + id)
+  },
+  getEmployeePerformance: function(email) {
+    return axios.get('/api/reviews/' + email)
+  },
+  getAllPerformance: function() {
+    return axios.get('/api/reviews')
   }
 };
