@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "bj200e",
+    "password": "HELLO",
     "database": "sequelize_library",
     "host": "127.0.0.1",
     "port": 3306,
