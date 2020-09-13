@@ -92,6 +92,7 @@ app.post('/uploadfiles', (req, res) => {
       });
     }
   });
+  res.redirect('back');
 });
 
 const db = require("./models");
