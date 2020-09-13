@@ -2,23 +2,24 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const upload = require('express-fileUpload')
 
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
 // middleware allows only authenticated users to see API routes
-const authCheck = (req,res,next)=>{
+// const authCheck = (req,res,next)=>{
 
-  if(req.headers.referer===("http://localhost:3000/"||"https://team-c2c-emt.herokuapp.com/")){
-    console.log('\x1b[36m%s\x1b[0m', req.headers.referer); 
-  next()
-  }
-  else{
-    console.log('\x1b[36m%s\x1b[0m', req.headers.referer)
-    res.send(403, "Not Authorized");
+//   if(req.headers.referer===("http://localhost:3000/"||"https://team-c2c-emt.herokuapp.com/")){
+//     console.log( '******************* GOOD *********', req.headers.referer); 
+//   next()
+//   }
+//   else{
+//     console.log('****************** NO MATCH *******' + req.headers.referer)
+//    // res.send(403, "Not Authorized");
     
-  }
-}
+//   }
+// }
 //middleware works everywhere but heroku :(
 //app.use(authCheck)
 
@@ -52,6 +53,31 @@ app.use(express.static(path.join(__dirname, '/public')));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// For uploading files
+app.use(upload());
+
+app.post('/uploadfiles', (req,res)=>{
+
+  if(req.files){
+     // console.log(req.files)
+      let file= req.files.file;
+      let filename=file.name;
+     // console.log(filename)
+  
+     file.mv("./uploads/" +  filename, (err)=>{
+         if(err){
+             res.send(err)
+         } else{
+             res.send("file uploaded")
+         }
+     });
+  }
+  })
+
+
+
+
 
 
 const db = require("./models");
