@@ -17,7 +17,6 @@ if (process.env.JAWSDB_URL) {
 } else {
 
   sequelize = new Sequelize("sequelize_library", "root", "HELLO", {
-
    host: "localhost",
    port: 3306,
    dialect: "mysql",
