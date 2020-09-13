@@ -59,6 +59,8 @@ app.use(express.json());
 app.use(upload());
 
 const AWS = require('aws-sdk');
+
+// TO DO make a local ENV system that works....
 const AWS_ID = process.env.AWS_Access_Key_Id;
 const AWS_SECRET = process.env.AWS_Secret_Key;
 const AWS_BUCKET = process.env.S3_BUCKET;
@@ -77,10 +79,9 @@ app.post('/uploadfiles', (req, res) => {
     else {
       let fullPath = "./uploads/" + filename;
       const fileContent = fs.readFileSync(fullPath);
-      // Setting up S3 upload parameters
       const options = {
         Bucket: AWS_BUCKET,
-        Key: filename, 
+        Key: filename,
         Body: fileContent
       };
       // Uploading files to the bucket
@@ -88,11 +89,11 @@ app.post('/uploadfiles', (req, res) => {
         if (err) {
           throw err;
         }
-        console.log(`File uploaded successfully. ${data.Location}`);
+        //console.log(`File uploaded ${data.Location}`);
       });
     }
   });
-  res.redirect('back');
+  res.redirect('back'); //prevents hanging.  replace with thank you modal redirect?
 });
 
 const db = require("./models");
