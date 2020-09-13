@@ -57,6 +57,26 @@ app.use(express.json());
 // For uploading files
 app.use(upload());
 
+app.post('/uploadfiles', (req,res)=>{
+
+  if(req.files){
+     // console.log(req.files)
+      let file= req.files.file;
+      let filename=file.name;
+     // console.log(filename)
+  
+     file.mv("./uploads/" +  filename, (err)=>{
+         if(err){
+             res.send(err)
+         } else{
+             res.send("file uploaded")
+         }
+     });
+  }
+  })
+
+
+
 
 
 

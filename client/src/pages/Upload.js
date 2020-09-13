@@ -44,7 +44,7 @@ function Upload() {
           <Col xs='12' className="empInfo">
 
 
-          <form method="Post" action= "/" enctype="multipart/form-data">
+          <form method="Post" action= "/uploadfiles" enctype="multipart/form-data">
     <input type="file" name="file"/>
     <input type="submit" name="Upload" />
 </form>
