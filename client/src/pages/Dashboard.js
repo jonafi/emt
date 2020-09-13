@@ -79,7 +79,7 @@ function Dashboard(props) {
                                  </Row>
                              </Container>
 
-                             <Container>
+                             <Container className="employeeContainer">
                                  <Row className="userInfo">
                                      <Col xs="1">
                                       </Col>

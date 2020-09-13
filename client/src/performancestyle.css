@@ -1,12 +1,12 @@
 .performanceInfo {
     margin-top: 3%;
     background-color: #ededed;
-    padding: 10px;
+    padding: 30px;
     font-family: 'Raleway', sans-serif;
     box-shadow: 5px 5px 5px #696969;
     border-radius: 5px;
     border: 1px #FFFFFF solid;
-    font-size: 1em;
+    font-size: 1.6em;
 }
 
 .table-fill {
@@ -24,7 +24,7 @@
    
   th {
     color:#D5DDE5;;
-    background:#1b1e24;
+    background:#4c4d4e;
     border-bottom:4px solid #9ea7af;
     border-right: 1px solid #343a45;
     font-size:16px;
@@ -54,7 +54,7 @@
   }
    
   tr:hover td {
-    background:#4E5066;
+    background:#969090;
     color:#FFFFFF;
     border-top: 1px solid #22262e;
   }
@@ -72,7 +72,7 @@
   }
    
   tr:nth-child(odd):hover td {
-    background:#4E5066;
+    background:#969090;
   }
   
   tr:last-child td:first-child {
@@ -124,4 +124,6 @@
 
   .noBullet {
       list-style: none;
+      margin-top: -20px;
+      font-family: 'Roboto', sans-serif;
   }

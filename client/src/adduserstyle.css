@@ -2,11 +2,11 @@
     margin-top: 3%;
     margin-bottom: 10%;
     background-color: #ededed;
-    padding: 10px;
     font-family: 'Raleway', sans-serif;
     box-shadow: 5px 5px 5px #696969;
     border-radius: 5px;
     border: 1px #FFFFFF solid;
+    font-family: 'Roboto', sans-serif;
     font-size: 1em;
 }
 
@@ -26,4 +26,8 @@
 
 .text-center {
     justify-content: center;
+}
+
+.addnew {
+    font-size: 3em;
 }

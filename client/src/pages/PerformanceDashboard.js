@@ -32,7 +32,8 @@ function PerformanceDashboard(props) {
       <>
         <Container className="performanceInfo">
             <div>
-                <h4>Performance reviews for {data.first_name} {data.last_name}, {data.role}</h4>
+                <h4 className ="bold">Performance Reviews For {data.first_name} {data.last_name}, {data.role}</h4>
+                <hr></hr>
                 <br></br>
             </div> 
             <PerformanceReview/>
