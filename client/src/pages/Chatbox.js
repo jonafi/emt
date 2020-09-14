@@ -48,7 +48,7 @@ function Chatbox () {
     //   setUsername(id);
     // });
 
-    setUsername(id);
+    setUsername("tiempoAuto");
     // loadRole(user);
     // listens for any changes to message
     socketRef.current.on("chat message", (message) => {
@@ -72,6 +72,9 @@ function Chatbox () {
 
     // data sent to socket.io
     socketRef.current.emit("chat message", data);
+
+    e.target.value = "";
+    setResponse("");
 
     // gets the change, then displays it in the chat
     listeningNewMessages();
