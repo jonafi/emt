@@ -3,6 +3,7 @@ import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 import axios from 'axios';
+import API from '../utils/API';
 
 export default class AddUser extends Component {
     
@@ -38,17 +39,11 @@ export default class AddUser extends Component {
         e.preventDefault();
         console.log(this.state);
         const body = this.state;
-        axios({
-            method: "post",
-            url: 'http://localhost:3000/employee',
-            data: body
-        })
-        .then(function(res) {
-            console.log(res);
-        })
-        .catch(function(error){
-            console.log(error);
-        });
+        API.postEmployee(this.state)
+        .then(result => {
+            console.log(result.data)
+          })
+          .catch(err => console.log(err));
     };
 
     render() {

@@ -48,8 +48,22 @@ module.exports = {
         zip: req.body.zip,
         primary_phone: req.body.primary_phone,
         personal_email: req.body.personal_email,
+        work_email: req.body.work_email,
+        hire_date: req.body.hire_date,
         birth_date: req.body.birth_date,
-        gender: req.body.gender
+        gender: req.body.gender,
+        pay_type: req.body.pay_type,
+        pay_freq: req.body.pay_freq,
+        pay_rate: req.body.pay_rate,
+        app_source: req.body.app_source,
+        app_rec: req.body.app_rec,
+        i9_rec: req.body.i9_rec,
+        w4_rec: req.body.w4_rec,
+        ca_rec: req.body.ca_rec,
+        exp_rec: req.body.exp_rec,
+        tmh_rec: req.body.tmh_rec,
+        welcome_train: req.body.welcome_train,
+        core_camp_train: req.body.core_camp_train
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
