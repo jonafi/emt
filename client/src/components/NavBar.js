@@ -40,31 +40,27 @@ function Navigation() {
 
 
   return (
-    <Navbar className="navbar" expand="lg">
+    <Navbar className="navbar light" expand="lg">
     <Navbar.Brand href="/Dashboard" className="Hero ltgray">EH</Navbar.Brand>
     <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+    <Navbar.Collapse id="basic-navbar-nav"  className="justify-content-end">
 
     {isAuthenticated && (
           <>
-            <Nav.Link href="/Directory" className="ltgray text-center mt-4 mb-4">DIRECTORY</Nav.Link>
-            <Nav.Link href="/Performance" className="ltgray text-center mt-4 mb-4">PERFORMANCE</Nav.Link>
+            <Nav.Link href="/Directory" className="ltgray header text-center">DIRECTORY</Nav.Link>
+            <Nav.Link href="/Performance" className="ltgray header text-center">PERFORMANCE</Nav.Link>
             {loadRole(user.email)}
             {(role === 'admin')
-              ? <Nav.Link href="/AddUser" className="ltgray text-center mt-4 mb-4">ADD USER</Nav.Link>
+              ? <Nav.Link href="/AddUser" className="ltgray header text-center">ADD USER</Nav.Link>
               : <p></p>
             }
           </>
-
-
         )}
-        <Row className ="text-center">
-    <LoginButton/>
-    <LogoutButton/>
-    </Row>
-    </Navbar.Collapse>
-
-              
+        <div className ="text-center">
+          <LoginButton />
+          <LogoutButton />
+        </div>     
+    </Navbar.Collapse>         
   </Navbar>
   );
 }

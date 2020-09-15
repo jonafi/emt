@@ -74,9 +74,9 @@ function AddUser(){
 
         <Container>
             <Row>
-            <Col xs='2'>
+            <Col xs='1'>
             </Col>
-                <Col xs="8"  className="AddUser">
+                <Col xs="10"  className="AddUser">
                     <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
                     <h1 className="mt-5 bold addnew">Add New Employee</h1>
                     <h3 className="mt-5 bold">Current Role</h3>
@@ -168,7 +168,7 @@ function AddUser(){
                         </Row>
                     </Form>
                 </Col>
-                <Col xs='2'>
+                <Col xs='1'>
                </Col>
             </Row>
         </Container>
