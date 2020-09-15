@@ -29,16 +29,26 @@ function PerformanceReview() {
                         <li key={review.id}>
                             <row>
                                 <div className="d-flex flex-row bold">
-                                    <div><h5>Year:testTEST {review.reviewYear}</h5></div> 
+                                    <div><h5>Year: {review.reviewYear}</h5></div> 
                                 </div>
                             </row>
                             <row>
-                                <div className="d-flex flex-row">
+                                <div className="d-flex flex-row bold">
+                                    <div><h5>Quarter: {review.reviewQtr}</h5></div> 
+                                </div>
+                            </row>
+                            <row>
+                                <div className="d-flex flex-row bold">
+                                    <div><h5>Status: {review.reviewStatus}</h5></div> 
+                                </div>
+                            </row>
+                            <row>
+                                <div className="d-flex flex-row bold">
                                     <div><h5>Overall Rating: {review.actualOverallRating}</h5></div> 
                                 </div>
                             </row>
 
-                            <table className="table-responsive">
+                            <table className="table-responsive mt-4">
                                 <thead>
                                     <tr>
                                         <th></th>
