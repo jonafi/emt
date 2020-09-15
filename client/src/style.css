@@ -42,7 +42,6 @@ body {
 .toggle {
     background-color: #ededed!important;
     border:solid 1px #C7C7C7;
-}
 
 /*CUSTOM CLASSES*/
 .head-text {
@@ -144,11 +143,10 @@ color: #2e2e6e;
 }
 .employee {
     padding: 30px !important;
-}
 
 .toggle {
     background-color: #84818d!important;
-    border: solid 1px white;
+    border:solid 1px white;
 }
 
 .editBtn {
