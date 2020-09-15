@@ -40,10 +40,11 @@ function Navigation() {
 
 
   return (
+
     <Navbar className="navbar" expand="lg">
     <Navbar.Brand href="/Dashboard" className="Hero ltgray">EH</Navbar.Brand>
     <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+    <Navbar.Collapse id="basic-navbar-nav"  className="justify-content-end">
 
     {isAuthenticated && (
           <>
@@ -62,8 +63,6 @@ function Navigation() {
     <LogoutButton/>
     </Row>
     </Navbar.Collapse>
-
-              
   </Navbar>
   );
 }
