@@ -30,10 +30,9 @@ function PerformanceDashboard(props) {
     <Nav/>
     {isAuthenticated && (
       <>
-        <Container className="performanceInfo">
+        <Container className="intro">
             <div>
-                <h4 className ="bold">Performance Reviews For {data.first_name} {data.last_name}, {data.role}</h4>
-                <hr></hr>
+                <h4>Performance reviews for {data.first_name} {data.last_name}, {data.role}</h4>
                 <br></br>
             </div> 
             <PerformanceReview/>

@@ -41,9 +41,8 @@ function Directory() {
     <Nav />
       <Container>
         <Row className="infoRow">
-          <Col s='12' className="directory">
-            <h5 className="bold listTitle">Directory List</h5>
-            <hr className="linebreak"></hr>
+          <Col xs='12' className="empInfo">
+            <h5 className="bold">Directory List</h5>
               <Table striped border hover responsive="sm">
             <tbody>
             {isAuthenticated && (
