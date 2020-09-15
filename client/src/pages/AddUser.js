@@ -71,16 +71,14 @@ function AddUser(){
     return (
         <>
         <Nav/>
-
-        <Container>
+        <Container className="AddUser">
             <Row>
-            <Col xs='2'>
-            </Col>
-                <Col xs="8"  className="AddUser">
+                <Col>
                     <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
-                    <h1 className="mt-5 bold addnew">Add New Employee</h1>
-                    <h3 className="mt-5 bold">Current Role</h3>
-                        <Form.Group controlId ="add" className="mt-3">
+
+                    <h1 className="mt-5 bold">Add User</h1>
+
+                        <Form.Group controlId ="add" className="mt-5">
                             <Form.Label>Department</Form.Label>
                             <Form.Control type = "text" placeholder="Department" onChange={e => setDepartment(e.target.value)}></Form.Control>
                         </Form.Group>
@@ -120,12 +118,12 @@ function AddUser(){
                         </Form.Group>
 
                         <Form.Group controlId="add">
-                            <Form.Label>Address Line 1</Form.Label>
+                            <Form.Label>Address</Form.Label>
                             <Form.Control placeholder="1234 Main Street" onChange={e => setAddress(e.target.value)}/>
                          </Form.Group>
 
                         <Form.Group controlId="add">
-                            <Form.Label>Address Line 2</Form.Label>
+                            <Form.Label>Address 2</Form.Label>
                             <Form.Control placeholder="Apartment, Unit or Suite #" onChange={e => setAddressTwo(e.target.value)}/>
                          </Form.Group>
 
@@ -148,7 +146,7 @@ function AddUser(){
  
                         <Form.Group controlId ="add">
                             <Form.Label>Phone Number</Form.Label>
-                            <Form.Control className="mb-2" type = "text" placeholder="1234567890" onChange={e => setPhoneNum(e.target.value)}></Form.Control>
+                            <Form.Control className="mb-2" type = "text" placeholder="123-456-7890" onChange={e => setPhoneNum(e.target.value)}></Form.Control>
                         </Form.Group>  
 
                         <h6>Gender</h6>
@@ -163,13 +161,10 @@ function AddUser(){
                             <Form.Label>Birth Date</Form.Label>
                             <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
                         </Form.Group>  
-                        <Row className="text-center">
-                        <Button as="input" className="addUserbutton mt-4 mb-4" size="lg" type="submit"  value="Submit" />{' '}
-                        </Row>
+            
+                        <Button as="input" className="Button" type="submit"  value="Submit" />{' '}
                     </Form>
                 </Col>
-                <Col xs='2'>
-               </Col>
             </Row>
         </Container>
         <Footer/>
