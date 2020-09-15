@@ -10,7 +10,7 @@ const LoginButton = () => {
         (window.location.pathname === "/" || window.location.pathname === "/Dashboard") && (
             !isAuthenticated && (
                 <Nav.Link className="Button" onClick={() => loginWithRedirect()}>
-                    LOGIN TEST
+                    LOGIN TESTtest
                 </Nav.Link>
             )
         )

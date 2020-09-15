@@ -98,7 +98,7 @@ function AddUser(){
                         </Form.Control>
                        </Form.Group> 
 
-                    <h3 className="mt-5 bold">Personal Information</h3>
+                    <h3 className="mt-5 bold">testPersonal Information</h3>
                        <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>Email Address</Form.Label>
                             <Form.Control type = "email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}></Form.Control>
