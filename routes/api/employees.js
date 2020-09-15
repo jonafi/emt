@@ -7,20 +7,23 @@ const Employee = require("../../controllers/employeeController");
 // GET
 router.get("/employees", Employee.findAll);
 
+//GET by ID
 router.get("/employee/:id", Employee.findById);
 
+//GET by Manager
 router.get("/managers", Employee.findAllManagers);
 
+//GET by Email
 router.get("/user/:personal_email", Employee.findByEmail)
 
 // POST
-router.post("/employee", Employee.create);
+router.post("/addEmployee", Employee.create);
 
 // DELETE
-router.delete("/employee/:id", Employee.remove);
+router.delete("/delEmployee/:id", Employee.remove);
 
 // UPDATE
-router.put("/employee/:id", Employee.update);
+router.put("/updateEmployee/:id", Employee.update);
 
 // Export
 module.exports = router;

@@ -11,7 +11,7 @@ export default {
     return axios.put('/api/employee/:id')
   },
   postEmployee: function(employee) {
-    return axios.post('/api/employee', employee)
+    return axios.post('/api/addUser', employee)
   },
   deleteEmployee: function(id) {
     return axios.delete('/api/employee/' + id)

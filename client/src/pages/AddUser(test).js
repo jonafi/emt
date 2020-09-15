@@ -40,7 +40,7 @@ export default class AddUser extends Component {
         const body = this.state;
         axios({
             method: "post",
-            url: 'http://localhost:3000/employee',
+            url: '/addUser',
             data: body
         })
         .then(function(res) {
@@ -76,7 +76,7 @@ export default class AddUser extends Component {
             <input defaultValue='personal_email' placeholder= "example@email.com" type="text" name="personal_email" onChange={this.onChange } value={personal_email} />
             <input defaultValue='birth_date' placeholder= "01/31/2000" type="text" name="birth_date" onChange={this.onChange } value={birth_date} />
             <input defaultValue='gender' type="text" placeholder= "Gender" name="gender" onChange={this.onChange } value={gender} />
-          <button type="submit">Add Guest</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
         );
