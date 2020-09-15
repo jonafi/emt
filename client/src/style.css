@@ -162,3 +162,7 @@ footer {
     text-align: center;
     border-top: solid 1px #969696;
 }
+
+.test{
+    border:1px solid black
+}

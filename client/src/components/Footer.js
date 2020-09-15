@@ -7,7 +7,7 @@ function Footer(){
         <>
         <footer>
             <div className="title"> 
-                EMPLOYEE HERO
+                EMPLOYEE HERO TEST
             </div>
         </footer>
         </>

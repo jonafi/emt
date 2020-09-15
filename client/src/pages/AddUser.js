@@ -78,7 +78,7 @@ function AddUser(){
             </Col>
                 <Col xs="10"  className="AddUser">
                     <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
-                    <h1 className="mt-5 bold addnew">Add New Employee</h1>
+                    <h1 className="mt-5 bold addnew">Add New EmployeeTEST</h1>
                     <h3 className="mt-5 bold">Current Role</h3>
                         <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>Department</Form.Label>
