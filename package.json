@@ -20,7 +20,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "aws-sdk": "^2.751.0",
+    "aws-sdk": "^2.752.0",
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
