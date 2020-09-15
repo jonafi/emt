@@ -60,6 +60,10 @@ body {
     color: #ededed !important;  
 }
 
+.green{
+    border:1px solid green;
+}
+
 .infoDiv {
     width: 75%;
 }

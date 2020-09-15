@@ -51,7 +51,7 @@ function Navigation() {
             <Nav.Link href="/Performance" className="ltgray header text-center">PERFORMANCE</Nav.Link>
             {loadRole(user.email)}
             {(role === 'admin')
-              ? <Nav.Link href="/AddUser" className="ltgray header text-center">ADD USER</Nav.Link>
+              ? <Nav.Link href="/AddUser" className="ltgray header text-center">ADD USERS</Nav.Link>
               : <p></p>
             }
           </>
