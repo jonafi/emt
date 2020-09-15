@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react'
-import { Navbar, Nav, Row } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import API from '../utils/API';
 
 function Navigation() {
@@ -10,7 +10,7 @@ function Navigation() {
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
   const { user, isAuthenticated } = useAuth0();
-  const [setData] = useState([]);
+  const [data, setData] = useState([]);
   const [role, setRole] = useState([]);
 
   useEffect(() => {
@@ -41,27 +41,25 @@ function Navigation() {
 
   return (
     <Navbar className="navbar" expand="lg">
-    <Navbar.Brand href="/Dashboard" className="Hero ltgray">EH</Navbar.Brand>
+    <Navbar.Brand href="/Dashboard" className="Hero ltgray head-text">EH</Navbar.Brand>
     <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
 
     {isAuthenticated && (
           <>
-            <Nav.Link href="/Directory" className="ltgray text-center mt-4 mb-4">DIRECTORY</Nav.Link>
-            <Nav.Link href="/Performance" className="ltgray text-center mt-4 mb-4">PERFORMANCE</Nav.Link>
+            <Nav.Link href="/Directory" className="ltgray">DIRECTORY</Nav.Link>
+            <Nav.Link href="/Performance" className="ltgray">PERFORMANCE</Nav.Link>
             {loadRole(user.email)}
             {(role === 'admin')
-              ? <Nav.Link href="/AddUser" className="ltgray text-center mt-4 mb-4">ADD USER</Nav.Link>
+              ? <Nav.Link href="/AddUser" className="ltgray">ADD USER</Nav.Link>
               : <p></p>
             }
           </>
 
 
         )}
-        <Row className ="text-center">
     <LoginButton/>
     <LogoutButton/>
-    </Row>
     </Navbar.Collapse>
 
               

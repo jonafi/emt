@@ -28,27 +28,17 @@ function PerformanceReview() {
                     {data.map(review => (
                         <li key={review.id}>
                             <row>
-                                <div className="d-flex flex-row bold">
-                                    <div><h5>Year: {review.reviewYear}</h5></div> 
+                                <div className="d-flex flex-row">
+                                    <div className="p-2"><h5>{review.reviewYear}, {review.reviewQtr}   Status: {review.reviewStatus}</h5></div> 
                                 </div>
                             </row>
                             <row>
-                                <div className="d-flex flex-row bold">
-                                    <div><h5>Quarter: {review.reviewQtr}</h5></div> 
-                                </div>
-                            </row>
-                            <row>
-                                <div className="d-flex flex-row bold">
-                                    <div><h5>Status: {review.reviewStatus}</h5></div> 
-                                </div>
-                            </row>
-                            <row>
-                                <div className="d-flex flex-row bold">
+                                <div className="d-flex flex-row">
                                     <div><h5>Overall Rating: {review.actualOverallRating}</h5></div> 
                                 </div>
                             </row>
 
-                            <table className="table-responsive mt-4">
+                            <table className="table-responsive">
                                 <thead>
                                     <tr>
                                         <th></th>

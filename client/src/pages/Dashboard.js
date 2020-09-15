@@ -51,13 +51,9 @@ function Dashboard(props) {
                     ? <>
                         {data.filter(person => person.personal_email === user.email).map(filteredPerson => (
                              <>
-                             <Container>
-                                 <Row className="userInfo">
-                                     <Col xs="1">
-                                      </Col>
-                                        <Col xs="10" className="employee">
-                                                <Row>
-                                                <Col xs="6">
+                             <Container className="intro">
+                                 <Row>
+                                     <Col>
                                          <h5 className="bold">SIGNED IN AS</h5>
                                              <p>{filteredPerson.personal_email}</p>
                                          <h5 className="bold bmarg">Role</h5>
@@ -65,48 +61,47 @@ function Dashboard(props) {
                                          <h5 className="bold bmarg">Status</h5>
                                              <p>{filteredPerson.status}</p>
                                      </Col>
-                                     <Col xs ="6">
+                                         <Col xs='3'>
+                                         </Col>
+                                     <Col>
                                          <h5 className="bold">WELCOME</h5> 
                                              <p>{filteredPerson.first_name}</p>
                                          <h5 className="bold bmarg">Date Hired</h5>
                                              <p>{filteredPerson.hire_date}</p> 
+
                                          <Button variant="outline-secondary" className="editBtn">Edit</Button>{' '}
-                                     </Col>  
-                                                </Row>
-                                            </Col>
-                                    <Col xs="1">
                                      </Col>
                                  </Row>
                              </Container>
 
-                             <Container className="employeeContainer">
-                                 <Row className="userInfo">
-                                     <Col xs="1">
-                                      </Col>
-                                        <Col xs="10" className="employee">
-                                            <h5 className="bold">EMPLOYEE INFO</h5>
-                                                <hr></hr>
-                                                <Row>
-                                                    <Col>
-                                                        <h5 className="bold bmarg">Address</h5>
-                                                            <p>
-                                                             {filteredPerson.address_line1} {filteredPerson.address_line2}
-                                                            </p>
-                                                            <p>
-                                                             {filteredPerson.city}, {filteredPerson.state} {filteredPerson.zip}
-                                                            </p>
-                                                    </Col>
-                                                    <Col>
-                                                        <h5 className="bold bmarg">Phone Number</h5>
-                                                             <p>{filteredPerson.primary_phone}</p>
-                                                     </Col>
-                                                    <Col>
-                                                        <h5 className="bold bmarg">Work Email</h5>
-                                                         <p>{filteredPerson.work_email}</p> 
-                                                    </Col>    
-                                                </Row>
+                             <Container>
+                                 <Row className="infoRow">
+                                     <Col>
+                                     </Col>
+                                     <Col xs="8" className="empInfo">
+                                     <h5 className="bold">EMPLOYEE INFO</h5>
+                                     <hr></hr>
+                                        <Row>
+                                            <Col>
+                                            <h5 className="bold bmarg">Address</h5>
+                                                <p>
+                                                    {filteredPerson.address_line1} {filteredPerson.address_line2}
+                                                </p>
+                                                <p>
+                                                    {filteredPerson.city}, {filteredPerson.state} {filteredPerson.zip}
+                                                </p>
                                             </Col>
-                                    <Col xs="1">
+                                            <Col>
+                                            <h5 className="bold bmarg">Phone Number</h5>
+                                                <p>{filteredPerson.primary_phone}</p>
+                                            </Col>
+                                            <Col>
+                                            <h5 className="bold bmarg">Work Email</h5>
+                                                <p>{filteredPerson.work_email}</p> 
+                                            </Col>    
+                                        </Row>
+                                     </Col>
+                                     <Col>
                                      </Col>
                                  </Row>
                              </Container>
