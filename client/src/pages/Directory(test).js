@@ -1,52 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import Nav from '../components/NavBar';
 import { useAuth0 } from '@auth0/auth0-react'
 import Footer from '../components/Footer';
 import { Col, Container, Row, Table,} from 'react-bootstrap';
 import API from '../utils/API';
 
-function Directory() {
-  const { user, isAuthenticated } = useAuth0();
-  const [data, setData] = useState([]);
-  const [role, setRole] = useState([]);
+export default class Directory extends Component{
 
-  useEffect(() => {
-    loadEmployees();
-  }, []);
-
-  useEffect(() => {
-    loadRole();
-  }, []);
-
-  function loadEmployees() {
-    API.getEmployees()
-      .then(result => {
-        setData(result.data);
-      })
-      .catch(err => console.log(err));
-  }
-
-  function loadRole(user) {
-    API.getUser(user)
-      .then(result => {
-        setRole(result.data.role);
-        console.log(result.data.role)
-      })
-      .catch(err => console.log(err));
-  }
+  state = {
+    search: ""
+  };
 
 
-  return (
-    <>
-    <Nav />
-      <Container>
-        <Row className="infoRow">
-          <Col s='12' className="directory">
-            <h5 className="bold listTitle">Directory List</h5>
-            <hr className="linebreak"></hr>
-              <Table striped border hover responsive="sm">
-            <tbody>
-            {isAuthenticated && (
+    // Renders Directory only.
+    renderDirectory = contacts => {
+      const { user, isAuthenticated } = useAuth0();
+      const [data, setData] = useState([]);
+      const [role, setRole] = useState([]);
+
+      useEffect(() => {
+        loadEmployees();
+      }, []);
+    
+      useEffect(() => {
+        loadRole();
+      }, []);
+    
+      function loadEmployees() {
+        API.getEmployees()
+          .then(result => {
+            setData(result.data);
+          })
+          .catch(err => console.log(err));
+      }
+    
+      function loadRole(user) {
+        API.getUser(user)
+          .then(result => {
+            setRole(result.data.role);
+            console.log(result.data.role)
+          })
+          .catch(err => console.log(err));
+      }
+
+      return (
+        <>
+        {isAuthenticated && (
               <>
                 {loadRole(user.email)}
                 {(role === "admin" || role === "Stylist" || role === "role4")
@@ -63,17 +62,13 @@ function Directory() {
                   : <p></p>
                 }
               </>
-            )
-            }
-            </tbody>
-          </Table>
-         </Col>
+         )};
+        </>
+      )
+    }; // end of renderDirectory
 
-        </Row>
-      </Container>
-      <Footer/>
-    </>
-  );
-}
+    
+  
 
-export default Directory;
+
+};
