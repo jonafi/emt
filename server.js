@@ -2,8 +2,8 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
+const serverIO = require("http").createServer(app);
+const io = require("socket.io").listen(serverIO);
 const upload = require('express-fileupload');
 const fs = require('fs');
 
@@ -104,7 +104,22 @@ app.get("*", function (req, res) {
 
 // socket.io (for chat)
 
-io.on("connection", (socket) => {
+serverIO.listen(process.env.PORT || 3002, () => {
+    console.log('listening on *:', PORT);
+});
+// http.listen(3002, () => {
+//   console.log('listening on *:3002');
+// });
+
+// // Heroku won't actually allow us to use WebSockets
+// // so we have to setup polling instead.
+// // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
+// io.configure(function () { 
+//   io.set("transports", ["xhr-polling"]); 
+//   io.set("polling duration", 10); 
+// });
+
+io.sockets.on("connection", (socket) => {
   console.log("New client connected");
 
   // SENDS BACK ORIGINAL ID/USER
@@ -117,16 +132,15 @@ io.on("connection", (socket) => {
     io.emit("message", msg);
   })
 
-  // socket.on("disconnect", () => {
-  //   console.log("Client disconnected");
-  // });
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
 });
 
 
 
-http.listen(3002, () => {
-  console.log('listening on *:3002');
-});
+
+
 // end of socket.io
 
 db.sequelize.sync().then(function() {

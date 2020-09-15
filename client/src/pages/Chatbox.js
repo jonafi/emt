@@ -16,10 +16,31 @@ function Chatbox () {
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
   const { user, isAuthenticated } = useAuth0();
+  const [data, setData] = useState([]);
+  const [personal_email, setEmail] = useState([]);
 
   const [username, setUsername] = useState("");
   const [response, setResponse] = useState("");
 
+  function loadEmployees() {
+    API.getEmployees()
+      .then(result => {
+        setData(result.data);
+        // console.log(result.data)
+      })
+      .catch(err => console.log(err));
+  }
+
+  function loadRole(user) {
+    API.getUser(user)
+      .then(result => {
+        setEmail(result.data.personal_email);
+        // console.log(result.data.personal_email)
+      })
+      .catch(err => console.log(err));
+  }
+
+  
   const DUMMY_DATA = [
     {
       username: 'perborgen',
@@ -39,6 +60,15 @@ function Chatbox () {
   const socketRef = useRef();
 
   useEffect(() => {
+
+    loadEmployees();
+    loadRole(user);
+
+    console.log(personal_email);
+    console.log(data);
+    console.log(user);
+    
+    setUsername(user.nickname);
     const socket = socketIOClient(ENDPOINT);
     // connect to socket.io
     socketRef.current = socket.connect('/');
@@ -48,7 +78,7 @@ function Chatbox () {
     //   setUsername(id);
     // });
 
-    setUsername("tiempoAuto");
+    
     // loadRole(user);
     // listens for any changes to message
     socketRef.current.on("chat message", (message) => {
@@ -74,14 +104,10 @@ function Chatbox () {
     socketRef.current.emit("chat message", data);
 
     e.target.value = "";
-    setResponse("");
+    setResponse();
 
     // gets the change, then displays it in the chat
     listeningNewMessages();
-
-    
-
-    
   };
 
   function listeningNewMessages () {
@@ -93,47 +119,58 @@ function Chatbox () {
     })
   }
 
-  function loadRole(user) {
-    API.getUser(user)
-      .then(result => {
-        setUsername(result.data.personal_email);
-        // console.log(result.data.personal_email)
-      })
-      .catch(err => console.log(err));
-  }
-
   
 
   return (
-    <div>
-    <Nav/>
-    <Container className="Chatbox">
-      <Row>
-        <Col>
-        {DUMMY_DATA.map((message, index) => (
-          <ChatMessages key={index} username={message.username} text={message.text}/>
-        ))}
-        {newMsg.map((message, index) => (
-          <ChatMessages key={index} username={message.username} text={message.text}/>
-        ))}
+    <>
+      <Nav/>
+      {isAuthenticated && (
+            <>
+              {loadRole(user.email)}
+              {(personal_email === user.email)
+                ? <>
+                    <Container className="Chatbox">
+                      <Row>
+                        <Col>
+                        {DUMMY_DATA.map((message, index) => (
+                          <ChatMessages key={index} username={message.username} text={message.text}/>
+                        ))}
+                        {newMsg.map((message, index) => (
+                          <ChatMessages key={index} username={message.username} text={message.text}/>
+                        ))}
 
-          <Form onSubmit={handleOnSubmit}>
+                          <Form onSubmit={handleOnSubmit}>
 
-            <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)}  >
-              <FormControl aria-describedby="basic-addon1" />
-              <InputGroup.Prepend>
-                <Button variant="outline-secondary" type="submit">Send</Button>
-              </InputGroup.Prepend>
-            </InputGroup>
-            
-          </Form>
-        </Col>
-      </Row>
-    </Container>
-    <Footer/>  
-    </div>
+                            <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)}  >
+                              <FormControl aria-describedby="basic-addon1" />
+                              <InputGroup.Prepend>
+                                <Button variant="outline-secondary" type="submit">Send</Button>
+                              </InputGroup.Prepend>
+                            </InputGroup>
+                            
+                          </Form>
+                        </Col>
+                      </Row>
+                    </Container>
+                    <Footer/>
+                  </>
+                    : 
+                      <Container className="notAuthorized">
+                        <Row>
+                          <Col>
+                              <h5> E-Mail is not authorized. Please Contact Admin/Managers for authorization.</h5>
+                          </Col>
+                        </Row>
+                      </Container>
+                }
+            </>
+        )}
+    
+      
+    </>
+    
+
   );
- 
 };
 
 export default Chatbox;
