@@ -3,7 +3,7 @@ import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import PerformanceReview from '../components/PerformanceReview';
 import { useAuth0 } from '@auth0/auth0-react'
-import {Col, Container, Row, Button} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 import API from '../utils/API';
 
 function PerformanceDashboard(props) {

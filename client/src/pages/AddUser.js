@@ -73,7 +73,9 @@ function AddUser(){
         <Nav/>
         <Container className="AddUser">
             <Row>
-                <Col>
+            <Col xs='1'>
+            </Col>
+                <Col xs="10"  className="AddUser">
                     <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
 
                     <h1 className="mt-5 bold">Add User</h1>
@@ -165,6 +167,9 @@ function AddUser(){
                         <Button as="input" className="Button" type="submit"  value="Submit" />{' '}
                     </Form>
                 </Col>
+
+                <Col xs='1'>
+               </Col>
             </Row>
         </Container>
         <Footer/>
