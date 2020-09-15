@@ -20,31 +20,31 @@ const bodyParser = require('body-parser');
 //   else{
 //     console.log('****************** NO MATCH *******' + req.headers.referer)
 //    // res.send(403, "Not Authorized");
-    
+
 //   }
 // }
 //middleware works everywhere but heroku :(
 //app.use(authCheck)
 
 app.use(cors());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
   //we say what we want to allow, you can whitelist IPs here or domains
-  res.header("Access-Control-Allow-Origin", "*"); 
+  res.header("Access-Control-Allow-Origin", "*");
   //what kind of headers we are allowing
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");  
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
   //check for the options request from browsers
   //this will always be sent
-  if(req.method === "OPTIONS"){
-      //tell the browser what he can ask for
-      res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-      //we just respond with OK status code
-      return res.status(200).json({
-          "statusMessage": "ok"
-      });
+  if (req.method === "OPTIONS") {
+    //tell the browser what he can ask for
+    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+    //we just respond with OK status code
+    return res.status(200).json({
+      "statusMessage": "ok"
+    });
   }
 
   next();
@@ -60,34 +60,49 @@ app.use(express.json());
 // For uploading files
 app.use(upload());
 
-app.post('/uploadfiles', (req,res)=>{
+const AWS = require('aws-sdk');
 
-  if(req.files){
-     // console.log(req.files)
-      let file= req.files.file;
-      let filename=file.name;
-     // console.log(filename)
-  
-     file.mv("./uploads/" +  filename, (err)=>{
-         if(err){
-             res.send(err)
-         } else{
-             res.send("file uploaded")
-         }
-     });
-  }
-  })
+// TO DO make a local ENV system that works....
+const AWS_ID = process.env.AWS_Access_Key_Id;
+const AWS_SECRET = process.env.AWS_Secret_Key;
+const AWS_BUCKET = process.env.S3_BUCKET;
 
+const s3 = new AWS.S3({
+  accessKeyId: AWS_ID,
+  secretAccessKey: AWS_SECRET
+});
 
-
-
-
+app.post('/uploadfiles', (req, res) => {
+  //console.log(req.files)
+  let file = req.files.file;
+  let filename = file.name;
+  file.mv("./uploads/" + filename, (err) => {
+    if (err) { res.send(err) }
+    else {
+      let fullPath = "./uploads/" + filename;
+      const fileContent = fs.readFileSync(fullPath);
+      const options = {
+        Bucket: AWS_BUCKET,
+        Key: filename,
+        Body: fileContent
+      };
+      // Uploading files to the bucket
+      s3.upload(options, (err, data) => {
+        if (err) {
+          throw err;
+        }
+        //console.log(`File uploaded ${data.Location}`);
+      });
+    }
+  });
+  res.redirect('back'); //prevents hanging.  replace with thank you modal redirect?
+});
 
 const db = require("./models");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build")); 
+  app.use(express.static("client/build"));
 }
 
 // Routes
@@ -148,3 +163,4 @@ db.sequelize.sync().then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+

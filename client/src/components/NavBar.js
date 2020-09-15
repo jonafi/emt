@@ -40,10 +40,11 @@ function Navigation() {
 
 
   return (
+
     <Navbar className="navbar" expand="lg">
     <Navbar.Brand href="/Dashboard" className="Hero ltgray">EH</Navbar.Brand>
     <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+    <Navbar.Collapse id="basic-navbar-nav"  className="justify-content-end">
 
     {isAuthenticated && (
           <>
@@ -54,17 +55,14 @@ function Navigation() {
               ? <Nav.Link href="/AddUser" className="ltgray text-center mt-4 mb-4">ADD USER</Nav.Link>
               : <p></p>
             }
+            <Nav.Link href="/AddReview" className="ltgray text-center mt-4 mb-4">ADD REVIEW</Nav.Link>
           </>
-
-
         )}
         <Row className ="text-center">
     <LoginButton/>
     <LogoutButton/>
     </Row>
     </Navbar.Collapse>
-
-              
   </Navbar>
   );
 }
