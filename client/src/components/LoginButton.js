@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react';
-import { Button } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 
 console.log(window.location.pathname)
@@ -9,9 +9,9 @@ const LoginButton = () => {
     return (
         (window.location.pathname === "/" || window.location.pathname === "/Dashboard") && (
             !isAuthenticated && (
-                <Button className="Button" onClick={() => loginWithRedirect()}>
-                    LOGIN
-                </Button>
+                <Nav.Link className="Button text center header" onClick={() => loginWithRedirect()}>
+                    LOGIN 
+                </Nav.Link>
             )
         )
     )

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react'
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Row } from 'react-bootstrap';
 import API from '../utils/API';
 
 function Navigation() {
@@ -10,7 +10,7 @@ function Navigation() {
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
   const { user, isAuthenticated } = useAuth0();
-  const [data, setData] = useState([]);
+  const [setData] = useState([]);
   const [role, setRole] = useState([]);
 
   useEffect(() => {
@@ -40,29 +40,28 @@ function Navigation() {
 
 
   return (
+
     <Navbar className="navbar" expand="lg">
-    <Navbar.Brand href="/Dashboard" className="Hero ltgray head-text">EH</Navbar.Brand>
+    <Navbar.Brand href="/Dashboard" className="Hero">EH</Navbar.Brand>
     <Navbar.Toggle className="toggle" aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+    <Navbar.Collapse id="basic-navbar-nav"  className="justify-content-end">
 
     {isAuthenticated && (
           <>
-            <Nav.Link href="/Directory" className="ltgray">DIRECTORY</Nav.Link>
-            <Nav.Link href="/Performance" className="ltgray">PERFORMANCE</Nav.Link>
+            <Nav.Link href="/Directory" className="ltgray text-center header">DIRECTORY</Nav.Link>
+            <Nav.Link href="/Performance" className="ltgray text-center header">PERFORMANCE</Nav.Link>
             {loadRole(user.email)}
             {(role === 'admin')
-              ? <Nav.Link href="/AddUser" className="ltgray">ADD USER</Nav.Link>
+              ? <Nav.Link href="/AddUser" className="ltgray text-center header">ADD USER</Nav.Link>
               : <p></p>
             }
+            <Nav.Link href="/AddReview" className="ltgray text-center header">ADD REVIEW</Nav.Link>
           </>
-
-
+          
         )}
-    <LoginButton/>
-    <LogoutButton/>
+            <LoginButton/>
+            <LogoutButton/>
     </Navbar.Collapse>
-
-              
   </Navbar>
   );
 }
