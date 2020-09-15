@@ -14,13 +14,13 @@ router.get("/review/:id", Review.findById);
 router.get("/reviews/:personal_email", Review.findByEmail)
 
 // POST
-router.post("/review", Review.create);
+router.post("/addreview", Review.create);
 
 // DELETE
-router.delete("/review/:id", Review.remove);
+router.delete("/deletereview/:id", Review.remove);
 
 // UPDATE
-router.put("/review/:id", Review.update);
+router.put("/updatereview/:id", Review.update);
 
 // Export
 module.exports = router;

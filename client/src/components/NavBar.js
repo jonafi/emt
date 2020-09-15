@@ -54,9 +54,8 @@ function Navigation() {
               ? <Nav.Link href="/AddUser" className="ltgray text-center mt-4 mb-4">ADD USER</Nav.Link>
               : <p></p>
             }
+            <Nav.Link href="/AddReview" className="ltgray text-center mt-4 mb-4">ADD REVIEW</Nav.Link>
           </>
-
-
         )}
         <Row className ="text-center">
     <LoginButton/>
