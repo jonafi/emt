@@ -10,7 +10,7 @@ function Navigation() {
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
   const { user, isAuthenticated } = useAuth0();
-  const [setData] = useState([]);
+  const [data, setData] = useState([]);
   const [role, setRole] = useState([]);
 
   useEffect(() => {
