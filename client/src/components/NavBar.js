@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react'
-import { Navbar, Nav, Row } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import API from '../utils/API';
 
 function Navigation() {
@@ -10,7 +10,7 @@ function Navigation() {
   if (isLoading) return <div>...</div>; //prevents seeing wrong button
 
   const { user, isAuthenticated } = useAuth0();
-  const [setData] = useState([]);
+  const [data, setData] = useState([]);
   const [role, setRole] = useState([]);
 
   useEffect(() => {
@@ -47,8 +47,8 @@ function Navigation() {
 
     {isAuthenticated && (
           <>
-            <Nav.Link href="/Directory" className="ltgray header text-center">DIRECTORY</Nav.Link>
-            <Nav.Link href="/Performance" className="ltgray header text-center">PERFORMANCE</Nav.Link>
+            <Nav.Link href="/Directory" className="ltgray">DIRECTORY</Nav.Link>
+            <Nav.Link href="/Performance" className="ltgray">PERFORMANCE</Nav.Link>
             {loadRole(user.email)}
             {(role === 'admin')
               ? <Nav.Link href="/AddUser" className="ltgray header text-center">testADD USER TEST</Nav.Link>

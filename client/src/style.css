@@ -1,10 +1,13 @@
+
 body {
     background-color: #C7C7C7;
+
     font-family: 'Oswald', sans-serif;
     margin: 0;
     padding: 0;
     justify-content: center;
     align-items: center;
+
     min-height: 100vh;  
     margin-bottom: 50px;  
 }
@@ -30,15 +33,22 @@ body {
     color: #2e2e6e !important;
     font-weight: 900;
     transform: scale(1.1);
+
+    min-height: 100vh;
+        
+
 }
 
-.navbar{
-    border-bottom: solid 1px #D3D3D3;
-    background-color: #2e2e6e;
-    color: #ededed;
+footer {
+    position: fixed;
+    left:0;
+    bottom: 0;
     width: 100%;
-    font-size: 1.5em;
+    background-color: #2e2e6e;
+    color: #D3D3D3;
+    font-family: 'Wallpoet', cursive;
 }
+
 
 .toggle {
     background-color: #ededed!important;
@@ -46,16 +56,16 @@ body {
 }
 
 /*CUSTOM CLASSES*/
-.bold {
-    font-weight: 900;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.6em;
+.head-text {
+    font-size: 2em;
 }
 
+.bold {
+    font-weight: 900;
+}
 .bmarg {
     margin-bottom: 20px;
 }
-
 .ltgray {
     color: #ededed !important;  
 }
@@ -66,6 +76,45 @@ body {
 
 .infoDiv {
     width: 75%;
+}
+
+
+.editBtn {
+    float: right;
+    margin-top: 40%;
+    margin-right: 5%;
+}
+
+/*CUSTOM CLASSES*/
+
+.title {
+    text-align: center;
+    border-top: solid 1px #969696;
+}
+
+.Hero {
+    /*border-right: solid 1px white;*/
+    padding: 0px 15px 0px 15px;
+    font-family: 'Wallpoet', cursive;
+
+}
+.ltgray:hover {
+    background-color: #696969;
+    color: #2e2e6e !important;
+    font-weight: 900;
+
+  }
+
+.navbar{
+    border-bottom: solid 1px #D3D3D3;
+    background-color: #2e2e6e;
+    color: #ededed;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.infoRow{
+    margin-top: 50px;
 }
 
 .Button {
@@ -81,6 +130,7 @@ body {
     color: #2e2e6e;
     font-weight: 900;
   }
+
 
 /*DASHBOARD*/
 /*welcome div*/
@@ -112,29 +162,57 @@ color: #2e2e6e;
 }
 .employee {
     padding: 30px !important;
-
+}
+.toggle {
+    background-color: #84818d!important;
+    border: solid 1px white;
 }
 
-.employeeContainer {
-    margin-top: -40px;
+
+/*GENERAL STYLE DIVS*/
+.empInfo, .goals, .intro, .Directory, .AddUser, .loginBox , .notAuthorized{
+    background-color: #ededed;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 5px 5px 5px #696969;
+    border-radius: 5px;
+    border: 1px #FFFFFF solid;
+    font-size: 1em;
 }
 
+.empInfo, .goals {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
-/*LOGGED IN, LOGGED OUT, NOT AUTHORIZED*/
 .loggedUser{
     margin-right: 10px;
     margin-left: 15px;
 }
 
-.loginBox, .notAuthorized {
+
+.intro {
+    margin-top: 2%;
+    padding: 15px;
+}
+
+.Directory, .AddUser, .loginBox, .notAuthorized {
     padding: 15px;
     margin-top: 3%;
+}
+
+.AddUser {
+
+    display:flex;
+    flex-direction: column;
 }
 
 .notAuthorized {
     text-align: center;
     font-weight: bold;
 }
+
 
 /*GENERAL STYLE DIVS*/
 .employee, .intro, .loginBox , .notAuthorized{
