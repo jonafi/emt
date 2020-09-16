@@ -81,10 +81,10 @@ app.post('/uploadfiles', (req, res) => {
   let originalFileName = file.name
   let fileExtension = originalFileName.substring(originalFileName.length - 4)
   let filename = req.body.filetype + "-" +req.body.employeename + fileExtension;
-  file.mv("./client/public/uploads/" + filename, (err) => {
+  file.mv("./uploads/" + filename, (err) => {
     if (err) { res.send(err) }
     else {
-      let fullPath = "./client/public/uploads/" + filename;
+      let fullPath = "./uploads/" + filename;
       const fileContent = fs.readFileSync(fullPath);
       const options = {
         Bucket: AWS_BUCKET,
