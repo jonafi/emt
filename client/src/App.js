@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Dashboard from './pages/Dashboard';
-import Directory from './pages/Directory(test)';
+import Directory from './pages/Directory';
 import AddUser from './pages/AddUser';
 import Chatbox from './pages/Chatbox'
 import Upload from './pages/Upload';
