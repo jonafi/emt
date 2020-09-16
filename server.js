@@ -115,18 +115,18 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-const serverIO = require("http").createServer(app);
-const io = require("socket.io").listen(serverIO);
+// const serverIO = require("http").createServer(app);
+// const io = require("socket.io").listen(serverIO);
 
 db.sequelize.sync().then(function() {
-  // app.listen(PORT, function() {
-  //   console.log("App listening on PORT " + PORT);
-  // });
-
-  // socket.io (for chat)
-  serverIO.listen(PORT, () => {
-    console.log('listening on *:', PORT);
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
   });
+
+  // // socket.io (for chat)
+  // serverIO.listen(PORT, () => {
+  //   console.log('listening on *:', PORT);
+  // });
 });
 
 
@@ -140,21 +140,21 @@ db.sequelize.sync().then(function() {
 //   io.set("polling duration", 10); 
 // });
 
-io.sockets.on("connection", (socket) => {
-  console.log("New client connected");
+// io.sockets.on("connection", (socket) => {
+//   console.log("New client connected");
 
-  // SENDS BACK ORIGINAL ID/USER
-  socket.emit("id", "tiempoAuto");
+//   // SENDS BACK ORIGINAL ID/USER
+//   socket.emit("id", "tiempoAuto");
 
-  // LISTENS FOR 'chat message'
-  socket.on("chat message", (msg) => {
-    console.log("message: " + msg);
-    // when done, returns back the message
-    io.emit("chat message", msg);
-  })
+//   // LISTENS FOR 'chat message'
+//   socket.on("chat message", (msg) => {
+//     console.log("message: " + msg);
+//     // when done, returns back the message
+//     io.emit("chat message", msg);
+//   })
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
-  });
-});
+//   socket.on("disconnect", () => {
+//     console.log("Client disconnected");
+//   });
+// });
 // end of socket.io

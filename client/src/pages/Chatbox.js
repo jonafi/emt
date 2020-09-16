@@ -1,4 +1,4 @@
-
+/*
 import React, { useState, useEffect, useRef } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -171,4 +171,4 @@ function Chatbox () {
 
 export default Chatbox;
 
-
+*/
