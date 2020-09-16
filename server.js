@@ -63,9 +63,14 @@ app.use(upload());
 const AWS = require('aws-sdk');
 
 // TO DO make a local ENV system that works....
-const AWS_ID = process.env.AWS_Access_Key_Id;
-const AWS_SECRET = process.env.AWS_Secret_Key;
-const AWS_BUCKET = process.env.S3_BUCKET;
+
+
+// const AWS_ID = process.env.AWS_Access_Key_Id;
+// const AWS_SECRET = process.env.AWS_Secret_Key;
+// const AWS_BUCKET = process.env.S3_BUCKET;
+const AWS_ID = 'AKIAJDE73XHIBITMAYAQ';
+const AWS_SECRET = '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' ;
+const AWS_BUCKET =  'emt-bucket';
 
 const s3 = new AWS.S3({
   accessKeyId: AWS_ID,
@@ -73,13 +78,15 @@ const s3 = new AWS.S3({
 });
 
 app.post('/uploadfiles', (req, res) => {
-  //console.log(req.files)
+ //console.log(req.body.employeename)
   let file = req.files.file;
-  let filename = file.name;
-  file.mv("./uploads/" + filename, (err) => {
+  let originalFileName = file.name
+  let fileExtension = originalFileName.substring(originalFileName.length - 4)
+  let filename = req.body.filetype + "-" +req.body.employeename + fileExtension;
+  file.mv("./client/public/uploads/" + filename, (err) => {
     if (err) { res.send(err) }
     else {
-      let fullPath = "./uploads/" + filename;
+      let fullPath = "./client/public/uploads/" + filename;
       const fileContent = fs.readFileSync(fullPath);
       const options = {
         Bucket: AWS_BUCKET,
