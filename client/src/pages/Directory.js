@@ -10,12 +10,22 @@ function Directory() {
   const [data, setData] = useState([]);
   const [role, setRole] = useState([]);
   
+  //SEARCH FUNCTION
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchRes, setSearchRes] = useState([]);
+  const [searchRes, setSearchRes] = useState("");
   const handleChange = e => {
     setSearchTerm(e.target.value); 
   }
 
+  //Used for search filter
+  useEffect(() => {
+    const results = data.filter(person =>
+      person.first_name.toLowerCase().includes(searchTerm)
+      );
+      setSearchRes(results);
+  }, [searchTerm]);
+
+  // LOADS DATA
   useEffect(() => {
     loadEmployees();
   }, []);
@@ -40,15 +50,8 @@ function Directory() {
       })
       .catch(err => console.log(err));
   }
-
-  //Used for search filter
-  useEffect(() => {
-    const results = data.filter(person =>
-      person.first_name.toLowerCase().includes(searchTerm)
-      );
-      setSearchRes(results);
-  }, [searchTerm]);
-
+  // END OF LOAD DATA
+  
 
   return (
     <>
@@ -73,6 +76,7 @@ function Directory() {
                   ? <table className="table">
                     {searchRes.map(contacts => (
                       <tr>
+                        <td>{contacts.role}</td>
                         <td>{contacts.first_name}</td>
                         <td>{contacts.last_name}</td>
                         <td>{contacts.primary_phone}</td>
