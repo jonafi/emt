@@ -118,12 +118,12 @@ app.get("*", function (req, res) {
 });
 
 db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+  // app.listen(PORT, function() {
+  //   console.log("App listening on PORT " + PORT);
+  // });
 
   // socket.io (for chat)
-  serverIO.listen(process.env.PORT || 3002, () => {
+  serverIO.listen(PORT, () => {
     console.log('listening on *:', PORT);
   });
 });
