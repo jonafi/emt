@@ -185,7 +185,8 @@ function AddUser() {
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="Application" />
-                        Employee Name: <input type="text" name="employeename" placeholder="Jane Smith" />
+                        <input type="hidden" name="databasefield" value="app_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="application" type="file" name="file" />
                             <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
                         </form>
@@ -194,7 +195,8 @@ function AddUser() {
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                             <input type="hidden" name="filetype" value="I9" />
-                        Employee Name: <input type="text" name="employeename" placeholder="Jane Smith" />
+                            <input type="hidden" name="databasefield" value="i9_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="i9" type="file" name="file" />
                             <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
                         </form>
@@ -203,7 +205,8 @@ function AddUser() {
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="W4" />
-                        Employee Name: <input type="text" name="employeename" placeholder="Jane Smith" />
+                        <input type="hidden" name="databasefield" value="w4_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="w4" type="file" name="file" />
                             <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
                         </form>
@@ -212,7 +215,8 @@ function AddUser() {
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="Confidentiality Agreement" />
-                        Employee Name: <input type="text" name="employeename" placeholder="Jane Smith" />
+                        <input type="hidden" name="databasefield" value="ca_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="ca" type="file" name="file" />
                             <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
                         </form>
@@ -220,8 +224,9 @@ function AddUser() {
                         <h5 className="mt-5 bold">EXP</h5>
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
-                        <input type="hidden" name="filetype" value="EXP" />
-                        Employee Name: <input type="text" name="employeename" placeholder="Jane Smith" />
+                        <input type="hidden" name="filetype" value="exp_rec" />
+                        <input type="hidden" name="databasefield" value="app_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="exp" type="file" name="file" />
                             <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
                         </form>
@@ -231,7 +236,8 @@ function AddUser() {
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="TMH" />
-                        Employee Name: <input type="text" name="employeename" placeholder="Jane Smith" />
+                        <input type="hidden" name="databasefield" value="tmh_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="tmh" type="file" name="file" />
                             <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
                         </form>

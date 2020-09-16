@@ -59,17 +59,11 @@ app.use(express.json());
 
 // For uploading files
 app.use(upload());
-
 const AWS = require('aws-sdk');
-
 require('dotenv').config();
-
-
 const AWS_ID = process.env.AWS_Access_Key_Id;
 const AWS_SECRET = process.env.AWS_Secret_Key;
 const AWS_BUCKET = process.env.S3_BUCKET;
-
-
 
 const s3 = new AWS.S3({
   accessKeyId: AWS_ID,
@@ -77,11 +71,11 @@ const s3 = new AWS.S3({
 });
 
 app.post('/uploadfiles', (req, res) => {
- //console.log(req.body.employeename)
+ console.log(req.body.employeeEmail)
   let file = req.files.file;
   let originalFileName = file.name
   let fileExtension = originalFileName.substring(originalFileName.length - 4)
-  let filename = req.body.filetype + "-" +req.body.employeename + fileExtension;
+  let filename = req.body.filetype + "-" +req.body.employeeEmail + fileExtension;
   file.mv("./uploads/" + filename, (err) => {
     if (err) { res.send(err) }
     else {
@@ -99,6 +93,9 @@ app.post('/uploadfiles', (req, res) => {
         }
         //console.log(`File uploaded ${data.Location}`);
       });
+      console.log(req.body)
+      //make a database call that does the console log below
+      console.log('Mark ' + req.body.databasefield +' for ' + req.body.employeeEmail + ' as true')
       res.redirect('back') //prevents hanging.  replace with thank you modal redirect?
     }
   });
@@ -122,11 +119,6 @@ app.use('/api', reviewRoutes);
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-
-
-
-
 
 
 // end of socket.io
