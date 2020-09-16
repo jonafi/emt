@@ -62,7 +62,7 @@ app.use(upload());
 
 const AWS = require('aws-sdk');
 
-// TO DO make a local ENV system that works....
+require('dotenv').config();
 
 
 const AWS_ID = process.env.AWS_Access_Key_Id;
@@ -100,7 +100,6 @@ app.post('/uploadfiles', (req, res) => {
         //console.log(`File uploaded ${data.Location}`);
       });
       res.redirect('back') //prevents hanging.  replace with thank you modal redirect?
-
     }
   });
 });
