@@ -63,12 +63,10 @@ const AWS = require('aws-sdk');
 // TO DO make a local ENV system that works....
 
 
-// const AWS_ID = process.env.AWS_Access_Key_Id;
-// const AWS_SECRET = process.env.AWS_Secret_Key;
-// const AWS_BUCKET = process.env.S3_BUCKET;
-const AWS_ID = 'AKIAJDE73XHIBITMAYAQ';
-const AWS_SECRET = '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' ;
-const AWS_BUCKET =  'emt-bucket';
+const AWS_ID = process.env.AWS_Access_Key_Id;
+const AWS_SECRET = process.env.AWS_Secret_Key;
+const AWS_BUCKET = process.env.S3_BUCKET;
+
 
 const s3 = new AWS.S3({
   accessKeyId: AWS_ID,
