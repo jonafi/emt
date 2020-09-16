@@ -17,13 +17,13 @@ router.get("/managers", Employee.findAllManagers);
 router.get("/user/:personal_email", Employee.findByEmail)
 
 // POST
-router.post("/addEmployee", Employee.create);
+router.post("/employee", Employee.create);
 
 // DELETE
-router.delete("/delEmployee/:id", Employee.remove);
+router.delete("/employee/:id", Employee.remove);
 
 // UPDATE
-router.put("/updateEmployee/:id", Employee.update);
+router.put("/employee/:id", Employee.update);
 
 // Export
 module.exports = router;

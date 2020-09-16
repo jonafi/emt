@@ -23,6 +23,7 @@ function AddUser(){
     const [phoneNum, setPhoneNum] = useState("");
     const [gender, setGender] = useState("F");
     const [birthDate, setBirthDate] = useState("");
+    const [hireDate, setHireDate] = useState("");
 
     //
     function handleOnSubmit (event) {
@@ -42,25 +43,26 @@ function AddUser(){
             zip,
             phoneNum,
             gender,
-            birthDate
+            birthDate,
+            hireDate
         );
-
         API.postEmployee({
-            "department": JSON.stringify(department),
-            "status": JSON.stringify(active),
-            "role": JSON.stringify(role),
-            "first_name": JSON.stringify(firstName),
-            "middle_init": JSON.stringify(middleInitial),
-            "last_name": JSON.stringify(lastName),
-            "address_line1": JSON.stringify(address),
-            "address_line2": JSON.stringify(addressTwo),
-            "city": JSON.stringify(city),
-            "state": JSON.stringify(usState),
-            "zip": JSON.stringify(zip),
-            "primary_phone": JSON.stringify(phoneNum),
-            "personal_email": JSON.stringify(email),
-            "birth_date": JSON.stringify(birthDate),
-            "gender": JSON.stringify(gender),
+            "department": department,
+            "status": active,
+            "role": role,
+            "first_name": firstName,
+            "middle_init": middleInitial,
+            "last_name": lastName,
+            "address_line1": address,
+            "address_line2": addressTwo,
+            "city": city,
+            "state": usState,
+            "zip": zip,
+            "primary_phone": phoneNum,
+            "personal_email": email,
+            "birth_date": new Date(birthDate),
+            "hire_date": new Date(hireDate),
+            "gender": gender,
         })
         .then(result => console.log(result))
         .catch(err => console.log(err));
@@ -163,6 +165,11 @@ function AddUser(){
                             <Form.Label>Birth Date</Form.Label>
                             <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
                         </Form.Group>  
+                        <Form.Group controlId ="add">
+                            <Form.Label>Hire Date</Form.Label>
+                            <Form.Control className="textspace" type = "text" placeholder="01/31/2020" onChange={e => setHireDate(e.target.value)}></Form.Control>
+                        </Form.Group>  
+                        
                         <Row className="text-center">
                         <Button as="input" className="addUserbutton mt-4 mb-4" size="lg" type="submit"  value="Submit" />{' '}
                         </Row>
