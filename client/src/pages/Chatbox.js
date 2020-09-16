@@ -65,9 +65,9 @@ function Chatbox () {
     loadEmployees();
     loadRole(user);
 
-    console.log(personal_email);
-    console.log(data);
-    console.log(user);
+    // console.log(personal_email);
+    // console.log(data);
+    // console.log(user);
     
     setUsername(user.nickname);
     const socket = socketIOClient();
@@ -108,6 +108,10 @@ function Chatbox () {
     // data sent to socket.io
     socketRef.current.emit("chat message", data);
 
+    // clears input field
+    Array.from(document.querySelectorAll("input")).forEach(
+      input => (input.value = "")
+    );
     // e.target.value = "";
     // setResponse();
 
@@ -137,7 +141,7 @@ function Chatbox () {
   
                           <Form onSubmit={handleOnSubmit}>
 
-                            <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)}  >
+                            <InputGroup className="mb-3" onChange={e => {setResponse(e.target.value) }}  >
                               <FormControl aria-describedby="basic-addon1" />
                               <InputGroup.Prepend>
                                 <Button variant="outline-secondary" type="submit">Send</Button>
