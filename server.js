@@ -68,6 +68,7 @@ const AWS_SECRET = process.env.AWS_Secret_Key;
 const AWS_BUCKET = process.env.S3_BUCKET;
 
 
+
 const s3 = new AWS.S3({
   accessKeyId: AWS_ID,
   secretAccessKey: AWS_SECRET
@@ -96,9 +97,10 @@ app.post('/uploadfiles', (req, res) => {
         }
         //console.log(`File uploaded ${data.Location}`);
       });
+      res.redirect('back') //prevents hanging.  replace with thank you modal redirect?
+
     }
   });
-  res.redirect('back'); //prevents hanging.  replace with thank you modal redirect?
 });
 
 const db = require("./models");
