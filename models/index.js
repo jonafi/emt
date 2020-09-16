@@ -16,7 +16,7 @@ if (process.env.JAWSDB_URL) {
   });
 } else {
 
-  sequelize = new Sequelize("sequelize_library", "root", "HELLO", {
+  sequelize = new Sequelize("sequelize_library", "root", "amillionwords", {
 
    host: "localhost",
    port: 3306,

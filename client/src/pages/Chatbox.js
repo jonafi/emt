@@ -118,7 +118,7 @@ function Chatbox () {
   
 
   return (
-    <>
+    <div>
       <Nav/>
       {isAuthenticated && (
             <>
@@ -163,7 +163,7 @@ function Chatbox () {
         )}
     
       
-    </>
+    </div>
     
 
   );
