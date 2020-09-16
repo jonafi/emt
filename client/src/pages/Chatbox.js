@@ -1,4 +1,4 @@
-/*
+
 import React, { useState, useEffect, useRef } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -8,7 +8,7 @@ import API from "../utils/API";
 import ChatMessages from '../components/ChatMessages';
 
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:3002";
+const ENDPOINT = "http://127.0.0.1:3001";
 
 
 function Chatbox () {
@@ -70,9 +70,9 @@ function Chatbox () {
     console.log(user);
     
     setUsername(user.nickname);
-    const socket = socketIOClient(ENDPOINT);
+    const socket = socketIOClient();
     // connect to socket.io
-    socketRef.current = socket.connect('/');
+    socketRef.current = socket.connect('/Chat');
 
     // // get your id (working)
     // socketRef.current.on("id", id => {
@@ -171,4 +171,3 @@ function Chatbox () {
 
 export default Chatbox;
 
-*/

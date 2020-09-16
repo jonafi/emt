@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
-import {Container, Row, Col, Form, Button} from 'react-bootstrap'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import API from "../utils/API";
 
 
 
-function AddUser(){
+function AddUser() {
     // all data for new user
     const [department, setDepartment] = useState("");
     const [role, setRole] = useState("");
@@ -26,12 +26,12 @@ function AddUser(){
     const [hireDate, setHireDate] = useState("");
 
     //
-    function handleOnSubmit (event) {
+    function handleOnSubmit(event) {
         event.preventDefault();
         console.log(
-            department, 
-            role, 
-            email, 
+            department,
+            role,
+            email,
             active,
             firstName,
             middleInitial,
@@ -64,12 +64,12 @@ function AddUser(){
             "hire_date": new Date(hireDate),
             "gender": gender,
         })
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
     }
 
-    
-    
+
+
     return (
         <>
         <Nav/>
@@ -137,14 +137,15 @@ function AddUser(){
                             <Form.Control placeholder="City" onChange={e => setCity(e.target.value)}/>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="add">
-                                <Form.Label>State</Form.Label>
-                            <Form.Control placeholder="State" onChange={e => setUSState(e.target.value)}/>
+                            <h3 className="mt-5 bold">Personal Information</h3>
+                            <Form.Group controlId="add" className="mt-3">
+                                <Form.Label>Email Address</Form.Label>
+                                <Form.Control type="email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}></Form.Control>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="add">
-                            <Form.Label>Zip</Form.Label>
-                            <Form.Control placeholder="12345" onChange={e => setZip(e.target.value)}/>
+                            <Form.Group controlId="add">
+                                <Form.Label>First Name</Form.Label>
+                                <Form.Control type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></Form.Control>
                             </Form.Group>
                         </Form.Row>
  
@@ -184,5 +185,5 @@ function AddUser(){
     );
 };
 
-export default AddUser; 
+export default AddUser;
 
