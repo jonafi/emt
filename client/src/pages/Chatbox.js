@@ -1,5 +1,4 @@
 /*
-
 import React, { useState, useEffect, useRef } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -80,15 +79,19 @@ function Chatbox () {
     //   setUsername(id);
     // });
 
-    
     // loadRole(user);
     // listens for any changes to message
-    socketRef.current.on("chat message", (message) => {
-      console.log("here");
-      console.log("message: ", message);
+    // socketRef.current.on("chat message", (message) => {
+    //   console.log("here");
+    //   console.log("message: ", message);
+    // });
+
+    socketRef.current.on("chat message", (msg) => {
+      setNewMsg(newMsg => [...newMsg, msg]);
+      console.log(newMsg);
     })
 
-    return () => socket.disconnect();
+    // return () => socket.disconnect();
 
     }, []);
 
@@ -100,26 +103,17 @@ function Chatbox () {
       text: response
     };
 
-    console.log(data);
+    console.log(data.username, data.text);
 
     // data sent to socket.io
     socketRef.current.emit("chat message", data);
 
-    e.target.value = "";
-    setResponse();
+    // e.target.value = "";
+    // setResponse();
 
-    // gets the change, then displays it in the chat
-    listeningNewMessages();
+    // // gets the change, then displays it in the chat
+    // listeningNewMessages();
   };
-
-  function listeningNewMessages () {
-    socketRef.current.on("message", (msg) => {
-      
-
-      setNewMsg([...newMsg, msg]);
-      console.log(newMsg);
-    })
-  }
 
   
 
@@ -140,7 +134,7 @@ function Chatbox () {
                         {newMsg.map((message, index) => (
                           <ChatMessages key={index} username={message.username} text={message.text}/>
                         ))}
-
+  
                           <Form onSubmit={handleOnSubmit}>
 
                             <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)}  >
