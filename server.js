@@ -4,10 +4,10 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const upload = require('express-fileupload');
 const fs = require('fs');
-
+const http = require("http");
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const socketIO = require("socket.io");
 // middleware allows only authenticated users to see API routes
 // const authCheck = (req,res,next)=>{
 
@@ -57,10 +57,8 @@ app.use(express.json());
 
 // For uploading files
 app.use(upload());
-
 const AWS = require('aws-sdk');
-
-// TO DO make a local ENV system that works....
+require('dotenv').config();
 const AWS_ID = process.env.AWS_Access_Key_Id;
 const AWS_SECRET = process.env.AWS_Secret_Key;
 const AWS_BUCKET = process.env.S3_BUCKET;
@@ -71,9 +69,11 @@ const s3 = new AWS.S3({
 });
 
 app.post('/uploadfiles', (req, res) => {
-  //console.log(req.files)
+ console.log(req.body.employeeEmail)
   let file = req.files.file;
-  let filename = file.name;
+  let originalFileName = file.name
+  let fileExtension = originalFileName.substring(originalFileName.length - 4)
+  let filename = req.body.filetype + "-" +req.body.employeeEmail + fileExtension;
   file.mv("./uploads/" + filename, (err) => {
     if (err) { res.send(err) }
     else {
@@ -91,9 +91,12 @@ app.post('/uploadfiles', (req, res) => {
         }
         //console.log(`File uploaded ${data.Location}`);
       });
+      console.log(req.body)
+      //make a database call that does the console log below
+      console.log('Mark ' + req.body.databasefield +' for ' + req.body.employeeEmail + ' as true')
+      res.redirect('back') //prevents hanging.  replace with thank you modal redirect?
     }
   });
-  res.redirect('back'); //prevents hanging.  replace with thank you modal redirect?
 });
 
 const db = require("./models");
@@ -115,9 +118,48 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+
+const server = http.createServer(app);
+const io = socketIO(server);
+//socket.io code
+
+// Heroku won't actually allow us to use WebSockets
+// so we have to setup polling instead.
+// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
+// io.configure(function () { 
+//   io.set("transports", ["xhr-polling"]); 
+//   io.set("polling duration", 10); 
+// });
+
+io.on("connection", (socket) => {
+  console.log("New client connected");
+
+  // SENDS BACK ORIGINAL ID/USER
+  socket.emit("id", "tiempoAuto");
+
+  // LISTENS FOR 'chat message'
+  socket.on("chat message", (msg) => {
+    console.log("message: " + msg);
+    // when done, returns back the message
+    io.emit("chat message", msg);
+  })
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
   });
 });
+
+// end of socket.io
+
+db.sequelize.sync().then(function() {
+  // app.listen(PORT, function() {
+  //   console.log("App listening on PORT " + PORT);
+  // });
+
+  // socket.io (for chat)
+  server.listen(PORT, () => {
+    console.log('listening on *:', PORT);
+  });
+});
+
 

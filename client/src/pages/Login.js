@@ -8,7 +8,7 @@ function Login(){
         <Container className='loginBox'>
             <Row>
                 <Col xs='2'>
-                <LoginButton/>
+                <LoginButton className="text-center"/>
                 </Col>
             </Row>
         </Container>

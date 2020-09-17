@@ -20,11 +20,12 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "aws-sdk": "^2.751.0",
+    "aws-sdk": "^2.752.0",
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
     "express": "^4.16.3",
     "express-fileupload": "^1.2.0",
     "express-jwt": "^6.0.0",
@@ -35,6 +36,8 @@
     "mysql2": "^2.1.0",
     "react-router-dom": "^5.2.0",
     "sequelize": "^6.3.4",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
   }
 }
