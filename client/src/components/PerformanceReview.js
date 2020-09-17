@@ -29,22 +29,22 @@ function PerformanceReview() {
                         <li key={review.id}>
                             <row>
                                 <div className="d-flex flex-row bold">
-                                    <div><h5>Year: {review.reviewYear}</h5></div> 
+                                    <div><h5 className="sub-title">Year: {review.reviewYear}</h5></div> 
                                 </div>
                             </row>
                             <row>
                                 <div className="d-flex flex-row bold">
-                                    <div><h5>Quarter: {review.reviewQtr}</h5></div> 
+                                    <div><h5 className="sub-title">Quarter: {review.reviewQtr}</h5></div> 
                                 </div>
                             </row>
                             <row>
                                 <div className="d-flex flex-row bold">
-                                    <div><h5>Status: {review.reviewStatus}</h5></div> 
+                                    <div><h5 className="sub-title">Status: {review.reviewStatus}</h5></div> 
                                 </div>
                             </row>
                             <row>
                                 <div className="d-flex flex-row bold">
-                                    <div><h5>Overall Rating: {review.actualOverallRating}</h5></div> 
+                                    <div><h5 className="sub-title">Overall Rating: {review.actualOverallRating}</h5></div> 
                                 </div>
                             </row>
 
@@ -66,7 +66,7 @@ function PerformanceReview() {
                                 <tbody>
                                     <tr>
                                         <td>GOALS</td> 
-                                        <td>${review.goalNetSales}</td> 
+                                        <td >${review.goalNetSales}</td> 
                                         <td>{review.goalHours}</td> 
                                         <td>{review.goalBB}%</td> 
                                         <td>${review.goalTHPC}</td> 
