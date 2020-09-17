@@ -68,6 +68,10 @@ const s3 = new AWS.S3({
   secretAccessKey: AWS_SECRET
 });
 
+
+
+const db = require("./models");
+
 app.post('/uploadfiles', (req, res) => {
  console.log(req.body.employeeEmail)
   let file = req.files.file;
@@ -94,13 +98,23 @@ app.post('/uploadfiles', (req, res) => {
       console.log(req.body)
       //make a database call that does the console log below
       console.log('Mark ' + req.body.databasefield +' for ' + req.body.employeeEmail + ' as true')
+     
+     let dbfield = req.body.databasefield;
+      let data = {[dbfield]:true}
+      // sequelize
+      db.employee
+    
+      .update(data,
+        {
+          where: { personal_email: req.body.employeeEmail }
+        })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+
       res.redirect('back') //prevents hanging.  replace with thank you modal redirect?
     }
   });
 });
-
-const db = require("./models");
-
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
