@@ -6,7 +6,11 @@
     box-shadow: 5px 5px 5px #696969;
     border-radius: 5px;
     border: 1px #FFFFFF solid;
-    font-size: 1.6em;
+    font-size: 2.5vh;
+}
+
+.sub-title{
+  font-size: 1.8vh;
 }
 
 .table-fill {
@@ -27,7 +31,7 @@
     background:#4c4d4e;
     border-bottom:4px solid #9ea7af;
     border-right: 1px solid #343a45;
-    font-size:16px;
+    font-size: 1.5vh;
     font-weight: 100;
     padding:24px;
     text-align:left;
@@ -72,7 +76,7 @@
   }
    
   tr:nth-child(odd):hover td {
-    background:#969090;
+    background:#8f8b8b;
   }
   
   tr:last-child td:first-child {
@@ -82,14 +86,13 @@
   tr:last-child td:last-child {
     border-bottom-right-radius:3px;
   }
-   
+   /*this styles the performance and directory table*/
   td {
     background:#FFFFFF;
     padding:20px;
     text-align:left;
     vertical-align:middle;
-    font-weight:300;
-    font-size:18px;
+    font-size: 1.5vh;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
   }
