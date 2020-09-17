@@ -58,6 +58,7 @@ function Navigation() {
             }
             <NavDropdown.Item className="text-center"  href="/AddReview">ADD REVIEW</NavDropdown.Item>
             </NavDropdown>
+
             <Nav.Link href="/Chat" className="ltgray text-center header">CHAT</Nav.Link>
           </>
           
