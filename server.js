@@ -98,8 +98,9 @@ app.post('/uploadfiles', (req, res) => {
       console.log(req.body)
       //make a database call that does the console log below
       console.log('Mark ' + req.body.databasefield +' for ' + req.body.employeeEmail + ' as true')
-let dbfield = req.body.databasefield;
-let data = {dbfield:true};
+     
+     let dbfield = req.body.databasefield;
+      let data = {[dbfield]:true}
       // sequelize
       db.employee
     
