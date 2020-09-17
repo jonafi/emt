@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
+import EditModal from '../components/EditModal';
 import { useAuth0 } from '@auth0/auth0-react'
 import {Col, Container, Row, Button} from 'react-bootstrap';
 import API from '../utils/API';
@@ -70,7 +71,6 @@ function Dashboard(props) {
                                              <p>{filteredPerson.first_name}</p>
                                          <h5 className="bold bmarg">Date Hired</h5>
                                              <p>{filteredPerson.hire_date}</p> 
-                                         <Button variant="outline-secondary" className="editBtn">Edit</Button>{' '}
                                      </Col>  
                                                 </Row>
                                             </Col>
@@ -105,6 +105,7 @@ function Dashboard(props) {
                                                          <p>{filteredPerson.work_email}</p> 
                                                     </Col>    
                                                 </Row>
+                                            <EditModal/>
                                             </Col>
                                     <Col xs="1">
                                      </Col>

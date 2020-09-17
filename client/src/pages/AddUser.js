@@ -23,6 +23,7 @@ function AddUser() {
     const [phoneNum, setPhoneNum] = useState("");
     const [gender, setGender] = useState("F");
     const [birthDate, setBirthDate] = useState("");
+    const [hireDate, setHireDate] = useState("");
 
     //
     function handleOnSubmit(event) {
@@ -42,25 +43,26 @@ function AddUser() {
             zip,
             phoneNum,
             gender,
-            birthDate
+            birthDate,
+            hireDate
         );
-
         API.postEmployee({
-            "department": JSON.stringify(department),
-            "status": JSON.stringify(active),
-            "role": JSON.stringify(role),
-            "first_name": JSON.stringify(firstName),
-            "middle_init": JSON.stringify(middleInitial),
-            "last_name": JSON.stringify(lastName),
-            "address_line1": JSON.stringify(address),
-            "address_line2": JSON.stringify(addressTwo),
-            "city": JSON.stringify(city),
-            "state": JSON.stringify(usState),
-            "zip": JSON.stringify(zip),
-            "primary_phone": JSON.stringify(phoneNum),
-            "personal_email": JSON.stringify(email),
-            "birth_date": JSON.stringify(birthDate),
-            "gender": JSON.stringify(gender),
+            "department": department,
+            "status": active,
+            "role": role,
+            "first_name": firstName,
+            "middle_init": middleInitial,
+            "last_name": lastName,
+            "address_line1": address,
+            "address_line2": addressTwo,
+            "city": city,
+            "state": usState,
+            "zip": zip,
+            "primary_phone": phoneNum,
+            "personal_email": email,
+            "birth_date": new Date(birthDate),
+            "hire_date": new Date(hireDate),
+            "gender": gender,
         })
             .then(result => console.log(result))
             .catch(err => console.log(err));
@@ -70,32 +72,69 @@ function AddUser() {
 
     return (
         <>
-            <Nav />
+        <Nav/>
 
-            <Container>
-                <Row>
-                    <Col xs='2'>
-                    </Col>
-                    <Col xs="8" className="AddUser">
-                        <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
-                            <h1 className="mt-5 bold addnew">Add New Employee</h1>
-                            <h3 className="mt-5 bold">Current Role</h3>
-                            <Form.Group controlId="add" className="mt-3">
-                                <Form.Label>Department</Form.Label>
-                                <Form.Control type="text" placeholder="Department" onChange={e => setDepartment(e.target.value)}></Form.Control>
-                            </Form.Group>
+        <Container>
+            <Row>
+            <Col xs='2'>
+            </Col>
+                <Col xs="8"  className="AddUser">
+                    <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
+                    <h1 className="mt-5 bold addnew">Add New Employee</h1>
+                    <h3 className="mt-5 bold">Current Role</h3>
+                        <Form.Group controlId ="add" className="mt-3">
+                            <Form.Label>Department</Form.Label>
+                            <Form.Control type = "text" placeholder="Department" onChange={e => setDepartment(e.target.value)}></Form.Control>
+                        </Form.Group>
 
-                            <Form.Group controlId="add">
-                                <Form.Label>Role</Form.Label>
-                                <Form.Control type="text" placeholder="Manager" onChange={e => setRole(e.target.value)}></Form.Control>
-                            </Form.Group>
+                        <Form.Group controlId ="add">
+                            <Form.Label>Role</Form.Label>
+                            <Form.Control type = "text" placeholder="Manager" onChange={e => setRole(e.target.value)}></Form.Control>
+                        </Form.Group>
 
-                            <h6>Role Status</h6>
-                            <Form.Group controlId="add">
-                                <Form.Control as="select" defaultValue="Active" onChange={e => setActive(e.target.value)} >
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </Form.Control>
+                        <h6>Role Status</h6>
+                       <Form.Group controlId="add">
+                       <Form.Control as="select" defaultValue="Active" onChange={e => setActive(e.target.value)} >
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        </Form.Control>
+                       </Form.Group> 
+
+                    <h3 className="mt-5 bold">Personal Information</h3>
+                       <Form.Group controlId ="add" className="mt-3">
+                            <Form.Label>Email Address</Form.Label>
+                            <Form.Control type = "email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}></Form.Control>
+                        </Form.Group>
+
+                        <Form.Group controlId ="add">
+                            <Form.Label>First Name</Form.Label>
+                            <Form.Control type = "text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></Form.Control>
+                        </Form.Group>
+
+                        <Form.Group controlId ="add">
+                            <Form.Label>Middle Initial</Form.Label>
+                            <Form.Control type = "text" placeholder="A" onChange={e => setMiddleInitial(e.target.value)}></Form.Control>
+                        </Form.Group>
+
+                        <Form.Group controlId ="add">
+                            <Form.Label>Last Name</Form.Label>
+                            <Form.Control type = "text" placeholder="Last Name" onChange={e => setLastName(e.target.value)}></Form.Control>
+                        </Form.Group>
+
+                        <Form.Group controlId="add">
+                            <Form.Label>Address Line 1</Form.Label>
+                            <Form.Control placeholder="1234 Main Street" onChange={e => setAddress(e.target.value)}/>
+                         </Form.Group>
+
+                        <Form.Group controlId="add">
+                            <Form.Label>Address Line 2</Form.Label>
+                            <Form.Control placeholder="Apartment, Unit or Suite #" onChange={e => setAddressTwo(e.target.value)}/>
+                         </Form.Group>
+
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="add">
+                                <Form.Label>City</Form.Label>
+                            <Form.Control placeholder="City" onChange={e => setCity(e.target.value)}/>
                             </Form.Group>
 
                             <h3 className="mt-5 bold">Personal Information</h3>
@@ -108,7 +147,7 @@ function AddUser() {
                                 <Form.Label>First Name</Form.Label>
                                 <Form.Control type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></Form.Control>
                             </Form.Group>
-
+                            </Form.Row>
                             <Form.Group controlId="add">
                                 <Form.Label>Middle Initial</Form.Label>
                                 <Form.Control type="text" placeholder="A" onChange={e => setMiddleInitial(e.target.value)}></Form.Control>
