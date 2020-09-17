@@ -9,7 +9,23 @@ function Directory() {
   const { user, isAuthenticated } = useAuth0();
   const [data, setData] = useState([]);
   const [role, setRole] = useState([]);
+  
+  //SEARCH FUNCTION
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchRes, setSearchRes] = useState("");
+  const handleChange = e => {
+    setSearchTerm(e.target.value); 
+  }
 
+  //Used for search filter
+  useEffect(() => {
+    const results = data.filter(person =>
+      person.first_name.toLowerCase().includes(searchTerm)
+      );
+      setSearchRes(results);
+  }, [searchTerm]);
+
+  // LOADS DATA
   useEffect(() => {
     loadEmployees();
   }, []);
@@ -34,7 +50,8 @@ function Directory() {
       })
       .catch(err => console.log(err));
   }
-
+  // END OF LOAD DATA
+  
 
   return (
     <>
@@ -43,6 +60,12 @@ function Directory() {
         <Row className="infoRow">
           <Col s='12' className="directory">
             <h5 className="bold listTitle">Directory List</h5>
+            <input
+              type="text"
+              placeholder = "Search By First Name"
+              value={searchTerm}
+              onChange={handleChange}
+            />
             <hr className="linebreak"></hr>
               <Table striped border hover responsive="sm">
             <tbody>
@@ -51,12 +74,13 @@ function Directory() {
                 {loadRole(user.email)}
                 {(role === "admin" || role === "Stylist" || role === "role4")
                   ? <table className="table">
-                    {data.map(person => (
+                    {searchRes.map(contacts => (
                       <tr>
-                        <td>{person.first_name}</td>
-                        <td>{person.last_name}</td>
-                        <td>{person.primary_phone}</td>
-                        <td><a href={"mailto:" + person.personal_email}>{person.personal_email}</a></td>
+                        <td>{contacts.role}</td>
+                        <td>{contacts.first_name}</td>
+                        <td>{contacts.last_name}</td>
+                        <td>{contacts.primary_phone}</td>
+                        <td><a href={"mailto:" + contacts.personal_email}>{contacts.personal_email}</a></td>
                       </tr>
                     ))}
                   </table>
