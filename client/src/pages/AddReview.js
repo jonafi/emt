@@ -38,33 +38,37 @@ function AddReview(){
             goalHours, goalBB, goalTHPC, goalCPFH, goalSPH, goalL360, goalAttendance, goalAttitude, actualNetSales, 
             actualHours, actualBB, actualTHPC, actualCPFH, actualSPH, actualL360, actualAttendance, actualAttitude
         ); 
-    
-        API.postReview({
-            "employeeId": employeeId, 
+        
+        var obj = {
+            "employeeId": parseInt(employeeId), 
             "personal_email": personal_email, 
             "reviewYear": reviewYear, 
             "reviewQtr": reviewQtr, 
             "reviewStatus": reviewStatus, 
-            "actualOverallRating": actualOverallRating, 
-            "goalNetSales": goalNetSales,
-            "goalHours": goalHours, 
-            "goalBB": goalBB, 
-            "goalTHPC": goalTHPC, 
-            "goalCPFH": goalCPFH, 
-            "goalSPH": goalSPH, 
-            "goalL360": goalL360, 
-            "goalAttendance": goalAttendance, 
-            "goalAttitude": goalAttitude, 
-            "actualNetSales": actualNetSales, 
-            "actualHours": actualHours, 
-            "actualBB": actualBB, 
-            "actualTHPC": actualTHPC, 
-            "actualCPFH": actualCPFH, 
-            "actualSPH": actualSPH, 
-            "actualL360": actualL360, 
-            "actualAttendance": actualAttendance, 
-            "actualAttitude": actualAttitude
-        })
+            "actualOverallRating": parseInt(actualOverallRating),  
+            "goalNetSales": parseFloat(goalNetSales),
+            "goalHours": parseFloat(goalHours), 
+            "goalBB": parseFloat(goalBB),
+            "goalTHPC": parseFloat(goalTHPC), 
+            "goalCPFH": parseFloat(goalCPFH), 
+            "goalSPH": parseFloat(goalSPH), 
+            "goalL360": parseFloat(goalL360), 
+            "goalAttendance": parseInt(goalAttendance), 
+            "goalAttitude":  parseInt(goalAttitude), 
+            "actualNetSales": parseFloat(actualNetSales), 
+            "actualHours": parseFloat(actualHours),
+            "actualBB": parseFloat(actualBB),
+            "actualTHPC": parseFloat(actualTHPC), 
+            "actualCPFH": parseFloat(actualCPFH), 
+            "actualSPH": parseFloat(actualSPH),  
+            "actualL360": parseFloat(actualL360),  
+            "actualAttendance": parseInt(actualAttendance), 
+            "actualAttitude": parseInt(actualAttitude),
+        } 
+
+        console.log(obj);
+
+        API.postReview(obj)
         .then(result => console.log(result))
         .catch(err => console.log(err));
     }
@@ -225,7 +229,7 @@ function AddReview(){
                     </div>
                 </div>
                 <Row className="text-center">
-                    <Button as="input" className="addUserbutton mt-4 mb-4" size="lg" type="submit"  value="Submit" />{' '}
+                    <Button as="input" className="addUserbutton mt-4 mb-4" size="lg" type="submit" value="Submit" onClick={handleOnSubmit} />{' '}
                 </Row>            
             </form>
         </Col>
