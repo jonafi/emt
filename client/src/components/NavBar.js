@@ -56,6 +56,7 @@ function Navigation() {
               : <p></p>
             }
             <Nav.Link href="/AddReview" className="ltgray text-center header">ADD REVIEW</Nav.Link>
+            <Nav.Link href="/Chat" className="ltgray text-center header">CHAT</Nav.Link>
           </>
           
         )}
