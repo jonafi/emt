@@ -23,7 +23,7 @@ router.post("/employee", Employee.create);
 router.delete("/employee/:id", Employee.remove);
 
 // UPDATE
-router.put("/employee/:id", Employee.update);
+router.put("/employee", Employee.update);
 
 // Export
 module.exports = router;
