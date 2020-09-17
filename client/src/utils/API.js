@@ -21,5 +21,8 @@ export default {
   },
   getAllPerformance: function() {
     return axios.get('/api/reviews')
-  }
+  },
+  postReview: function(review) {
+    return axios.post('/api/addreview', review)
+  },
 };
