@@ -1,4 +1,3 @@
-/*
 
 import React, { useState, useEffect, useRef } from 'react';
 import Nav from '../components/NavBar';
@@ -9,7 +8,7 @@ import API from "../utils/API";
 import ChatMessages from '../components/ChatMessages';
 
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:3002";
+const ENDPOINT = "http://127.0.0.1:3001";
 
 
 function Chatbox () {
@@ -71,24 +70,28 @@ function Chatbox () {
     console.log(user);
     
     setUsername(user.nickname);
-    const socket = socketIOClient(ENDPOINT);
+    const socket = socketIOClient();
     // connect to socket.io
-    socketRef.current = socket.connect('/');
+    socketRef.current = socket.connect('/Chat');
 
     // // get your id (working)
     // socketRef.current.on("id", id => {
     //   setUsername(id);
     // });
 
-    
     // loadRole(user);
     // listens for any changes to message
-    socketRef.current.on("chat message", (message) => {
-      console.log("here");
-      console.log("message: ", message);
+    // socketRef.current.on("chat message", (message) => {
+    //   console.log("here");
+    //   console.log("message: ", message);
+    // });
+
+    socketRef.current.on("chat message", (msg) => {
+      setNewMsg(newMsg => [...newMsg, msg]);
+      console.log(newMsg);
     })
 
-    return () => socket.disconnect();
+    // return () => socket.disconnect();
 
     }, []);
 
@@ -100,26 +103,17 @@ function Chatbox () {
       text: response
     };
 
-    console.log(data);
+    console.log(data.username, data.text);
 
     // data sent to socket.io
     socketRef.current.emit("chat message", data);
 
-    e.target.value = "";
-    setResponse();
+    // e.target.value = "";
+    // setResponse();
 
-    // gets the change, then displays it in the chat
-    listeningNewMessages();
+    // // gets the change, then displays it in the chat
+    // listeningNewMessages();
   };
-
-  function listeningNewMessages () {
-    socketRef.current.on("message", (msg) => {
-      
-
-      setNewMsg([...newMsg, msg]);
-      console.log(newMsg);
-    })
-  }
 
   
 
@@ -140,7 +134,7 @@ function Chatbox () {
                         {newMsg.map((message, index) => (
                           <ChatMessages key={index} username={message.username} text={message.text}/>
                         ))}
-
+  
                           <Form onSubmit={handleOnSubmit}>
 
                             <InputGroup className="mb-3" onChange={e => setResponse(e.target.value)}  >
@@ -177,4 +171,3 @@ function Chatbox () {
 
 export default Chatbox;
 
-*/

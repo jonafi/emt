@@ -2,14 +2,12 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const serverIO = require("http").createServer(app);
-//const io = require("socket.io").listen(serverIO);
 const upload = require('express-fileupload');
 const fs = require('fs');
-
+const http = require("http");
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const socketIO = require("socket.io");
 // middleware allows only authenticated users to see API routes
 // const authCheck = (req,res,next)=>{
 
@@ -121,11 +119,47 @@ app.get("*", function (req, res) {
 });
 
 
+const server = http.createServer(app);
+const io = socketIO(server);
+//socket.io code
+
+// Heroku won't actually allow us to use WebSockets
+// so we have to setup polling instead.
+// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
+// io.configure(function () { 
+//   io.set("transports", ["xhr-polling"]); 
+//   io.set("polling duration", 10); 
+// });
+
+io.on("connection", (socket) => {
+  console.log("New client connected");
+
+  // SENDS BACK ORIGINAL ID/USER
+  socket.emit("id", "tiempoAuto");
+
+  // LISTENS FOR 'chat message'
+  socket.on("chat message", (msg) => {
+    console.log("message: " + msg);
+    // when done, returns back the message
+    io.emit("chat message", msg);
+  })
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+});
+
 // end of socket.io
 
 db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+  // app.listen(PORT, function() {
+  //   console.log("App listening on PORT " + PORT);
+  // });
+
+  // socket.io (for chat)
+  server.listen(PORT, () => {
+    console.log('listening on *:', PORT);
   });
 });
+
 
