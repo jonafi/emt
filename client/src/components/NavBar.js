@@ -52,10 +52,12 @@ function Navigation() {
             <Nav.Link href="/Performance" className="ltgray text-center header">PERFORMANCE</Nav.Link>
             {loadRole(user.email)}
             {(role === 'admin')
-              ? <Nav.Link href="/AddUser" className="ltgray text-center header">ADD USER</Nav.Link>
+              ? <>
+                  <Nav.Link href="/AddUser" className="ltgray text-center header">ADD USER</Nav.Link>
+                  <Nav.Link href="/AddReview" className="ltgray text-center header">ADD REVIEW</Nav.Link>
+                </>
               : <p></p>
             }
-            <Nav.Link href="/AddReview" className="ltgray text-center header">ADD REVIEW</Nav.Link>
           </>
           
         )}
