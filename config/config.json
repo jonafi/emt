@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "22087005552493",
-=======
-    "password": "bj200e",
->>>>>>> 420fe3e7099ef0c20ee75a0bc1d1ce10b586a998
     "database": "sequelize_library",
     "host": "127.0.0.1",
     "port": 3306,
