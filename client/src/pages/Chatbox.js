@@ -131,25 +131,27 @@ function Chatbox () {
                 ? <>
                     <Container className="Chatbox">
                       <Row>
-                        <Col>
+                        <Col xs="2"></Col>
+                        <Col xs="8" className="chatdiv">
                         {DUMMY_DATA.map((message, index) => (
                           <ChatMessages key={index} username={message.username} text={message.text}/>
                         ))}
                         {newMsg.map((message, index) => (
                           <ChatMessages key={index} username={message.username} text={message.text}/>
                         ))}
-  
                           <Form onSubmit={handleOnSubmit}>
-
-                            <InputGroup className="mb-3" onChange={e => {setResponse(e.target.value) }}  >
-                              <FormControl aria-describedby="basic-addon1" />
+                             
+                            <InputGroup className="mb-3 messagearea" onChange={e => {setResponse(e.target.value) }}  >
+                              <FormControl className="mr-3" aria-describedby="basic-addon1" />
                               <InputGroup.Prepend>
-                                <Button variant="outline-secondary" type="submit">Send</Button>
+                                <Button className=" Button" variant="outline-secondary" type="submit">Send</Button>
                               </InputGroup.Prepend>
                             </InputGroup>
                             
                           </Form>
+ 
                         </Col>
+                        <Col xs="2"></Col>
                       </Row>
                     </Container>
                     <Footer/>

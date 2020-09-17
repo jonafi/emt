@@ -80,7 +80,7 @@ function AddUser() {
             </Col>
                 <Col xs="8"  className="AddUser">
                     <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
-                    <h1 className="mt-5 bold addnew">Add New Employee</h1>
+                    <h1 className="mt-5 bold addnew oswald">Add New Employee</h1>
                    
                     <h6 className="mt-5">Department</h6>
                     <Form.Group controlId="add">
@@ -123,7 +123,7 @@ function AddUser() {
                             <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => Date(e.target.value)}></Form.Control>
                         </Form.Group>
 
-                        <h3 className="mt-5 bold">Personal Information</h3>
+                        <h3 className="mt-5 bold oswald">Personal Information</h3>
                        <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>Email Address</Form.Label>
                             <Form.Control type = "email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}></Form.Control>
@@ -210,66 +210,66 @@ function AddUser() {
 
                 <Row>
                     <Col xs="2"></Col>
-                    <Col xs="8" className="AddUser">
-                        <h5 className="mt-5 bold">Application</h5>
+                    <Col xs="8" className="uploaddiv">
+                        <h5 className="mt-3 bold oswald">Application</h5>
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="Application" />
                         <input type="hidden" name="databasefield" value="app_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="application" type="file" name="file" />
-                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                            <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-5 bold">I9</h5>
+                        <h5 className="mt-3 bold oswald">I9</h5>
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                             <input type="hidden" name="filetype" value="I9" />
                             <input type="hidden" name="databasefield" value="i9_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="i9" type="file" name="file" />
-                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                            <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-5 bold">W4</h5>
+                        <h5 className="mt-3 bold oswald">W4</h5>
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="W4" />
                         <input type="hidden" name="databasefield" value="w4_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="w4" type="file" name="file" />
-                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                            <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-5 bold">Confidentiality Agreement</h5>
+                        <h5 className="mt-3 bold oswald">Confidentiality Agreement</h5>
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="Confidentiality Agreement" />
                         <input type="hidden" name="databasefield" value="ca_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="ca" type="file" name="file" />
-                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                            <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-5 bold">EXP</h5>
+                        <h5 className="mt-3 bold oswald">EXP</h5>
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="exp_rec" />
                         <input type="hidden" name="databasefield" value="app_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="exp" type="file" name="file" />
-                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                            <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
 
                         <hr />
-                        <h5 className="mt-5 bold">TMH</h5>
+                        <h5 className="mt-3 bold oswald">TMH</h5>
 
                         <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="TMH" />
                         <input type="hidden" name="databasefield" value="tmh_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
                             <input id="tmh" type="file" name="file" />
-                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                            <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
 
                     </Col>

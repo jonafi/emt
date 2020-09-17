@@ -6,7 +6,7 @@ function ChatMessages (props) {
 
   return (
     <div className="message">
-      <div className="message-username">{props.username}: <span className="message-text">{props.text}</span></div>
+      <div className="message-username"><span className="user">{props.username}:</span> <span className="message-text">{props.text}</span></div>
     </div>
     
   );

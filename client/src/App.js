@@ -10,6 +10,8 @@ import './style.css';
 import './directorystyle.css';
 import './performancestyle.css';
 import './adduserstyle.css';
+import './addreviewstyle.css';
+import './chatboxstyle.css';
 import PerformanceDashboard from './pages/PerformanceDashboard';
 import AddReview from './pages/AddReview';
 
