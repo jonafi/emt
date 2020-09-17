@@ -59,7 +59,7 @@ module.exports = {
     db.employee
       .update(req.body,
         {
-          where: { id: req.params.id }
+          where: { personal_email: req.body.personal_email }
         })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

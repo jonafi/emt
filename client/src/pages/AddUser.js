@@ -160,43 +160,6 @@ function AddUser() {
                             <Form.Control placeholder="City" onChange={e => setCity(e.target.value)}/>
                             </Form.Group>
 
-                            <h3 className="mt-5 bold">Personal Information</h3>
-                            <Form.Group controlId="add" className="mt-3">
-                                <Form.Label>Email Address</Form.Label>
-                                <Form.Control type="email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}></Form.Control>
-                            </Form.Group>
-
-                            <Form.Group controlId="add">
-                                <Form.Label>First Name</Form.Label>
-                                <Form.Control type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></Form.Control>
-                            </Form.Group>
-                            </Form.Row>
-                            <Form.Group controlId="add">
-                                <Form.Label>Middle Initial</Form.Label>
-                                <Form.Control type="text" placeholder="A" onChange={e => setMiddleInitial(e.target.value)}></Form.Control>
-                            </Form.Group>
-
-                            <Form.Group controlId="add">
-                                <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="text" placeholder="Last Name" onChange={e => setLastName(e.target.value)}></Form.Control>
-                            </Form.Group>
-
-                            <Form.Group controlId="add">
-                                <Form.Label>Address Line 1</Form.Label>
-                                <Form.Control placeholder="1234 Main Street" onChange={e => setAddress(e.target.value)} />
-                            </Form.Group>
-
-                            <Form.Group controlId="add">
-                                <Form.Label>Address Line 2</Form.Label>
-                                <Form.Control placeholder="Apartment, Unit or Suite #" onChange={e => setAddressTwo(e.target.value)} />
-                            </Form.Group>
-
-                            <Form.Row>
-                                <Form.Group as={Col} controlId="add">
-                                    <Form.Label>City</Form.Label>
-                                    <Form.Control placeholder="City" onChange={e => setCity(e.target.value)} />
-                                </Form.Group>
-
                                 <Form.Group as={Col} controlId="add">
                                     <Form.Label>State</Form.Label>
                                     <Form.Control placeholder="State" onChange={e => setUSState(e.target.value)} />
@@ -224,6 +187,11 @@ function AddUser() {
                             <Form.Group controlId="add">
                                 <Form.Label>Birth Date</Form.Label>
                                 <Form.Control className="textspace" type="text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
+                            </Form.Group>
+
+                            <Form.Group controlId="add">
+                                <Form.Label>Hire Date</Form.Label>
+                                <Form.Control className="textspace" type="text" placeholder="1/31/2020" onChange={e => setHireDate(e.target.value)}></Form.Control>
                             </Form.Group>
 
                             <Row className="text-center">
