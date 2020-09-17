@@ -63,20 +63,37 @@ function EditModal() {
     //
     function handleOnSubmit (event) {
         event.preventDefault();
+
+        // Edit object
+        const data = {
+          "address_line1": address,
+          "address_line2": addressTwo,
+          "city": city,
+          "state": usState,
+          "zip": zip,
+          "primary_phone": phoneNum,
+          "personal_email": user.email,
+        };
+
+        const dataSend = {};
+
+        // Filter the values changed
+        for (const [key, value] of Object.entries(data)) {
+          console.log(`${key}: ${value}`);
+
+          if (value !== "") {
+            dataSend[key] = value;
+          }
+        }
+
       
-        API.updateEmployee({
-            "address_line1": address,
-            "address_line2": addressTwo,
-            "city": city,
-            "state": usState,
-            "zip": zip,
-            "primary_phone": phoneNum,
-            "personal_email": user.email,
-        })
+      
+        API.updateEmployee(dataSend)
         .then(result => console.log(result))
         .catch(err => console.log(err));
     }
-      
+
+          
         return (
           <>
             <Button variant="outline-secondary" onClick={handleShow} className="editBtn">Edit Info</Button>{' '}
@@ -96,34 +113,34 @@ function EditModal() {
 
                       <Form.Group controlId="add">
                         <Form.Label>Address Line 1</Form.Label>
-                        <Form.Control type="text" placeholder={filteredPerson.address_line1} onChange={e => updateAddress(e.target.value)} />
+                        <Form.Control type="text" defaultValue={filteredPerson.address_line1} onChange={e => updateAddress(e.target.value)} />
                       </Form.Group>
 
                       <Form.Group controlId="add">
                         <Form.Label>Address Line 2</Form.Label>
-                        <Form.Control type="text" placeholder={filteredPerson.address_line2} onChange={e => updateAddressTwo(e.target.value)} />
+                        <Form.Control type="text" defaultValue={filteredPerson.address_line2} onChange={e => updateAddressTwo(e.target.value)} />
                       </Form.Group>
 
                       <Form.Row>
                             <Form.Group as={Col} controlId="add">
                                 <Form.Label>City</Form.Label>
-                            <Form.Control placeholder={filteredPerson.city} onChange={e => updateCity(e.target.value)}/>
+                            <Form.Control defaultValue={filteredPerson.city} onChange={e => updateCity(e.target.value)}/>
                             </Form.Group>
 
                                 <Form.Group as={Col} controlId="add">
                                     <Form.Label>State</Form.Label>
-                                    <Form.Control placeholder={filteredPerson.state} onChange={e => updateUSState(e.target.value)} />
+                                    <Form.Control defaultValue={filteredPerson.state} onChange={e => updateUSState(e.target.value)} />
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="add">
                                     <Form.Label>Zip</Form.Label>
-                                    <Form.Control placeholder={filteredPerson.zip} onChange={e => updateZip(e.target.value)} />
+                                    <Form.Control defaultValue={filteredPerson.zip} onChange={e => updateZip(e.target.value)} />
                                 </Form.Group>
                       </Form.Row>
 
                       <Form.Group controlId="add">
                         <Form.Label>Phone Number</Form.Label>
-                        <Form.Control type="text" placeholder={filteredPerson.primary_phone} onChange={e => updatePhoneNum(e.target.value)} />
+                        <Form.Control type="text" defaultValue={filteredPerson.primary_phone} onChange={e => updatePhoneNum(e.target.value)} />
                       </Form.Group>
 
                     </Modal.Body>
