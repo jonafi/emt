@@ -6,6 +6,7 @@
     border: 1px #FFFFFF solid;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
+    font-size: 2vh;
 }
 
 .infoRow{
@@ -17,6 +18,10 @@
 }
 
 .listTitle {
-  font-size: 3em;
+  font-size: 5vh;
+}
+
+.green{
+  border: green solid 3px;
 }
 

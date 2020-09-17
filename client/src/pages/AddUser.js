@@ -81,26 +81,49 @@ function AddUser() {
                 <Col xs="8"  className="AddUser">
                     <Form className="w-75 mx-auto mt-4" onSubmit={handleOnSubmit}>
                     <h1 className="mt-5 bold addnew">Add New Employee</h1>
-                    <h3 className="mt-5 bold">Current Role</h3>
-                        <Form.Group controlId ="add" className="mt-3">
-                            <Form.Label>Department</Form.Label>
-                            <Form.Control type = "text" placeholder="Department" onChange={e => setDepartment(e.target.value)}></Form.Control>
-                        </Form.Group>
+                   
+                    <h6 className="mt-5">Department</h6>
+                    <Form.Group controlId="add">
+                       <Form.Control as="select" defaultValue="select" onChange={e => setDepartment(e.target.value)} >
+                        <option value="">Select Option</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Tannerco">Tannerco</option>
+                        <option value="MN117">MN117</option>
+                        <option value="MN129">MN129</option>
+                        <option value="MN140">MN140</option>
+                        </Form.Control>
+                       </Form.Group>
 
-                        <Form.Group controlId ="add">
-                            <Form.Label>Role</Form.Label>
-                            <Form.Control type = "text" placeholder="Manager" onChange={e => setRole(e.target.value)}></Form.Control>
-                        </Form.Group>
-
-                        <h6>Role Status</h6>
+                       <h6>Status</h6>
                        <Form.Group controlId="add">
-                       <Form.Control as="select" defaultValue="Active" onChange={e => setActive(e.target.value)} >
+                       <Form.Control as="select" defaultValue="select" onChange={e => setActive(e.target.value)} >
+                        <option value="select">Select Option</option>
                         <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                        <option value="Terminated">Terminated</option>
+                        <option value="Candidate">Candidate</option>
                         </Form.Control>
                        </Form.Group> 
 
-                    <h3 className="mt-5 bold">Personal Information</h3>
+                       <h6>Role</h6>
+                       <Form.Group controlId="add">
+                       <Form.Control as="select" defaultValue="Active" onChange={e => setRole(e.target.value)} >
+                        <option value="">Select Option</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Area Mgr">Area Manager</option>
+                        <option value="Sr Manager">Senior Manager</option>
+                        <option value="Stylist">Stylist</option>
+                        <option value="Asst Mgr">Assistant Manager</option>
+                        <option value="IT">IT</option>
+                        </Form.Control>
+                       </Form.Group>
+
+                       <Form.Group controlId ="add" className="mt-3">
+                            <Form.Label>Hired Date</Form.Label>
+                            <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => Date(e.target.value)}></Form.Control>
+                        </Form.Group>
+
+                        <h3 className="mt-5 bold">Personal Information</h3>
                        <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>Email Address</Form.Label>
                             <Form.Control type = "email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}></Form.Control>
