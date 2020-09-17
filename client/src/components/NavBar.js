@@ -53,22 +53,15 @@ function Navigation() {
             <NavDropdown className ="text-center header ltgray" title="ADD" id="collasible-nav-dropdown">
             {loadRole(user.email)}
             {(role === 'admin')
-<<<<<<< HEAD
               ? <>
                   <Nav.Link href="/AddUser" className="ltgray text-center header">ADD USER</Nav.Link>
-                  <Nav.Link href="/AddReview" className="ltgray text-center header">ADD REVIEW</Nav.Link>
+                  <NavDropdown.Item className="text-center"  href="/AddReview">ADD REVIEW</NavDropdown.Item>
+                  </NavDropdown>
+
+                  <Nav.Link href="/Chat" className="ltgray text-center header">CHAT</Nav.Link>
                 </>
               : <p></p>
             }
-=======
-              ? <NavDropdown.Item href="/AddUser" className="text-center">ADD USER</NavDropdown.Item>
-              : <p></p>
-            }
-            <NavDropdown.Item className="text-center"  href="/AddReview">ADD REVIEW</NavDropdown.Item>
-            </NavDropdown>
-
-            <Nav.Link href="/Chat" className="ltgray text-center header">CHAT</Nav.Link>
->>>>>>> cd95caa0f296c28cc1a619e472904ef9dd88d65d
           </>
           
         )}
