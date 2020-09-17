@@ -11,6 +11,7 @@ import './directorystyle.css';
 import './performancestyle.css';
 import './adduserstyle.css';
 import PerformanceDashboard from './pages/PerformanceDashboard';
+import AddReview from './pages/AddReview';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route exact path='/Directory' component={Directory}/>
       <Route exact path='/Performance' component={PerformanceDashboard}/>
       <Route exact path='/AddUser' component={AddUser}/>
+      <Route exact path='/AddReview' component={AddReview}/>
       <Route exact path='/Chat' component={Chatbox}/>
       <Route exact path='/Upload' component={Upload}/>
       </div>

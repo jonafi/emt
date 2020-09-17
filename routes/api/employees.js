@@ -7,10 +7,13 @@ const Employee = require("../../controllers/employeeController");
 // GET
 router.get("/employees", Employee.findAll);
 
+//GET by ID
 router.get("/employee/:id", Employee.findById);
 
+//GET by Manager
 router.get("/managers", Employee.findAllManagers);
 
+//GET by Email
 router.get("/user/:personal_email", Employee.findByEmail)
 
 // POST
