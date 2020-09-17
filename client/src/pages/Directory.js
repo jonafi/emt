@@ -59,21 +59,30 @@ function Directory() {
       <Container>
         <Row className="infoRow">
           <Col s='12' className="directory">
-            <h5 className="bold listTitle">Directory List</h5>
-            <input
+            <h5 className="bold listTitle oswald">Directory List</h5>
+            <hr className="linebreak"></hr>
+            <input 
               type="text"
               placeholder = "Search By First Name"
               value={searchTerm}
               onChange={handleChange}
             />
-            <hr className="linebreak"></hr>
               <Table striped border hover responsive="sm">
             <tbody>
             {isAuthenticated && (
               <>
                 {loadRole(user.email)}
                 {(role === "admin" || role === "Stylist" || role === "role4")
-                  ? <table className="table">
+                  ? <table className="table mt-4 tborder">
+                      <thead className="vanida">
+                        <tr className="vanida">
+                            <th className="vanida">Role</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                        </tr>
+                      </thead>
                     {searchRes.map(contacts => (
                       <tr>
                         <td>{contacts.role}</td>

@@ -1,7 +1,7 @@
 .performanceInfo {
     margin-top: 3%;
     background-color: #ededed;
-    padding: 30px;
+    padding: 20px;
     font-family: 'Raleway', sans-serif;
     box-shadow: 5px 5px 5px #696969;
     border-radius: 5px;
@@ -27,16 +27,16 @@
   }
    
   th {
-    color:#D5DDE5;;
-    background:#4c4d4e;
-    border-bottom:4px solid #9ea7af;
+    color:#EDEDED;;
+    background:#6e6f70;
     border-right: 1px solid #343a45;
-    font-size: 1.5vh;
+    font-size: 1.8vh;
     font-weight: 100;
-    padding:24px;
+    padding:20px;
     text-align:left;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     vertical-align:middle;
+    font-weight: bold;
   }
   
   th:first-child {
@@ -52,15 +52,15 @@
     border-top: 1px solid #C1C3D1;
     border-bottom: 1px solid #C1C3D1;
     color:#666B85;
-    font-size:12px;
+    font-size:2vh;
     font-weight:normal;
     text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
   }
    
   tr:hover td {
-    background:#969090;
+    background:#bcbdbd;
     color:#FFFFFF;
-    border-top: 1px solid #22262e;
+    border-top: 1px solid #666B85;
   }
    
   tr:first-child {
@@ -76,7 +76,7 @@
   }
    
   tr:nth-child(odd):hover td {
-    background:#8f8b8b;
+    background:#bcbdbd;
   }
   
   tr:last-child td:first-child {
@@ -92,10 +92,12 @@
     padding:20px;
     text-align:left;
     vertical-align:middle;
-    font-size: 1.5vh;
+    font-size: 1.8vh;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
   }
+
+
   
   td:last-child {
     border-right: 0px;

@@ -79,12 +79,13 @@ function AddReview(){
         <Container>
         <Row>
         <Col xs="1"></Col>
-        <Col xs="10"  className="AddUser">
-            <h1 className="mt-5 bold addnew">Add Reivew</h1>
+        <Col xs="10"  className="AddReview">
+
             <form className="w-75 mx-auto mt-4" >
+            <h1 className="mt-5 bold addnew oswald">Add Review</h1>
                 
-                <h3>Overall</h3>
-                <Form.Group controlId ="add" className="mt-3">
+                <h3 className="mt-5 bold oswald">Overall</h3>
+                <Form.Group controlId ="add" className="mt-4">
                     <Form.Label>Employee ID</Form.Label>
                     <Form.Control type = "text" placeholder="Employee ID" onChange={e => setEmployeeId(e.target.value)}></Form.Control>
                 </Form.Group>
@@ -125,7 +126,7 @@ function AddReview(){
                 
                 <div className="form-row">
                     <div className="col-md-6">
-                        <h3>Goals</h3>
+                        <h3 className="oswald">Goals</h3>
                         <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>$ Net Sales</Form.Label>
                             <Form.Control type = "text" placeholder="99999.99" onChange={e => setGoalNetSales(e.target.value)}></Form.Control>
@@ -177,7 +178,7 @@ function AddReview(){
                     </div>
 
                     <div className="col-md-6">
-                        <h3>Actual Results</h3>
+                        <h3 className="oswald">Actual Results</h3>
                         <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>$ Net Sales</Form.Label>
                             <Form.Control type = "text" placeholder="99999.99" onChange={e => setActualNetSales(e.target.value)}></Form.Control>

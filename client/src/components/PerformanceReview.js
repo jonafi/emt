@@ -28,22 +28,22 @@ function PerformanceReview() {
                     {data.map(review => (
                         <li key={review.id}>
                             <row>
-                                <div className="d-flex flex-row bold">
+                                <div className="d-flex flex-row bold oswald">
                                     <div><h5 className="sub-title">Year: {review.reviewYear}</h5></div> 
                                 </div>
                             </row>
                             <row>
-                                <div className="d-flex flex-row bold">
+                                <div className="d-flex flex-row bold oswald">
                                     <div><h5 className="sub-title">Quarter: {review.reviewQtr}</h5></div> 
                                 </div>
                             </row>
                             <row>
-                                <div className="d-flex flex-row bold">
+                                <div className="d-flex flex-row bold oswald">
                                     <div><h5 className="sub-title">Status: {review.reviewStatus}</h5></div> 
                                 </div>
                             </row>
                             <row>
-                                <div className="d-flex flex-row bold">
+                                <div className="d-flex flex-row bold oswald">
                                     <div><h5 className="sub-title">Overall Rating: {review.actualOverallRating}</h5></div> 
                                 </div>
                             </row>
@@ -63,9 +63,9 @@ function PerformanceReview() {
                                         <th>Attitude</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className="tborder">
                                     <tr>
-                                        <td>GOALS</td> 
+                                        <td className="bold">GOALS</td> 
                                         <td >${review.goalNetSales}</td> 
                                         <td>{review.goalHours}</td> 
                                         <td>{review.goalBB}%</td> 
@@ -73,11 +73,11 @@ function PerformanceReview() {
                                         <td>{review.goalCPFH}</td> 
                                         <td>${review.goalSPH}</td> 
                                         <td>{review.goalL360}</td> 
-                                        <td>{review.goalAttendance}</td> 
-                                        <td>{review.goalAttitude}</td>                                         
+                                        <td className="text-center">{review.goalAttendance}</td> 
+                                        <td className="text-center">{review.goalAttitude}</td>                                         
                                     </tr>
                                     <tr>
-                                        <td>ACTUALS</td> 
+                                        <td className="bold">ACTUALS</td> 
                                         <td>${review.actualNetSales}</td> 
                                         <td>{review.actualHours}</td> 
                                         <td>{review.actualBB}%</td> 
@@ -85,8 +85,8 @@ function PerformanceReview() {
                                         <td>{review.actualCPFH}</td> 
                                         <td>${review.actualSPH}</td> 
                                         <td>{review.actualL360}</td> 
-                                        <td>{review.actualAttendance}</td> 
-                                        <td>{review.actualAttitude}</td>                                         
+                                        <td className="text-center">{review.actualAttendance}</td> 
+                                        <td className="text-center">{review.actualAttitude}</td>                                         
                                     </tr>
                                 </tbody>
                             </table>

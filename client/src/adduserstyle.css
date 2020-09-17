@@ -1,6 +1,6 @@
 .AddUser {
     margin-top: 3%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     background-color: #ededed;
     font-family: 'Raleway', sans-serif;
     box-shadow: 5px 5px 5px #696969;
@@ -31,4 +31,31 @@
 .addnew {
     font-size: 3em;
 }
+
+.uploaddiv {
+    margin-bottom: 10%;
+    background-color: #ededed;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 5px 5px 5px #696969;
+    border-radius: 5px;
+    border: 1px #FFFFFF solid;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5vh;
+    padding: 38px;
+}
+
+.uploadbutton{
+    background-color: #2E2E6E;
+    border: #696969;
+    color: #EDEDED;
+    font-size: 1.3em;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Oswald', sans-serif;
+    border-radius:10%;
+}
+
+.uploadbutton:hover {
+    background-color: #8f8b8b;
+    color: #2e2e6e;
+  }
 

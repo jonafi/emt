@@ -1,0 +1,24 @@
+.chatdiv {
+background-color: #ededed;
+padding: 30px;
+box-shadow: 5px 5px 5px #696969;
+border-radius: 5px;
+border: 1px #FFFFFF solid;
+margin-top: 8%;
+font-size:2vh;
+font-family: 'Roboto', sans-serif;
+height: 20%; 
+overflow: auto; 
+}
+
+
+
+.messagearea {
+    margin-top: 60%;
+}
+
+.user{
+    font-weight: bold;
+    color:#464242 !important;
+}
+

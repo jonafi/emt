@@ -47,20 +47,20 @@ function Navigation() {
 
     {isAuthenticated && (
           <>
-            <Nav.Link href="/Directory" className="ltgray text-center header">DIRECTORY</Nav.Link>
-            <Nav.Link href="/Performance" className="ltgray text-center header">PERFORMANCE</Nav.Link>
-            {loadRole(user.email)}
-            {(role === 'admin')
-              ? 
-              <>
-                  <Nav.Link href="/AddUser" className="ltgray text-center header">ADD USER</Nav.Link>
-                  <Nav.Link href="/AddReview" className="ltgray text-center header">ADD REVIEW</Nav.Link>
-                  <Nav.Link href="/Chat" className="ltgray text-center header">CHAT</Nav.Link>
-                </>
-              : 
-                <p></p>
-            }
-          </>
+          <Nav.Link href="/Directory" className="ltgray text-center header">DIRECTORY</Nav.Link>
+          <Nav.Link href="/Performance" className="ltgray text-center header">PERFORMANCE</Nav.Link>
+          <NavDropdown className ="text-center header ltgray" title="ADD" id="collasible-nav-dropdown">
+          {loadRole(user.email)}
+          {(role === 'admin')
+            ? <Nav.Link href="/AddUser" className="ltgray text-center header">ADD USER</Nav.Link>
+            ? <NavDropdown.Item href="/AddUser" className="text-center">ADD USER</NavDropdown.Item>
+            : <p></p>
+          }
+          <Nav.Link href="/AddReview" className="ltgray text-center header">ADD REVIEW</Nav.Link>
+          <NavDropdown.Item className="text-center"  href="/AddReview">ADD REVIEW</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link href="/Chat" className="ltgray text-center header">CHAT</Nav.Link>
+        </>
           
         )}
             <LoginButton/>
