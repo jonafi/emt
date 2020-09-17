@@ -8,8 +8,11 @@ const http = require("http");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const socketIO = require("socket.io");
+<<<<<<< HEAD
 //
 const EmployeeCont = "./controllers/employeeController";
+=======
+>>>>>>> 3f3f929887c2f478de768627e21d3c279c1ae88e
 // middleware allows only authenticated users to see API routes
 // const authCheck = (req,res,next)=>{
 
@@ -135,6 +138,7 @@ app.get("*", function (req, res) {
 const server = http.createServer(app);
 const io = socketIO(server);
 //socket.io code
+<<<<<<< HEAD
 
 // Heroku won't actually allow us to use WebSockets
 // so we have to setup polling instead.
@@ -157,6 +161,30 @@ io.on("connection", (socket) => {
     io.emit("chat message", msg);
   })
 
+=======
+
+// Heroku won't actually allow us to use WebSockets
+// so we have to setup polling instead.
+// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
+// io.configure(function () { 
+//   io.set("transports", ["xhr-polling"]); 
+//   io.set("polling duration", 10); 
+// });
+
+io.on("connection", (socket) => {
+  console.log("New client connected");
+
+  // SENDS BACK ORIGINAL ID/USER
+  socket.emit("id", "tiempoAuto");
+
+  // LISTENS FOR 'chat message'
+  socket.on("chat message", (msg) => {
+    console.log("message: " + msg);
+    // when done, returns back the message
+    io.emit("chat message", msg);
+  })
+
+>>>>>>> 3f3f929887c2f478de768627e21d3c279c1ae88e
   socket.on("disconnect", () => {
     console.log("Client disconnected");
   });
