@@ -147,40 +147,146 @@ function AddUser() {
                                 <Form.Label>First Name</Form.Label>
                                 <Form.Control type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></Form.Control>
                             </Form.Group>
-                        </Form.Row>
- 
-                        <Form.Group controlId ="add">
-                            <Form.Label>Phone Number</Form.Label>
-                            <Form.Control className="mb-2" type = "text" placeholder="1234567890" onChange={e => setPhoneNum(e.target.value)}></Form.Control>
-                        </Form.Group>  
+                            </Form.Row>
+                            <Form.Group controlId="add">
+                                <Form.Label>Middle Initial</Form.Label>
+                                <Form.Control type="text" placeholder="A" onChange={e => setMiddleInitial(e.target.value)}></Form.Control>
+                            </Form.Group>
 
-                        <h6>Gender</h6>
-                       <Form.Group controlId="add">
-                       <Form.Control as="select" onChange={e => setGender(e.target.value)}>
-                        <option value="F">Female</option>
-                        <option value="M">Male</option>
+                            <Form.Group controlId="add">
+                                <Form.Label>Last Name</Form.Label>
+                                <Form.Control type="text" placeholder="Last Name" onChange={e => setLastName(e.target.value)}></Form.Control>
+                            </Form.Group>
 
-                        </Form.Control>
-                       </Form.Group> 
-                        <Form.Group controlId ="add">
-                            <Form.Label>Birth Date</Form.Label>
-                            <Form.Control className="textspace" type = "text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
-                        </Form.Group>  
-                        <Form.Group controlId ="add">
-                            <Form.Label>Hire Date</Form.Label>
-                            <Form.Control className="textspace" type = "text" placeholder="01/31/2020" onChange={e => setHireDate(e.target.value)}></Form.Control>
-                        </Form.Group>  
-                        
-                        <Row className="text-center">
-                        <Button as="input" className="addUserbutton mt-4 mb-4" size="lg" type="submit"  value="Submit" />{' '}
-                        </Row>
-                    </Form>
-                </Col>
-                <Col xs='2'>
-               </Col>
-            </Row>
-        </Container>
-        <Footer/>
+                            <Form.Group controlId="add">
+                                <Form.Label>Address Line 1</Form.Label>
+                                <Form.Control placeholder="1234 Main Street" onChange={e => setAddress(e.target.value)} />
+                            </Form.Group>
+
+                            <Form.Group controlId="add">
+                                <Form.Label>Address Line 2</Form.Label>
+                                <Form.Control placeholder="Apartment, Unit or Suite #" onChange={e => setAddressTwo(e.target.value)} />
+                            </Form.Group>
+
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="add">
+                                    <Form.Label>City</Form.Label>
+                                    <Form.Control placeholder="City" onChange={e => setCity(e.target.value)} />
+                                </Form.Group>
+
+                                <Form.Group as={Col} controlId="add">
+                                    <Form.Label>State</Form.Label>
+                                    <Form.Control placeholder="State" onChange={e => setUSState(e.target.value)} />
+                                </Form.Group>
+
+                                <Form.Group as={Col} controlId="add">
+                                    <Form.Label>Zip</Form.Label>
+                                    <Form.Control placeholder="12345" onChange={e => setZip(e.target.value)} />
+                                </Form.Group>
+                            </Form.Row>
+
+                            <Form.Group controlId="add">
+                                <Form.Label>Phone Number</Form.Label>
+                                <Form.Control className="mb-2" type="text" placeholder="1234567890" onChange={e => setPhoneNum(e.target.value)}></Form.Control>
+                            </Form.Group>
+
+                            <h6>Gender</h6>
+                            <Form.Group controlId="add">
+                                <Form.Control as="select" onChange={e => setGender(e.target.value)}>
+                                    <option value="F">Female</option>
+                                    <option value="M">Male</option>
+
+                                </Form.Control>
+                            </Form.Group>
+                            <Form.Group controlId="add">
+                                <Form.Label>Birth Date</Form.Label>
+                                <Form.Control className="textspace" type="text" placeholder="7/8/1980" onChange={e => setBirthDate(e.target.value)}></Form.Control>
+                            </Form.Group>
+
+                            <Row className="text-center">
+                                <Button as="input" className="addUserbutton mt-4 mb-4" size="lg" type="submit" value="Submit" />{' '}
+                            </Row>
+                        </Form>
+                    </Col>
+                    <Col xs='2'>
+                    </Col>
+                </Row>
+
+
+            </Container>
+
+            <Container>
+
+                <Row>
+                    <Col xs="2"></Col>
+                    <Col xs="8" className="AddUser">
+                        <h5 className="mt-5 bold">Application</h5>
+
+                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <input type="hidden" name="filetype" value="Application" />
+                        <input type="hidden" name="databasefield" value="app_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
+                            <input id="application" type="file" name="file" />
+                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                        </form>
+                        <hr />
+                        <h5 className="mt-5 bold">I9</h5>
+
+                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                            <input type="hidden" name="filetype" value="I9" />
+                            <input type="hidden" name="databasefield" value="i9_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
+                            <input id="i9" type="file" name="file" />
+                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                        </form>
+                        <hr />
+                        <h5 className="mt-5 bold">W4</h5>
+
+                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <input type="hidden" name="filetype" value="W4" />
+                        <input type="hidden" name="databasefield" value="w4_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
+                            <input id="w4" type="file" name="file" />
+                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                        </form>
+                        <hr />
+                        <h5 className="mt-5 bold">Confidentiality Agreement</h5>
+
+                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <input type="hidden" name="filetype" value="Confidentiality Agreement" />
+                        <input type="hidden" name="databasefield" value="ca_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
+                            <input id="ca" type="file" name="file" />
+                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                        </form>
+                        <hr />
+                        <h5 className="mt-5 bold">EXP</h5>
+
+                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <input type="hidden" name="filetype" value="exp_rec" />
+                        <input type="hidden" name="databasefield" value="app_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
+                            <input id="exp" type="file" name="file" />
+                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                        </form>
+
+                        <hr />
+                        <h5 className="mt-5 bold">TMH</h5>
+
+                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <input type="hidden" name="filetype" value="TMH" />
+                        <input type="hidden" name="databasefield" value="tmh_rec" />
+                        Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
+                            <input id="tmh" type="file" name="file" />
+                            <input type="submit" name="Upload" value="Upload" className="addUserbutton mt-4 mb-4" size="lg" />
+                        </form>
+
+                    </Col>
+                    <Col xs="2"></Col>
+                </Row>
+
+            </Container>
+            <Footer />
         </>
     );
 };
