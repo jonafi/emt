@@ -126,7 +126,7 @@ function AddReview(){
                 
                 <div className="form-row">
                     <div className="col-md-6">
-                        <h3 className="oswald">Goals</h3>
+                        <h3 className="oswald bold mt-3 mb-3">Goals</h3>
                         <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>$ Net Sales</Form.Label>
                             <Form.Control type = "text" placeholder="99999.99" onChange={e => setGoalNetSales(e.target.value)}></Form.Control>
@@ -178,7 +178,7 @@ function AddReview(){
                     </div>
 
                     <div className="col-md-6">
-                        <h3 className="oswald">Actual Results</h3>
+                        <h3 className="oswald bold mt-3 mb-3">Actual Results</h3>
                         <Form.Group controlId ="add" className="mt-3">
                             <Form.Label>$ Net Sales</Form.Label>
                             <Form.Control type = "text" placeholder="99999.99" onChange={e => setActualNetSales(e.target.value)}></Form.Control>
