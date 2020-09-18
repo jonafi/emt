@@ -108,7 +108,7 @@ function Dashboard(props) {
                                                     </Col>    
                                                     
                                                 </Row>
-                                            <EditModal/>
+                                            <EditModal filtered={filteredPerson} personalEmail={personal_email} userEmail={user.email}/>
                                             </Col>
                                     <Col xs="1">
                                      </Col>
