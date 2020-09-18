@@ -46,7 +46,7 @@ function Upload() {
 
           <form method="Post" action= "/uploadfiles" enctype="multipart/form-data">
     <input type="file" name="file"/>
-    <input type="submit" name="Upload" />
+    <input type="submit" name="Upload" value="Upload" />
 </form>
 
          </Col>
