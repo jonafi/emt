@@ -4,7 +4,7 @@ padding: 30px;
 box-shadow: 5px 5px 5px #696969;
 border-radius: 5px;
 border: 1px #FFFFFF solid;
-margin-top: 5%;
+margin-top: 4%;
 font-size:2vh;
 font-family: 'Roboto', sans-serif;
 height: 20%;  
@@ -13,11 +13,11 @@ float:right;
 
 .messages {
     overflow: auto;
-    height: 600px;
+    height:450px;
 }
 
 .messagearea {
-    margin-top: 8%;
+    margin-top: 5%;
 }
 
 .user{
