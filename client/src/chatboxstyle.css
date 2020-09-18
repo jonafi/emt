@@ -13,7 +13,8 @@ float:right;
 
 .messages {
     overflow: auto;
-    height:450px;
+    height:auto;
+    min-height:30px;
 }
 
 .messagearea {
