@@ -6,12 +6,15 @@
     border: 1px #FFFFFF solid;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
-    font-size: 2vh;
+    font-size: 1.8vh;
 }
 
 .infoRow{
   margin-top: 50px;
 }
+
+
+
 
 .linebreak{
   margin-bottom: 5%;
@@ -21,7 +24,8 @@
   font-size: 5vh;
 }
 
-.green{
-  border: green solid 3px;
+.tborder{
+  border: #696969 solid 1px !important;
 }
+
 

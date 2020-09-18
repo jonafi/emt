@@ -3,7 +3,7 @@ import Nav from '../components/NavBar';
 import Footer from '../components/Footer';
 import EditModal from '../components/EditModal';
 import { useAuth0 } from '@auth0/auth0-react'
-import {Col, Container, Row, Button} from 'react-bootstrap';
+import {Col, Container, Row} from 'react-bootstrap';
 import API from '../utils/API';
 
 
@@ -85,10 +85,10 @@ function Dashboard(props) {
                                  <Row className="userInfo">
                                      <Col xs="1">
                                       </Col>
-                                        <Col xs="10" className="employee">
+                                        <Col xs="10" className="employee oswald">
                                             <h5 className="bold">EMPLOYEE INFO</h5>
                                                 <hr></hr>
-                                                <Row>
+                                                <Row className="employee-info">
                                                     <Col>
                                                         <h5 className="bold bmarg">Address</h5>
                                                             <p>
