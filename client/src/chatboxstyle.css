@@ -7,14 +7,14 @@ border: 1px #FFFFFF solid;
 margin-top: 4%;
 font-size:2vh;
 font-family: 'Roboto', sans-serif;
-height: 20%;  
+height:auto;
+min-height:30px; 
 float:right;
 }
 
 .messages {
     overflow: auto;
-    height:auto;
-    min-height:30px;
+    height: 350px;
 }
 
 .messagearea {
