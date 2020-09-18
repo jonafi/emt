@@ -9,7 +9,7 @@ const LoginButton = () => {
     return (
         (window.location.pathname === "/" || window.location.pathname === "/Dashboard") && (
             !isAuthenticated && (
-                <Nav.Link className="Button text center header" onClick={() => loginWithRedirect()}>
+                <Nav.Link className="Button text-center header oswald" onClick={() => loginWithRedirect()}>
                     LOGIN 
                 </Nav.Link>
             )
