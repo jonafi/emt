@@ -48,22 +48,22 @@ function Navigation() {
     <Nav>
     {isAuthenticated && (
           <>
-            <Nav.Link href="/Directory" className="ltgray text-center header">DIRECTORY</Nav.Link>
-            <Nav.Link href="/Performance" className="ltgray text-center header">PERFORMANCE</Nav.Link>
+            <Nav.Link href="/Directory" className="ltgray text-center header oswald">DIRECTORY</Nav.Link>
+            <Nav.Link href="/Performance" className="ltgray text-center header oswald">PERFORMANCE</Nav.Link>
             
             {loadRole(user.email)}
             {(role === 'admin')
               ? <>
-                <NavDropdown className ="text-center header ltgray" title="ADD" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/AddUser" className="text-center">ADD USER</NavDropdown.Item>
-                <NavDropdown.Item className="text-center"  href="/AddReview">ADD REVIEW</NavDropdown.Item>
+                <NavDropdown className ="text-center header ltgray oswald" title="ADD" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="/AddUser" className="text-center oswald">ADD USER</NavDropdown.Item>
+                <NavDropdown.Item className="text-center oswald"  href="/AddReview">ADD REVIEW</NavDropdown.Item>
                 </NavDropdown>
                 </>
               : <p></p>
             }
             
 
-            <Nav.Link href="/Chat" className="ltgray text-center header">CHAT</Nav.Link>
+            <Nav.Link href="/Chat" className="ltgray text-center header oswald">CHAT</Nav.Link>
           </>
           
         )}
