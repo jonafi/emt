@@ -133,12 +133,14 @@ function Chatbox () {
                       <Row>
                         <Col xs="2"></Col>
                         <Col xs="8" className="chatdiv">
+                          <div className ="messages">
                         {DUMMY_DATA.map((message, index) => (
                           <ChatMessages key={index} username={message.username} text={message.text}/>
                         ))}
                         {newMsg.map((message, index) => (
                           <ChatMessages key={index} username={message.username} text={message.text}/>
                         ))}
+                          </div>
                           <Form onSubmit={handleOnSubmit}>
                              
                             <InputGroup className="mb-3 messagearea" onChange={e => {setResponse(e.target.value) }}  >
@@ -149,7 +151,7 @@ function Chatbox () {
                             </InputGroup>
                             
                           </Form>
- 
+
                         </Col>
                         <Col xs="2"></Col>
                       </Row>
