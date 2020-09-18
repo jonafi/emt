@@ -140,7 +140,7 @@ function Chatbox () {
                         {newMsg.map((message, index) => (
                           <ChatMessages key={index} username={message.username} text={message.text}/>
                         ))}
-                                                  </div>
+                          </div>
                           <Form onSubmit={handleOnSubmit}>
                              
                             <InputGroup className="mb-3 messagearea" onChange={e => {setResponse(e.target.value) }}  >
