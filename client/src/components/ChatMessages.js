@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormControl } from 'react-bootstrap'
 
 
 function ChatMessages (props) {
