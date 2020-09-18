@@ -179,6 +179,7 @@ function AddUser() {
                             <h6>Gender</h6>
                             <Form.Group controlId="add">
                                 <Form.Control as="select" onChange={e => setGender(e.target.value)}>
+                                    <option value="F">Select Option</option>
                                     <option value="F">Female</option>
                                     <option value="M">Male</option>
 
