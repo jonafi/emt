@@ -211,9 +211,9 @@ function AddUser() {
                 <Row>
                     <Col xs="2"></Col>
                     <Col xs="8" className="uploaddiv">
-                        <h5 className="mt-3 bold oswald">Application</h5>
+                        <h5 className="mt-3 ml-5 bold oswald">Application</h5>
 
-                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <form method="Post" className="text-center" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="Application" />
                         <input type="hidden" name="databasefield" value="app_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
@@ -221,9 +221,9 @@ function AddUser() {
                             <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-3 bold oswald">I9</h5>
+                        <h5 className="mt-3 ml-5 bold oswald">I9</h5>
 
-                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <form method="Post" className="text-center" action="/uploadfiles" enctype="multipart/form-data">
                             <input type="hidden" name="filetype" value="I9" />
                             <input type="hidden" name="databasefield" value="i9_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
@@ -231,9 +231,9 @@ function AddUser() {
                             <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-3 bold oswald">W4</h5>
+                        <h5 className="mt-3 ml-5 bold oswald">W4</h5>
 
-                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <form method="Post" className="text-center" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="W4" />
                         <input type="hidden" name="databasefield" value="w4_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
@@ -241,9 +241,9 @@ function AddUser() {
                             <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-3 bold oswald">Confidentiality Agreement</h5>
+                        <h5 className="mt-3 ml-5 bold oswald">Confidentiality Agreement</h5>
 
-                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <form method="Post" className="text-center" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="Confidentiality Agreement" />
                         <input type="hidden" name="databasefield" value="ca_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
@@ -251,9 +251,9 @@ function AddUser() {
                             <input type="submit" name="Upload" value="Upload" className="uploadbutton mt-4 mb-4" size="lg" />
                         </form>
                         <hr />
-                        <h5 className="mt-3 bold oswald">EXP</h5>
+                        <h5 className="mt-3 ml-5 bold oswald">EXP</h5>
 
-                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <form method="Post" className="text-center" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="exp_rec" />
                         <input type="hidden" name="databasefield" value="app_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
@@ -262,9 +262,9 @@ function AddUser() {
                         </form>
 
                         <hr />
-                        <h5 className="mt-3 bold oswald">TMH</h5>
+                        <h5 className="mt-3 ml-5 bold oswald">TMH</h5>
 
-                        <form method="Post" action="/uploadfiles" enctype="multipart/form-data">
+                        <form method="Post" className="text-center" action="/uploadfiles" enctype="multipart/form-data">
                         <input type="hidden" name="filetype" value="TMH" />
                         <input type="hidden" name="databasefield" value="tmh_rec" />
                         Employee email: <input type="text" name="employeeEmail" placeholder="js@gmail.com" />
