@@ -8,13 +8,13 @@ margin-top: 4%;
 font-size:2vh;
 font-family: 'Roboto', sans-serif;
 height:auto;
-min-height:30px; 
 float:right;
 }
 
 .messages {
     overflow: auto;
-    height: 350px;
+    height:250px;
+
 }
 
 .messagearea {
