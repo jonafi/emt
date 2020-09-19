@@ -44,17 +44,9 @@ function Chatbox () {
   
   const DUMMY_DATA = [
     {
-      username: 'perborgen',
-      text: "Hey hows it going?"
-    },
-    {
-      username: 'janedoe',
-      text: "Great! How about you?"
-    },
-    {
-      username: 'perborgen',
-      text: "Good to hear! I am great as well"
-    },
+      username: 'user,',
+      text: "Welcome to chat!"
+    }
   ];
 
   const [newMsg, setNewMsg] = useState([]);

@@ -11,7 +11,7 @@ function AddUser() {
     const [department, setDepartment] = useState("");
     const [role, setRole] = useState("");
     const [email, setEmail] = useState("");
-    const [active, setActive] = useState("Active");
+    const [active, setActive] = useState("");
     const [firstName, setFirstName] = useState("");
     const [middleInitial, setMiddleInitial] = useState("");
     const [lastName, setLastName] = useState("");
@@ -21,7 +21,7 @@ function AddUser() {
     const [usState, setUSState] = useState("");
     const [zip, setZip] = useState("");
     const [phoneNum, setPhoneNum] = useState("");
-    const [gender, setGender] = useState("F");
+    const [gender, setGender] = useState("");
     const [birthDate, setBirthDate] = useState("");
     const [hireDate, setHireDate] = useState("");
 
@@ -179,6 +179,7 @@ function AddUser() {
                             <h6>Gender</h6>
                             <Form.Group controlId="add">
                                 <Form.Control as="select" onChange={e => setGender(e.target.value)}>
+                                    <option value="">Select Option</option>
                                     <option value="F">Female</option>
                                     <option value="M">Male</option>
 
